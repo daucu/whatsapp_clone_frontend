@@ -4,7 +4,7 @@ import neeraj_dp from "./images/neeraj_dp.jpeg";
 function Chats(){
     return(
         <div>
-            <div className="min-h-[100vh] flex flex-col">
+            <div className="h-[100vh] flex flex-col">
                 <div className="h-[60px] bg-[#f0f2f5] flex items-center justify-between px-4">
                     <div className="rounded-full h-[40px] w-[40px] bg-cover bg-center cursor-pointer" style={{backgroundImage:`url(${dp})`}}></div>
                     <div className="flex items-center">
