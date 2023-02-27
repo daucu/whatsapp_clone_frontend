@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .chats_scroll::-webkit-scrollbar{
-    display: none;
+    /* display: none; */
 }

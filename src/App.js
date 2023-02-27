@@ -2,6 +2,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home";
 import Chats from "./components/Chats";
 import ChatSingle from "./components/Chat_single";
+import Chats_component from "./components/Chats_component";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/chats" element={<Chats/>} />
           <Route path="/chat-single" element={<ChatSingle/>} />
+          <Route path="/chats-component" element={<Chats_component/>} />
         </Routes>
       </BrowserRouter>
     </div>
