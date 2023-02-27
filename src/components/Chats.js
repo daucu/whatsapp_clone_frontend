@@ -142,7 +142,7 @@ function Chats(){
                             <div className="grow border-b h-[72px] flex items-center">
                                 <div className="h-[42px] w-full pr-[10px]">
                                     <div className="h-[22px] flex items-center justify-between">
-                                        <div className="text-[#111b21] text-[17px]">Neeraj_Bro_Office</div>
+                                        <div className="text-[#111b21] text-[17px]">Neeraj_Bro</div>
                                         <div className="text-[12px] text-[#667781]">15:22</div>
                                     </div>
                                     <div className="h-[20px]">
