@@ -31,7 +31,7 @@ function Chats(){
                         </div>
                     </div>
                 </div>
-                <div className="grow shrink w-full flex flex-col">
+                <div className="grow shrink w-full">
                     <div className="h-[50px] flex items-center pl-[10px] grow-0 shrink-0">
                         <div className="flex items-center bg-[#F0F2F5] rounded-lg w-full h-[35px] px-4">
                             <svg viewBox="0 0 24 24" height="20" width="20" class="fill-[#54656f]">
@@ -65,7 +65,7 @@ function Chats(){
                             </svg>
                         </div>
                     </div>
-                    <div className="chats_container overflow-y-scroll grow chats_scroll">
+                    <div className="chats_container overflow-y-scroll chats_scroll">
                         <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all">
                             <div className="w-[49px] h-[49px] mx-[15px]">
                                 <img src={dp} alt="" className="h-[49px] w-[49px] rounded-full"/>
