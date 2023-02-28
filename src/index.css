@@ -6,7 +6,7 @@
     height: calc(100vh - 199px);
 }
 .chats_scroll::-webkit-scrollbar{
-    width: 5px;
+    width: 4px;
     background: white;
 }
 .chats_scroll::-webkit-scrollbar-thumb{

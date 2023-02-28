@@ -1,10 +1,19 @@
 import dp from "./images/dp.jfif";
 import whatsapp_web_bg_light from "./images/whatsapp_web_bg_light.jpg";
+import { useEffect, useState } from "react";
 
 function Chat_single(){
+    const [ searchMessagesWidth, setSearchMessagesWidth ] = useState("");
+
+    function setSearchMessagesWidthTrue(){
+        setSearchMessagesWidth(true);
+    }
+    function setSearchMessagesWidthFalse(){
+        setSearchMessagesWidth(false);
+    }
     return(
-        <div className="chat_single">
-            <div className="h-[100vh] flex flex-col">
+        <div className="chat_single flex">
+            <div className="h-[100vh] flex flex-col grow shrink">
                 <div className="h-[60px] bg-[#f0f2f5] flex items-center justify-between px-4 shadow-sm grow-0 shrink-0">
                     <div className="flex items-center grow shrink">
                         <div className="rounded-full h-[40px] w-[40px] bg-cover bg-center mr-4 cursor-pointer" style={{backgroundImage:`url(${dp})`}}></div>
@@ -14,12 +23,12 @@ function Chat_single(){
                         </div>
                     </div>
                     <div className="flex items-center">
-                            <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer">
+                            <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#D9DBDE]" onClick={setSearchMessagesWidthTrue}>
                                 <svg viewBox="0 0 24 24" height="24" width="24" class="fill-[#54656f]">
                                     <path fill="#54656f" d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"></path>
                                 </svg>
                             </div>
-                            <div className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer">
+                            <div className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full hover:bg-[#D9DBDE]">
                             <svg viewBox="0 0 24 24" height="24" width="24"  class="fill-[#54656f]" >
                                 <path fill="#54656f" d="M12,7c1.104,0,2-0.896,2-2c0-1.105-0.895-2-2-2c-1.104,0-2,0.894-2,2 C10,6.105,10.895,7,12,7z M12,9c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,9.895,13.104,9,12,9z M12,15 c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,15.894,13.104,15,12,15z"></path>
                             </svg>
@@ -52,6 +61,25 @@ function Chat_single(){
                             <path fill="#54656f" d="M11.999,14.942c2.001,0,3.531-1.53,3.531-3.531V4.35c0-2.001-1.53-3.531-3.531-3.531 S8.469,2.35,8.469,4.35v7.061C8.469,13.412,9.999,14.942,11.999,14.942z M18.237,11.412c0,3.531-2.942,6.002-6.237,6.002 s-6.237-2.471-6.237-6.002H3.761c0,4.001,3.178,7.297,7.061,7.885v3.884h2.354v-3.884c3.884-0.588,7.061-3.884,7.061-7.885 L18.237,11.412z"></path>
                         </svg>
                     </div>
+                </div>
+            </div>
+            <div className={ searchMessagesWidth === "" ? "h-[100vh] w-[0px] overflow-hidden" : searchMessagesWidth ? "animate-search_messages_full overflow-hidden" : "animate-search_messages_zero overflow-hidden"  }>
+                <div className="h-[60px] bg-[#f0f2f5] flex items-center px-4 shadow-sm grow-0 shrink-0 border-l border-[#D1D7DB]">
+                    <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="mr-7" fill="#54656f" enable-background="new 0 0 24 24" onClick={setSearchMessagesWidthFalse}>
+                        <path d="M19.6004 17.2L14.3004 11.9L19.6004 6.60005L17.8004 4.80005L12.5004 10.2L7.20039 4.90005L5.40039 6.60005L10.7004 11.9L5.40039 17.2L7.20039 19L12.5004 13.7L17.8004 19L19.6004 17.2Z"></path>
+                    </svg>
+                    <p className="text-[#111b21] text-[16px]">Search Messages</p>
+                </div>
+                <div className="h-[50px] flex items-center px-[10px] grow-0 shrink-0 border-b border-[#E9EDEF]">
+                    <div className="flex items-center bg-[#F0F2F5] rounded-lg w-full h-[35px] px-4">
+                        <svg viewBox="0 0 24 24" height="20" width="20" class="fill-[#54656f]">
+                            <path fill="#54656f" d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"></path>
+                        </svg>
+                        <div className="w-full"><input type="text" className="bg-[#F0F2F5] outline-none placeholder:text-[#3b4a54] text-[13px] px-7 w-full" placeholder="Search..."/></div>
+                    </div>
+                </div>
+                <div className="px-[50px] py-[90px]">
+                    <p className="text-[#8698a0] text-[14px] leading-[20px] text-center">Search messages with yourself.</p>
                 </div>
             </div>
         </div>
