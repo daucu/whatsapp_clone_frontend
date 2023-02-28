@@ -4,8 +4,7 @@ import neeraj_dp from "./images/neeraj_dp.jpeg";
 
 function Chats(){
     return(
-        <div>
-            <div className="max-h-[100vh] w-[400px]">
+            <div className="w-[400px] border-r border-[#D1D7DB]">
                 <div className="h-[60px] bg-[#f0f2f5] flex items-center justify-between px-4">
                     <div className="rounded-full h-[40px] w-[40px] bg-cover bg-center cursor-pointer" style={{backgroundImage:`url(${dp})`}}></div>
                     <div className="flex items-center">
@@ -66,12 +65,11 @@ function Chats(){
                             </svg>
                         </div>
                     </div>
-                    <div className="chats_container  chats_scroll">
+                    <div className="chats_container overflow-y-scroll chats_scroll">
                         <Chats_component/>
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
 export default Chats;

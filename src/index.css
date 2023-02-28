@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.chats_scroll{
+    height: calc(100vh - 199px);
+}
 .chats_scroll::-webkit-scrollbar{
-    /* display: none; */
+    width: 5px;
+    background: white;
+}
+.chats_scroll::-webkit-scrollbar-thumb{
+    background: #CED0D1;
 }
