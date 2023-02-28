@@ -20,3 +20,14 @@
     height: calc(100vh - 95px);
 }
 
+.status{
+    height: calc(100vh - 103px);
+}
+.status::-webkit-scrollbar{
+    width: 6px;
+    background: #1E262C;
+}
+.status::-webkit-scrollbar-thumb{
+    background: #3B4247;
+}
+
