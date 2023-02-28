@@ -5,34 +5,52 @@ import { useEffect, useState } from "react";
 function Chat_single(){
     const [ searchMessagesWidth, setSearchMessagesWidth ] = useState("");
 
+    const [ menu, setMenu ] = useState(false);
+
     function setSearchMessagesWidthTrue(){
         setSearchMessagesWidth(true);
     }
     function setSearchMessagesWidthFalse(){
         setSearchMessagesWidth(false);
     }
+
+    function SetMenuChatSingle(){
+        setMenu(!menu);
+    }
+
+
     return(
         <div className="chat_single flex">
             <div className="h-[100vh] flex flex-col grow shrink">
                 <div className="h-[60px] bg-[#f0f2f5] flex items-center justify-between px-4 shadow-sm grow-0 shrink-0">
                     <div className="flex items-center grow shrink">
-                        <div className="rounded-full h-[40px] w-[40px] bg-cover bg-center mr-4 cursor-pointer" style={{backgroundImage:`url(${dp})`}}></div>
+                        <div className="rounded-full h-[40px] w-[40px] bg-cover bg-center mr-4 cursor-pointer" style={{backgroundImage:`url(${dp})`}} title="Profile details"></div>
                         <div className="h-[40px] flex flex-col cursor-pointer">
                             <p className="text-[16px] leading-[21px] text-[#111b21]">Arman (You)</p>
                             <p className="text-[13px] leading-[19px] text-[#667781]">Message yourself</p>
                         </div>
                     </div>
                     <div className="flex items-center">
-                            <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#D9DBDE]" onClick={setSearchMessagesWidthTrue}>
+                            <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#D9DBDE]" onClick={setSearchMessagesWidthTrue} title="Search...">
                                 <svg viewBox="0 0 24 24" height="24" width="24" class="fill-[#54656f]">
                                     <path fill="#54656f" d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"></path>
                                 </svg>
                             </div>
-                            <div className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full hover:bg-[#D9DBDE]">
-                            <svg viewBox="0 0 24 24" height="24" width="24"  class="fill-[#54656f]" >
-                                <path fill="#54656f" d="M12,7c1.104,0,2-0.896,2-2c0-1.105-0.895-2-2-2c-1.104,0-2,0.894-2,2 C10,6.105,10.895,7,12,7z M12,9c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,9.895,13.104,9,12,9z M12,15 c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,15.894,13.104,15,12,15z"></path>
-                            </svg>
-                        </div>
+                            <div className="relative">
+                                <div className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full hover:bg-[#D9DBDE]" title="Menu" onClick={SetMenuChatSingle}>
+                                    <svg viewBox="0 0 24 24" height="24" width="24"  class="fill-[#54656f]" >
+                                        <path fill="#54656f" d="M12,7c1.104,0,2-0.896,2-2c0-1.105-0.895-2-2-2c-1.104,0-2,0.894-2,2 C10,6.105,10.895,7,12,7z M12,9c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,9.895,13.104,9,12,9z M12,15 c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,15.894,13.104,15,12,15z"></path>
+                                    </svg>
+                                </div>
+                                <div className={ menu ? "bg-white rounded-sm shadow-md py-[6px] absolute top-[46px] left-[-200px] w-[230px] h-[252px] animate-chat_single_menu overflow-hidden" : "w-0 h-0 overflow-hidden" }>
+                                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Contact info</p>
+                                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Select messages</p>
+                                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Close chat</p>
+                                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Disappearing messages</p>
+                                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Clear messages</p>
+                                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Delete chat</p>
+                                </div>
+                            </div>
                     </div>
                 </div>
 
@@ -65,7 +83,7 @@ function Chat_single(){
             </div>
             <div className={ searchMessagesWidth === "" ? "h-[100vh] w-[0px] overflow-hidden" : searchMessagesWidth ? "animate-search_messages_full overflow-hidden" : "animate-search_messages_zero overflow-hidden"  }>
                 <div className="h-[60px] bg-[#f0f2f5] flex items-center px-4 shadow-sm grow-0 shrink-0 border-l border-[#D1D7DB]">
-                    <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="mr-7" fill="#54656f" enable-background="new 0 0 24 24" onClick={setSearchMessagesWidthFalse}>
+                    <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="mr-7 cursor-pointer" fill="#54656f" enable-background="new 0 0 24 24" onClick={setSearchMessagesWidthFalse}>
                         <path d="M19.6004 17.2L14.3004 11.9L19.6004 6.60005L17.8004 4.80005L12.5004 10.2L7.20039 4.90005L5.40039 6.60005L10.7004 11.9L5.40039 17.2L7.20039 19L12.5004 13.7L17.8004 19L19.6004 17.2Z"></path>
                     </svg>
                     <p className="text-[#111b21] text-[16px]">Search Messages</p>
