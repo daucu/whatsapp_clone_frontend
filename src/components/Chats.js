@@ -6,12 +6,14 @@ import lm from "./images/lm.jfif";
 import car from "./images/car.jfif";
 import New_chats from "./New_chats";
 import { Link } from "react-router-dom";
-
+import Unread_chats_component from "./Unread_chats_component";
 
 function Chats(){
     const [ menu, setMenu ] = useState(false);
     const [ newChats, setNewChats ] = useState("");
     const [ community, setCommunity ] = useState("");
+    //unread chats filter
+    const [ filter, setFilter ] = useState(false);
 
     function SetMenuChats(){
         setMenu(!menu);
@@ -29,6 +31,10 @@ function Chats(){
     }
     function setCommunityFalse(){
         setCommunity(false);
+    }
+
+    function alterFilter(){
+        setFilter(!filter);
     }
 
     return(
@@ -292,15 +298,20 @@ function Chats(){
                             <svg viewBox="0 0 24 24" height="20" width="20" class="fill-[#54656f]">
                                 <path fill="#54656f" d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"></path>
                             </svg>
-                            <div className="w-full"><input type="text" className="bg-[#F0F2F5] outline-none placeholder:text-[#3b4a54] text-[13px] px-7 w-full" placeholder="Search or start a new chat"/></div>
+                            <div className="w-full">
+                                <input type="text" className={ filter ? "hidden" : "bg-[#F0F2F5] outline-none placeholder:text-[#3b4a54] text-[13px] px-7 w-full" }  placeholder="Search or start a new chat" title="Search input textbox"/>
+                                <input type="text" className={ filter ? "bg-[#F0F2F5] outline-none placeholder:text-[#3b4a54] text-[13px] px-7 w-full" : "hidden" } placeholder="Search unread chats" title="Search input textbox"/>
+                            </div>
                         </div>
-                        <div className="w-[50px] h-[40px] flex items-center justify-center cursor-pointer">
-                            <svg viewBox="0 0 24 24" height="20" width="20"  class="fill-[#54656f]">
-                                <path fill="#54656f" d="M10,18.1h4v-2h-4V18.1z M3,6.1v2h18v-2H3z M6,13.1h12v-2H6V13.1z"></path>
-                            </svg>
+                        <div className="w-[50px] h-[40px] flex items-center justify-center cursor-pointer" title="Unread chats filter" onClick={alterFilter}>
+                            <div className={ filter ? "flex items-center justify-center h-[28px] w-[28px] rounded-full bg-[#00A884]" : "flex items-center justify-center h-[30px] w-[30px] rounded-full" }>
+                                <svg viewBox="0 0 24 24" height="20" width="20"  class="fill-[#54656f]">
+                                    <path fill={ filter ? "white" : "#54656f" } d="M10,18.1h4v-2h-4V18.1z M3,6.1v2h18v-2H3z M6,13.1h12v-2H6V13.1z"></path>
+                                </svg>
+                            </div>
                         </div>
                     </div>
-                    <div className="flex items-center h-[89px] bg-[#53BDEB] px-[15px] grow-0 shrink-0">
+                    <div className={ filter ? "hidden" : "flex items-center h-[89px] bg-[#53BDEB] px-[15px] grow-0 shrink-0" }>
                         <div className="w-[48px] h-[48px] flex items-center justify-center rounded-full bg-white cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bell-slash-fill fill-[#53BDEB]" viewBox="0 0 16 16" style={{transform: "rotateY(180deg)"}}>
                                 <path d="M5.164 14H15c-1.5-1-2-5.902-2-7 0-.264-.02-.523-.06-.776L5.164 14zm6.288-10.617A4.988 4.988 0 0 0 8.995 2.1a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 7c0 .898-.335 4.342-1.278 6.113l9.73-9.73zM10 15a2 2 0 1 1-4 0h4zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75L.625 15.625z"/>
@@ -320,13 +331,15 @@ function Chats(){
                             </svg>
                         </div>
                     </div>
-                    <div className="chats_container overflow-y-scroll chats_scroll">
+                    <div className={ filter ? "hidden" : "chats_container overflow-y-scroll chats_scroll" }>
                         <Chats_component/>
+                    </div>
+                    <div className={ filter ? "chats_container unread_chats_container overflow-y-scroll chats_scroll" : "hidden" }>
+                        <Unread_chats_component/>
                     </div>
                 </div>
             </div>
         </div>
-            
     );
 }
 export default Chats;

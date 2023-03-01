@@ -30,4 +30,7 @@
 .status::-webkit-scrollbar-thumb{
     background: #3B4247;
 }
+.unread_chats_container{
+    height: calc(100vh - 110px);
+}
 
