@@ -33,4 +33,10 @@
 .unread_chats_container{
     height: calc(100vh - 110px);
 }
+.y_scroll::-webkit-scrollbar{
+    display: none;
+}
+.y_scroll{
+    height: calc(100vh - 60px);
+}
 
