@@ -45,7 +45,7 @@ function Chats(){
                         <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="fill-[#ffffffe6] mx-6 cursor-pointer" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24" onClick={setNewChatsFalse}>
                             <path fill="#fffffffe6" d="M12,4l1.4,1.4L7.8,11H20v2H7.8l5.6,5.6L12,20l-8-8L12,4z"></path>
                         </svg>
-                        <p className="text-[19px] text-[#ffffffe6] font-medium">Chat</p>
+                        <p className="text-[19px] text-[#ffffffe6] font-medium">New Chat</p>
                     </div>
                 </div>
                 <div className="h-[50px] flex items-center px-[10px] grow-0 shrink-0">
