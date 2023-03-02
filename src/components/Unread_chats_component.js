@@ -6,9 +6,9 @@ function Unread_chats_component(){
         <div>
             <div className="">
                 <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px]">
-                    <p className="text-[16px] text-[#008069] px-9">FILTERED BY UNREAD</p>
+                    <p className="text-[16px] text-[#a52729] px-9">FILTERED BY UNREAD</p>
                 </div>
-                <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all">
+                <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#ffffff] hover:transition-all">
                     <div className="w-[49px] h-[49px] mx-[15px]">
                         <img src="{}" alt="" className="h-[49px] w-[49px] rounded-full hidden"/>
                         <svg viewBox="0 0 212 212" height="49" width="49" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 212 212">

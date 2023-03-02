@@ -300,13 +300,13 @@ function Chats(){
                             </svg>
                             <div className="w-full">
                                 <input type="text" className={ filter ? "hidden" : "bg-[#0f1110]  outline-none placeholder:text-white/50 text-[13px] px-7 w-full h-[35px]" }  placeholder="Search or start a new chat" title="Search input textbox"/>
-                                <input type="text" className={ filter ? "bg-[#1e2321] outline-none placeholder:text-[#3b4a54] text-[13px] px-7 w-full" : "hidden" } placeholder="Search unread chats" title="Search input textbox"/>
+                                <input type="text" className={ filter ? "bg-[#0f1110] outline-none placeholder:text-white/50 text-[13px] px-7 w-full" : "hidden" } placeholder="Search unread chats" title="Search input textbox"/>
                             </div>
                         </div>
                         <div className="w-[50px] h-[40px] flex items-center justify-center cursor-pointer" title="Unread chats filter" onClick={alterFilter}>
-                            <div className={ filter ? "flex items-center justify-center h-[28px] w-[28px] rounded-full bg-[#00A884]" : "flex items-center justify-center h-[30px] w-[30px] rounded-full" }>
+                            <div className={ filter ? "flex items-center justify-center h-[28px] w-[28px] rounded-full bg-[#a52729]" : "flex items-center justify-center h-[30px] w-[30px] rounded-full" }>
                                 <svg viewBox="0 0 24 24" height="20" width="20"  class="fill-[#54656f]">
-                                    <path fill={ filter ? "white" : "#54656f" } d="M10,18.1h4v-2h-4V18.1z M3,6.1v2h18v-2H3z M6,13.1h12v-2H6V13.1z"></path>
+                                    <path fill={ filter ? "#ffffffe6" : "#ffffffe6" } d="M10,18.1h4v-2h-4V18.1z M3,6.1v2h18v-2H3z M6,13.1h12v-2H6V13.1z"></path>
                                 </svg>
                             </div>
                         </div>
