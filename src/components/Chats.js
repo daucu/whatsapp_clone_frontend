@@ -15,6 +15,7 @@ function Chats(){
     const [ newGroup, setNewGroup ] = useState("");
     const [ newCommunity, setNewCommunity ] = useState("");
     const [ archived, setArchived ] = useState("");
+    const [ notified, setNotified ] = useState(false);
 
     //unread chats filter
     
@@ -61,6 +62,10 @@ function Chats(){
 
     function alterFilter(){
         setFilter(!filter);
+    }
+
+    function setNotifiedTrue(){
+        setNotified(true);
     }
 
     return(
@@ -553,7 +558,7 @@ function Chats(){
                             </div>
                         </div>
                     </div>
-                    <div className={ filter ? "hidden" : "flex items-center h-[89px] bg-[#a52729] px-[15px] grow-0 shrink-0" }>
+                    <div className={ (filter || notified) ? "hidden" : "flex items-center h-[89px] bg-[#a52729] px-[15px] grow-0 shrink-0" } >
                         <div className="w-[48px] h-[48px] flex items-center justify-center rounded-full bg-white cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bell-slash-fill fill-[#a52729]" viewBox="0 0 16 16" style={{transform: "rotateY(180deg)"}}>
                                 <path d="M5.164 14H15c-1.5-1-2-5.902-2-7 0-.264-.02-.523-.06-.776L5.164 14zm6.288-10.617A4.988 4.988 0 0 0 8.995 2.1a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 7c0 .898-.335 4.342-1.278 6.113l9.73-9.73zM10 15a2 2 0 1 1-4 0h4zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75L.625 15.625z"/>
@@ -568,13 +573,13 @@ function Chats(){
                                 </svg>
                             </a>
                         </div>
-                        <div className="cursor-pointer">
+                        <div className="cursor-pointer" onClick={setNotifiedTrue}>
                             <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" fill="#ffffffe6" enable-background="new 0 0 24 24" >
                                 <path d="M19.6004 17.2L14.3004 11.9L19.6004 6.60005L17.8004 4.80005L12.5004 10.2L7.20039 4.90005L5.40039 6.60005L10.7004 11.9L5.40039 17.2L7.20039 19L12.5004 13.7L17.8004 19L19.6004 17.2Z"></path>
                             </svg>
                         </div>
                     </div>
-                    <div className={ filter ? "hidden" : "chats_container overflow-y-scroll chats_scroll" }>
+                    <div className={ filter ? "hidden" : notified ? "chats_container_notified overflow-y-scroll chats_scroll" : "chats_container overflow-y-scroll chats_scroll" }>
                         <Chats_component/>
                     </div>
                     <div className={ filter ? "chats_container unread_chats_container overflow-y-scroll chats_scroll" : "hidden" }>
