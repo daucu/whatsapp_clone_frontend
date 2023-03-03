@@ -15,7 +15,9 @@ function Chats(){
     const [ newGroup, setNewGroup ] = useState("");
     const [ newCommunity, setNewCommunity ] = useState("");
     const [ archived, setArchived ] = useState("");
+
     //unread chats filter
+    
     const [ filter, setFilter ] = useState(false);
 
     function SetMenuChats(){
@@ -135,7 +137,6 @@ function Chats(){
                 </div>
             </div>
 
-
             <div className={ newCommunity === "" ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : newCommunity ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
                 <div className="h-[108px] bg-[#A52729] flex flex-col justify-end">
                     <div className="h-[54px] w-full flex items-center">
@@ -208,7 +209,6 @@ function Chats(){
                 </div>
             </div>
 
-
             <div className={ archived === "" ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : archived ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
                 <div className="h-[108px] bg-[#A52729] flex flex-col justify-end">
                     <div className="h-[54px] w-full flex items-center">
@@ -280,7 +280,6 @@ function Chats(){
                     </div>
                 </div>
             </div>
-
 
             <div className={ newChats === "" ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : newChats ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
                 <div className="h-[108px] bg-[#A52729] flex flex-col justify-end">
