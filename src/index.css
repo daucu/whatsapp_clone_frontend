@@ -44,3 +44,10 @@
     height: calc(100vh - 110px);
 }
 
+.starred_messages{
+    height: calc(100vh - 60px);
+}
+.starred_messages::-webkit-scrollbar{
+    width: 6px;
+    background: #f0f2f5;
+}
