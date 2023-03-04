@@ -7,7 +7,7 @@ function Select_chats(){
             <div className="">
                 <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all">
                     <div className="">
-                        <input type="button" value="" className="h-[20px] w-[20px] rounded-sm outline-none border"/>
+                        <input type="button" value="" className="h-[20px] w-[20px] rounded-sm outline-none border-[2px]"/>
                     </div>
                     <div className="w-[49px] h-[49px] mx-[15px]">
                         <img src={dp} alt="" className="h-[49px] w-[49px] rounded-full"/>
