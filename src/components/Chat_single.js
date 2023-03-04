@@ -6,6 +6,10 @@ import harsh_sir_dp from "./images/harsh_sir_dp.jfif";
 import neeraj_dp from "./images/neeraj_dp.jpeg";
 import rishabh_dp from "./images/rishabh_dp.jfif";
 import rishi_mam_dp from "./images/rishi_mam_dp.jfif";
+import video_call_icon from "./images/video-call-icon.png";
+
+import  {FaVideo}  from "react-icons/fa";
+import  {MdCall}  from "react-icons/md";
 
 function Chat_single(){
     const [ searchMessagesWidth, setSearchMessagesWidth ] = useState("");
@@ -167,11 +171,17 @@ function Chat_single(){
                         </div>
                     </div>
                     <div className="flex items-center">
-                            <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" onClick={setSearchMessagesWidthTrue} title="Search...">
-                                <svg viewBox="0 0 24 24" height="24" width="24" class="fill-[#ffffffe6]">
-                                    <path fill="#ffffffe6" d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"></path>
-                                </svg>
-                            </div>
+                        <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Video call">
+                            <MdCall className="text-[#ffffffe6] text-[20px]"/>
+                        </div>
+                        <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Video call">
+                            <FaVideo className="text-[#ffffffe6] text-[20px]"/>
+                        </div>
+                        <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" onClick={setSearchMessagesWidthTrue} title="Search...">
+                            <svg viewBox="0 0 24 24" height="24" width="24" class="fill-[#ffffffe6]">
+                                <path fill="#ffffffe6" d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"></path>
+                            </svg>
+                        </div>
                             <div className="relative">
                                 <div className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full hover:bg-[#0F1110]" title="Menu" onClick={SetMenuChatSingle}>
                                     <svg viewBox="0 0 24 24" height="24" width="24"  class="fill-[#ffffffe6]" >
@@ -190,13 +200,13 @@ function Chat_single(){
                     </div>
                 </div>
 
-                <div className="h-full grow shrink bg-cover bg-no-repeat bg-center flex px-[65px] pt-2 chat_section overflow-y-scroll" style={{backgroundImage:`url(${whatsapp_web_bg_light})`}}>
+                <div className="h-full grow shrink bg-cover bg-no-repeat bg-center flex px-5 lg:px-[65px] pt-2 chat_section overflow-y-scroll" style={{backgroundImage:`url(${whatsapp_web_bg_light})`}}>
                     <div className="w-full">
                     {chat.map((val, key) => {
                       return (
                         <>
                         <div className={ val.isSentByMe === true ? "w-full flex justify-end my-1" : "w-full flex justify-start my-1" }>
-                            <div className={ val.isSentByMe === true ? "max-w-[60%] bg-[#D9FDD3] text-[#111b21]  rounded-md text-[14px] flex" : "max-w-[60%] bg-white text-[#111b21] h- text-[14px] rounded-md flex" }>
+                            <div className={ val.isSentByMe === true ? "max-w-[60%] bg-[#D9FDD3] text-[#111b21]  rounded-md text-[14px] flex shadow-sm" : "max-w-[60%] bg-white text-[#111b21] h- text-[14px] rounded-md flex shadow-sm" }>
                                 <div className="leading-[20px] px-2 py-[7px]">
                                     {val.message}
                                 </div>
@@ -210,7 +220,8 @@ function Chat_single(){
                                                     </svg>) : (
                                                     <svg viewBox="0 0 18 18" height="18" width="18" preserveAspectRatio="xMidYMid meet" class="mr-1" version="1.1" x="0px" y="0px" enable-background="new 0 0 18 18">
                                                         <path fill="#667781" d="M17.394,5.035l-0.57-0.444c-0.188-0.147-0.462-0.113-0.609,0.076l-6.39,8.198 c-0.147,0.188-0.406,0.206-0.577,0.039l-0.427-0.388c-0.171-0.167-0.431-0.15-0.578,0.038L7.792,13.13 c-0.147,0.188-0.128,0.478,0.043,0.645l1.575,1.51c0.171,0.167,0.43,0.149,0.577-0.039l7.483-9.602 C17.616,5.456,17.582,5.182,17.394,5.035z M12.502,5.035l-0.57-0.444c-0.188-0.147-0.462-0.113-0.609,0.076l-6.39,8.198 c-0.147,0.188-0.406,0.206-0.577,0.039l-2.614-2.556c-0.171-0.167-0.447-0.164-0.614,0.007l-0.505,0.516 c-0.167,0.171-0.164,0.447,0.007,0.614l3.887,3.8c0.171,0.167,0.43,0.149,0.577-0.039l7.483-9.602 C12.724,5.456,12.69,5.182,12.502,5.035z"></path>
-                                                    </svg>)}</>) : null}
+                                                    </svg>)}</>) : null
+                                        }
                                     </div>
                                 </div>
                             </div>

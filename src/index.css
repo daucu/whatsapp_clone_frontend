@@ -58,3 +58,15 @@
 .chat_section::-webkit-scrollbar{
     display: none;
 }
+
+
+.settings_scroll_container{
+    height: calc(100vh - 108px);
+}
+.settings_scroll_container::-webkit-scrollbar{
+    width: 6px;
+    background: white;
+}
+.settings_scroll_container::-webkit-scrollbar-thumb{
+    background: #CED0D1;
+}

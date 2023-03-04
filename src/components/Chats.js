@@ -7,6 +7,7 @@ import car from "./images/car.jfif";
 import New_chats from "./New_chats";
 import { Link } from "react-router-dom";
 import Unread_chats_component from "./Unread_chats_component";
+import Select_chats from "./Select_chats";
 
 function Chats(){
     const [ menu, setMenu ] = useState(false);
@@ -18,6 +19,7 @@ function Chats(){
     const [ notified, setNotified ] = useState(false);
     const [ starredMessages, setStarredMessages ] = useState("");
     const [ settings, setSettings ] = useState("");
+    const [ selectChats, setSelectChats ] = useState(false);
 
     //unread chats filter
     
@@ -82,6 +84,13 @@ function Chats(){
     }
     function setSettingsFalse(){
         setSettings(false);
+    }
+
+    function setSelectChatsTrue(){
+        setSelectChats(true);
+    }
+    function setSelectChatsFalse(){
+        setSelectChats(false);
     }
 
     return(
@@ -423,104 +432,114 @@ function Chats(){
                         <p className="text-[19px] text-[#ffffffe6] font-medium">Settings</p>
                     </div>
                 </div>
-                <div className="h-[50px] flex items-center px-[10px] grow-0 shrink-0">
-                    <div className="flex items-center bg-[#F0F2F5] rounded-lg w-full h-[35px] px-4">
-                        <svg viewBox="0 0 24 24" height="20" width="20" class="fill-[#54656f]">
-                            <path fill="#54656f" d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"></path>
-                        </svg>
-                        <div className="w-full"><input type="text" className="bg-[#F0F2F5] outline-none placeholder:text-[#3b4a54] text-[14px] placeholder:leading-[35px] px-7 w-full" placeholder="Search contacts"/></div>
+                
+                <div className="settings_scroll_container overflow-y-scroll">
+                    <div className="h-[50px] flex items-center px-[10px] grow-0 shrink-0">
+                        <div className="flex items-center bg-[#F0F2F5] rounded-lg w-full h-[35px] px-4">
+                            <svg viewBox="0 0 24 24" height="20" width="20" class="fill-[#54656f]">
+                                <path fill="#54656f" d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"></path>
+                            </svg>
+                            <div className="w-full">
+                                <input type="text" className="bg-[#F0F2F5] outline-none placeholder:text-[#3b4a54] text-[14px] placeholder:leading-[35px] px-7 w-full"/>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="new_chats_scroll overflow-x-scroll">
-                    <div className="flex hover:bg-[#ececec] hover:transition-all cursor-pointer">
-                        <div className="h-[72px] w-[76px] grow-0 shrink-0 flex items-center justify-center">
-                            <div className="w-[48px] h-[48px] rounded-full bg-[#a52729] flex items-center justify-center">
-                                <svg viewBox="0 0 212 212" height="36" width="36" preserveAspectRatio="xMidYMid meet" class="" fill="white">
-                                    <path class="background" d="M105.946 0.25C164.318 0.25 211.64 47.596 211.64 106C211.64 164.404 164.318 211.75 105.945 211.75C47.571 211.75 0.25 164.404 0.25 106C0.25 47.596 47.571 0.25 105.946 0.25Z" fill="#a52729"></path>
-                                    <path class="primary" fill-rule="evenodd" clip-rule="evenodd" d="M102.282 77.2856C102.282 87.957 93.8569 96.5713 83.3419 96.5713C72.827 96.5713 64.339 87.957 64.339 77.2856C64.339 66.6143 72.827 58 83.3419 58C93.8569 58 102.282 66.6143 102.282 77.2856ZM150.35 80.1427C150.35 89.9446 142.612 97.857 132.954 97.857C123.296 97.857 115.5 89.9446 115.5 80.1427C115.5 70.3409 123.296 62.4285 132.954 62.4285C142.612 62.4285 150.35 70.3409 150.35 80.1427ZM83.3402 109.428C68.5812 109.428 39 116.95 39 131.928V143.714C39 147.25 41.8504 148 45.3343 148H121.346C124.83 148 127.68 147.25 127.68 143.714V131.928C127.68 116.95 98.0991 109.428 83.3402 109.428ZM126.804 110.853C127.707 110.871 128.485 110.886 129 110.886C143.759 110.886 174 116.95 174 131.929V141.571C174 145.107 171.15 148 167.666 148H134.854C135.551 146.007 135.995 143.821 135.995 141.571L135.75 131.071C135.75 121.51 130.136 117.858 124.162 113.971C122.772 113.067 121.363 112.15 120 111.143C119.981 111.123 119.962 111.098 119.941 111.07C119.893 111.007 119.835 110.931 119.747 110.886C121.343 110.747 124.485 110.808 126.804 110.853Z"></path>
+                    <div className="h-[114px] flex my-2">
+                        <div className="w-[120px] h-[114px] grow-0 shrink-0 flex items-center justify-center">
+                            <img src={dp} alt=""  className="h-[82px] w-[82px] rounded-full"/>
+                        </div>
+                        <div className="grow shrink flex items-center">
+                            <div className="h-[48px]">
+                                <div className="h-[28px] text-[#111b21] text-[19px] leading-[28px]">Arman Khan (You)</div>
+                                <div className="h-[20px] text-[#667781] text-[13px] leading-[20px]">Waiting for u..... My Life.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="h-[60px] flex items-center">
+                            <div className="w-[74px] flex items-center justify-center">
+                                <svg viewBox="0 0 16 21" height="21" width="16" preserveAspectRatio="xMidYMid meet" class="" fill="#8696a0">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0.71003V2.50003C12.42 2.50003 16 6.08003 16 10.5C16 11.54 15.8 12.54 15.43 13.45C15.16 14.12 14.3 14.3 13.79 13.79C13.52 13.52 13.41 13.11 13.56 12.75C13.85 12.06 14 11.29 14 10.5C14 7.19003 11.31 4.50003 8 4.50003V6.29003C8 6.74003 7.46 6.96003 7.14 6.65003L4.35 3.86003C4.15 3.66003 4.15 3.35003 4.35 3.15003L7.15 0.360031C7.46 0.0400305 8 0.260031 8 0.71003ZM2 10.5C2 13.81 4.69 16.5 8 16.5V14.71C8 14.26 8.54 14.04 8.85 14.35L11.64 17.14C11.84 17.34 11.84 17.65 11.64 17.85L8.85 20.64C8.54 20.96 8 20.74 8 20.29V18.5C3.58 18.5 0 14.92 0 10.5C0 9.46003 0.2 8.46003 0.57 7.55003C0.84 6.88003 1.7 6.70003 2.21 7.21003C2.48 7.48003 2.59 7.89003 2.44 8.25003C2.15 8.94003 2 9.71003 2 10.5Z" fill="#8696A0"></path>
                                 </svg>
                             </div>
+                            <div className="text-[17px] text-[#111b21] h-full flex items-center border-b grow leading-[22px]">
+                                <div>
+                                    <div className="h-[22px]">Syncing older messages</div>
+                                    <div className="h-[20px] text-[#8696a0] text-[14px] leading-[20px]">61% complete</div>
+                                </div>
+                            </div>
                         </div>
-                        <div className="shrink grow h-[72px] border-t text-[17px] text-[#111b21] leading-[72px]">
-                            New group
-                        </div>
-                    </div>
-                    <div className="flex hover:bg-[#ececec] hover:transition-all cursor-pointer">
-                        <div className="h-[72px] w-[76px] grow-0 shrink-0 flex items-center justify-center">
-                            <div className="w-[48px] h-[48px] rounded-full bg-[#a52729] flex items-center justify-center">
-                                <svg viewBox="0 0 28 19" height="19" width="28" preserveAspectRatio="xMidYMid meet" class="" fill="#a52729">
-                                    <path class="primary" fill-rule="evenodd" clip-rule="evenodd" d="M20.0836 6.83416C20.0967 6.92827 20.1139 7.01977 20.1351 7.10996C20.1457 7.1557 20.1573 7.20014 20.1699 7.24328C20.1948 7.33103 20.2238 7.41741 20.257 7.50208C20.3057 7.62659 20.3631 7.74717 20.4287 7.86283C20.4722 7.93865 20.5191 8.01315 20.5692 8.08373C20.7191 8.29755 20.8986 8.48655 21.1018 8.64447C21.2385 8.74999 21.3846 8.84147 21.538 8.91765C21.6555 8.97548 21.7769 9.0244 21.9011 9.06404C21.9848 9.09019 22.0705 9.11241 22.1581 9.13071C22.3376 9.16709 22.52 9.18547 22.7028 9.1856C24.1656 9.1856 25.3514 7.93912 25.3514 6.40152C25.3514 4.86391 24.1656 3.61742 22.7028 3.61742C22.52 3.61691 22.3375 3.6353 22.1581 3.67233C22.0713 3.68975 21.9855 3.712 21.9011 3.73899C21.7769 3.77819 21.6556 3.82668 21.538 3.88408C21.1547 4.07401 20.8219 4.36045 20.5692 4.71799C20.5195 4.78988 20.4722 4.86308 20.4287 4.9402C20.3629 5.05573 20.3055 5.17632 20.257 5.30095C20.2243 5.38461 20.1948 5.47087 20.1699 5.55845C20.1573 5.60289 20.1457 5.64733 20.1351 5.69177C20.1139 5.78196 20.0967 5.87346 20.0836 5.96757C20.0442 6.25494 20.0442 6.54678 20.0836 6.83416ZM7.91635 6.83416C7.90392 6.92827 7.88614 7.01977 7.865 7.10996C7.85439 7.1557 7.84278 7.20014 7.83018 7.24328C7.80534 7.33103 7.77629 7.41741 7.74314 7.50208C7.69429 7.62657 7.63685 7.74714 7.57129 7.86283C7.52789 7.93865 7.48101 8.01315 7.4309 8.08373C7.28093 8.29748 7.10143 8.48648 6.89832 8.64447C6.76157 8.74999 6.6155 8.84147 6.46212 8.91765C6.34456 8.97548 6.22322 9.0244 6.09902 9.06404C6.01521 9.09019 5.92954 9.11241 5.842 9.13071C5.66247 9.16708 5.48007 9.18546 5.29723 9.1856C3.83446 9.1856 2.64865 7.93912 2.64865 6.40152C2.64865 4.86391 3.83446 3.61742 5.29723 3.61742C5.4801 3.61692 5.66256 3.63531 5.842 3.67233C5.92873 3.68976 6.01453 3.71202 6.09902 3.73899C6.22319 3.77819 6.34453 3.82668 6.46212 3.88407C6.84541 4.07401 7.17818 4.36045 7.4309 4.71799C7.48064 4.78988 7.52789 4.86308 7.57129 4.9402C7.63709 5.05575 7.69454 5.17634 7.74314 5.30095C7.77584 5.38461 7.80531 5.47087 7.83018 5.55845C7.8427 5.60289 7.8543 5.64733 7.865 5.69177C7.88614 5.78196 7.90342 5.87345 7.91635 5.96756C7.95581 6.25494 7.95581 6.54678 7.91635 6.83416ZM27.8468 13.6264C27.8143 13.5695 27.7783 13.5074 27.7345 13.4386C27.6874 13.3645 27.6342 13.2852 27.5732 13.2006C27.5122 13.1159 27.4447 13.026 27.3688 12.9334C27.2929 12.8409 27.21 12.7456 27.1189 12.6478C26.7459 12.251 26.3196 11.9112 25.8531 11.6388C25.7058 11.5515 25.5492 11.4695 25.3839 11.3915C25.3789 11.3888 25.3745 11.3875 25.3698 11.3848C23.4911 10.5737 21.3746 10.5737 19.4959 11.3848C19.4694 11.3967 19.4445 11.41 19.4188 11.4232C19.3767 11.443 19.3381 11.4655 19.2973 11.4867C19.3202 11.4999 19.3434 11.5118 19.3661 11.525C19.8316 11.7975 20.2733 12.1107 20.6865 12.4613C20.9563 12.6896 21.213 12.9338 21.4555 13.1926C21.6054 13.3513 21.7424 13.5087 21.8677 13.6621C21.9961 13.8195 22.1086 13.9663 22.2091 14.1064C22.3125 14.2506 22.4017 14.3842 22.4814 14.5071C22.5568 14.6262 22.6206 14.732 22.6757 14.8298C22.7802 15.0091 22.8581 15.2035 22.9069 15.4064L22.9274 15.5492H28V13.9319C27.9558 13.8266 27.9046 13.7245 27.8468 13.6264ZM18.1157 4.52771C18.0952 4.37973 18.0682 4.23574 18.0348 4.09441C18.0182 4.02375 17.9999 3.95309 17.9801 3.88376C17.9407 3.74511 17.895 3.61045 17.8436 3.47846C17.767 3.28285 17.6768 3.09346 17.5736 2.91184C17.5053 2.79185 17.4318 2.67585 17.3529 2.56386C16.957 2.00113 16.4338 1.55112 15.8306 1.25463C15.646 1.16345 15.4552 1.0868 15.2598 1.02531C15.1281 0.983983 14.9934 0.947986 14.8559 0.919988C14.5739 0.86243 14.2872 0.833328 13.9999 0.833328C11.6415 0.833328 9.83784 2.72918 9.83784 5.209C9.83784 7.68881 11.6415 9.58333 13.9999 9.58333C14.2872 9.58333 14.5739 9.55423 14.8559 9.49667C14.9934 9.46867 15.1281 9.43267 15.2598 9.39134C15.4552 9.32986 15.646 9.25321 15.8306 9.16203C16.4338 8.86554 16.957 8.41553 17.3529 7.85279C17.4317 7.7408 17.5052 7.62481 17.5736 7.50482C17.6768 7.3232 17.767 7.13381 17.8436 6.9382C17.8944 6.80621 17.9407 6.67022 17.9801 6.5329C17.9999 6.46357 18.0182 6.39291 18.0348 6.32224C18.0682 6.18092 18.0952 6.03693 18.1157 5.88894C18.1776 5.43753 18.1776 4.97913 18.1157 4.52771ZM21.7225 15.3648C21.6762 15.281 21.6229 15.1891 21.5605 15.0877C21.4934 14.9795 21.4164 14.8619 21.3294 14.7376C21.2424 14.6132 21.1454 14.4807 21.0376 14.3455C20.9298 14.2104 20.8111 14.0684 20.6809 13.9265C20.4718 13.6967 20.2507 13.4796 20.0186 13.2763C19.661 12.9642 19.2789 12.6852 18.8765 12.4422C18.6664 12.3152 18.4434 12.1935 18.2074 12.0799C18.2009 12.0758 18.1942 12.0722 18.1872 12.0691C17.0911 11.5419 15.713 11.1742 13.9997 11.1742C12.2865 11.1742 10.9082 11.5419 9.81226 12.0691C9.77405 12.0867 9.73928 12.107 9.70208 12.1259C9.54196 12.2057 9.38809 12.2895 9.2402 12.3746C9.16004 12.4219 9.08166 12.4693 9.00506 12.5166C8.64626 12.7423 8.30392 12.9962 7.98093 13.2763C7.74876 13.4796 7.52762 13.6967 7.31855 13.9265C7.18863 14.0684 7.07003 14.209 6.96189 14.3455C6.85374 14.4821 6.75694 14.6118 6.66994 14.7376C6.58293 14.8633 6.50612 14.9795 6.439 15.0877C6.37658 15.1891 6.32333 15.281 6.2771 15.3648C6.27277 15.3713 6.26882 15.3781 6.26525 15.3851C6.21659 15.4729 6.17698 15.55 6.14564 15.6135C6.08297 15.7406 6.05405 15.8122 6.05405 15.8122V18.3333H21.9459V15.8122C21.8797 15.6586 21.8051 15.5092 21.7225 15.3648ZM5.08137 15.4078C5.09313 15.3077 5.1252 15.2113 5.17549 15.1248C5.2147 15.0481 5.24415 14.9556 5.30522 14.8485C5.37299 14.7308 5.42635 14.6263 5.50041 14.5087C5.57974 14.3844 5.66499 14.2508 5.76708 14.1094C5.86918 13.9679 5.98079 13.8185 6.10628 13.6651C6.23177 13.5117 6.36961 13.3531 6.52044 13.1918C7.09885 12.5757 7.75594 12.0433 8.4737 11.6091C8.54828 11.5641 8.62517 11.5192 8.7027 11.4756C8.66914 11.4584 8.63841 11.4399 8.60357 11.424C8.57785 11.4108 8.55213 11.3975 8.52642 11.3856C7.60024 10.9683 6.59752 10.7608 5.58643 10.7774C4.57538 10.7608 3.57271 10.9683 2.64657 11.3856C2.64168 11.3883 2.63731 11.3896 2.63243 11.3923C2.46681 11.4703 2.31007 11.5522 2.16259 11.6395C1.88006 11.8047 1.6118 11.9945 1.36077 12.2067C1.19789 12.345 1.04254 12.4925 0.895433 12.6483C0.804141 12.7462 0.720736 12.8414 0.645216 12.9339C0.569482 13.0265 0.501335 13.1164 0.440259 13.201C0.379183 13.2856 0.32518 13.365 0.277991 13.439C0.234273 13.5078 0.192871 13.5699 0.16034 13.6268C0.0524608 13.8145 0 13.9322 0 13.9322V15.5492H5.07198L5.08137 15.4078Z" fill="white"></path>
+                        <div className="h-[60px] flex items-center">
+                            <div className="w-[74px] flex items-center justify-center">
+                                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
+                                    <path fill="#8696A0" d="M12,21.7c0.9,0,1.7-0.8,1.7-1.7h-3.4C10.3,20.9,11.1,21.7,12,21.7z M17.6,16.5v-4.7 c0-2.7-1.8-4.8-4.3-5.4V5.8c0-0.7-0.6-1.3-1.3-1.3s-1.3,0.6-1.3,1.3v0.6C8.2,7,6.4,9.1,6.4,11.8v4.7l-1.7,1.7v0.9h14.6v-0.9 L17.6,16.5z"></path>
                                 </svg>
                             </div>
+                            <div className="text-[17px] text-[#111b21] h-full flex items-center border-b grow">Notifications</div>
                         </div>
-                        <div className="shrink grow h-[72px] border-t text-[17px] text-[#111b21] leading-[72px]">
-                            New community
-                        </div>
-                    </div>
-                    <div className="h-[72px] flex items-center text-[#a52729] text-[16px] pl-8">
-                        CONTACTS ON WHATSAPP
-                    </div>
-                    <div className="flex items-center hover:bg-[#ececec] hover:transition-all cursor-pointer">
-                        <div className="h-[72px] w-[76px] grow-0 shrink-0 flex items-center justify-center">
-                            <div className="w-[48px] h-[48px] rounded-full bg-[#a52729] flex items-center justify-center">
-                                <img src={dp} alt="" className="h-full w-full rounded-full"/>
-                            </div>
-                        </div>
-                        <div className="shrink grow h-[72px] border-t text-[17px] text-[#111b21] leading-[72px] flex flex-col justify-center">
-                            <div className="h-[22px] text-[17px] leading-[22px]">Arman (You)</div>
-                            <div className="h-[20px] text-[14px] leading-[20px] text-[#667781]">Message yourself</div>
-                        </div>
-                    </div>
-                    <div className="h-[72px] flex items-center pl-8 text-[#a52729] text-[16px]">#</div>
-                    <div className="flex  hover:bg-[#ececec] hover:transition-all cursor-pointer">
-                        <div className="h-[72px] w-[76px] grow-0 shrink-0 flex items-center justify-center">
-                            <div className="w-[48px] h-[48px] rounded-full flex items-center justify-center">
-                                <svg viewBox="0 0 212 212" height="212" width="212" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 212 212">
-                                    <path fill="#DFE5E7" class="background" d="M106.251,0.5C164.653,0.5,212,47.846,212,106.25S164.653,212,106.25,212C47.846,212,0.5,164.654,0.5,106.25 S47.846,0.5,106.251,0.5z"></path>
-                                    <g>
-                                        <path fill="#FFFFFF" class="primary" d="M173.561,171.615c-0.601-0.915-1.287-1.907-2.065-2.955c-0.777-1.049-1.645-2.155-2.608-3.299 c-0.964-1.144-2.024-2.326-3.184-3.527c-1.741-1.802-3.71-3.646-5.924-5.47c-2.952-2.431-6.339-4.824-10.204-7.026 c-1.877-1.07-3.873-2.092-5.98-3.055c-0.062-0.028-0.118-0.059-0.18-0.087c-9.792-4.44-22.106-7.529-37.416-7.529 s-27.624,3.089-37.416,7.529c-0.338,0.153-0.653,0.318-0.985,0.474c-1.431,0.674-2.806,1.376-4.128,2.101 c-0.716,0.393-1.417,0.792-2.101,1.197c-3.421,2.027-6.475,4.191-9.15,6.395c-2.213,1.823-4.182,3.668-5.924,5.47 c-1.161,1.201-2.22,2.384-3.184,3.527c-0.964,1.144-1.832,2.25-2.609,3.299c-0.778,1.049-1.464,2.04-2.065,2.955 c-0.557,0.848-1.033,1.622-1.447,2.324c-0.033,0.056-0.073,0.119-0.104,0.174c-0.435,0.744-0.79,1.392-1.07,1.926 c-0.559,1.068-0.818,1.678-0.818,1.678v0.398c18.285,17.927,43.322,28.985,70.945,28.985c27.678,0,52.761-11.103,71.055-29.095 v-0.289c0,0-0.619-1.45-1.992-3.778C174.594,173.238,174.117,172.463,173.561,171.615z"></path>
-                                        <path fill="#FFFFFF" class="primary" d="M106.002,125.5c2.645,0,5.212-0.253,7.68-0.737c1.234-0.242,2.443-0.542,3.624-0.896 c1.772-0.532,3.482-1.188,5.12-1.958c2.184-1.027,4.242-2.258,6.15-3.67c2.863-2.119,5.39-4.646,7.509-7.509 c0.706-0.954,1.367-1.945,1.98-2.971c0.919-1.539,1.729-3.155,2.422-4.84c0.462-1.123,0.872-2.277,1.226-3.458 c0.177-0.591,0.341-1.188,0.49-1.792c0.299-1.208,0.542-2.443,0.725-3.701c0.275-1.887,0.417-3.827,0.417-5.811 c0-1.984-0.142-3.925-0.417-5.811c-0.184-1.258-0.426-2.493-0.725-3.701c-0.15-0.604-0.313-1.202-0.49-1.793 c-0.354-1.181-0.764-2.335-1.226-3.458c-0.693-1.685-1.504-3.301-2.422-4.84c-0.613-1.026-1.274-2.017-1.98-2.971 c-2.119-2.863-4.646-5.39-7.509-7.509c-1.909-1.412-3.966-2.643-6.15-3.67c-1.638-0.77-3.348-1.426-5.12-1.958 c-1.181-0.355-2.39-0.655-3.624-0.896c-2.468-0.484-5.035-0.737-7.68-0.737c-21.162,0-37.345,16.183-37.345,37.345 C68.657,109.317,84.84,125.5,106.002,125.5z"></path>
-                                    </g>
+                        <div className="h-[60px] flex items-center">
+                            <div className="w-[74px] flex items-center justify-center">
+                                <svg viewBox="0 0 28 35" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1">
+                                    <path d="M14,1.10204082 C18.5689011,1.10204082 22.2727273,4.80586698 22.2727273,9.37476809 L22.272,12.1790408 L22.3564837,12.181606 C24.9401306,12.294858 27,14.4253101 27,17.0368705 L27,29.4665309 C27,32.1506346 24.824104,34.3265306 22.1400003,34.3265306 L5.85999974,34.3265306 C3.175896,34.3265306 1,32.1506346 1,29.4665309 L1,17.0368705 C1,14.3970988 3.10461313,12.2488858 5.72742704,12.178644 L5.72727273,9.37476809 C5.72727273,4.80586698 9.43109889,1.10204082 14,1.10204082 Z M14,19.5600907 C12.0418995,19.5600907 10.4545455,21.2128808 10.4545455,23.2517007 C10.4545455,25.2905206 12.0418995,26.9433107 14,26.9433107 C15.9581005,26.9433107 17.5454545,25.2905206 17.5454545,23.2517007 C17.5454545,21.2128808 15.9581005,19.5600907 14,19.5600907 Z M14,4.79365079 C11.4617216,4.79365079 9.39069048,6.79417418 9.27759175,9.30453585 L9.27272727,9.52092352 L9.272,12.1760408 L18.727,12.1760408 L18.7272727,9.52092352 C18.7272727,6.91012289 16.6108006,4.79365079 14,4.79365079 Z" fill="#8696a0"></path>
                                 </svg>
                             </div>
+                            <div className="text-[17px] text-[#111b21] h-full flex items-center border-b grow">Privacy</div>
                         </div>
-                        <div className="shrink grow h-[72px] border-t text-[17px] text-[#111b21] leading-[72px] flex flex-col justify-center">
-                            <div className="h-[22px] text-[17px] leading-[22px]">+917456998001</div>
-                            <div className="h-[20px] text-[14px] leading-[20px] text-[#667781]"></div>
-                        </div>
-                    </div>
-                    <div className="flex items-center hover:bg-[#ececec] hover:transition-all cursor-pointer">
-                        <div className="h-[72px] w-[76px] grow-0 shrink-0 flex items-center justify-center">
-                            <div className="w-[48px] h-[48px] rounded-full bg-[#00A884] flex items-center justify-center">
-                                <img src={lm} alt="" className="h-full w-full rounded-full"/>
+                        <div className="h-[60px] flex items-center">
+                            <div className="w-[74px] flex items-center justify-center">
+                                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1">
+                                    <path d="M12.027027,2 L4,5.56756757 L4,10.9189189 C4,15.8689189 7.42486486,20.4978378 12.027027,21.6216216 C16.6291892,20.4978378 20.0540541,15.8689189 20.0540541,10.9189189 L20.0540541,5.56756757 L12.027027,2 Z M12.027027,11.8018919 L18.2702703,11.8018919 C17.7975676,15.4764865 15.3448649,18.7497297 12.027027,19.7754054 L12.027027,11.8108108 L5.78378378,11.8108108 L5.78378378,6.72702703 L12.027027,3.95324324 L12.027027,11.8018919 Z" fill="#8696a0" fill-rule="nonzero"></path>
+                                </svg>
                             </div>
+                            <div className="text-[17px] text-[#111b21] h-full flex items-center border-b grow">Security</div>
                         </div>
-                        <div className="shrink grow h-[72px] border-t text-[17px] text-[#111b21] leading-[72px] flex flex-col justify-center">
-                            <div className="h-[22px] text-[17px] leading-[22px]">+919560132730</div>
-                            <div className="h-[20px] text-[14px] leading-[20px] text-[#667781]">Hey there! I am using Whatsapp</div>
-                        </div>
-                    </div>
-                    <div className="flex items-center hover:bg-[#ececec] hover:transition-all cursor-pointer">
-                        <div className="h-[72px] w-[76px] grow-0 shrink-0 flex items-center justify-center">
-                            <div className="w-[48px] h-[48px] rounded-full bg-[#00A884] flex items-center justify-center">
-                                <img src={car} alt="" className="h-full w-full rounded-full"/>
+                        <div className="h-[60px] flex items-center">
+                            <div className="w-[74px] flex items-center justify-center">
+                                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1">
+                                    <path d="M12,1 L15.219275,4.21927498 L19.780725,4.21927498 L19.780725,8.78072502 L23,12 L19.780725,15.219275 L19.780725,19.780725 L15.219275,19.780725 L12,23 L8.78072502,19.780725 L4.21927498,19.780725 L4.21927498,15.219275 L1,12 L4.21927498,8.78072502 L4.21927498,4.21927498 L8.78072502,4.21927498 L12,1 Z M12,6 L12,18 C15.31,18 18,15.31 18,12 C18,8.76522727 15.4308833,6.12259298 12.2246968,6.00414409 L12,6 Z" fill="#8696a0" fill-rule="nonzero"></path>
+                                </svg>
                             </div>
+                            <div className="text-[17px] text-[#111b21] h-full flex items-center border-b grow">Theme</div>
                         </div>
-                        <div className="shrink grow h-[72px] border-t text-[17px] text-[#111b21] leading-[72px] flex flex-col justify-center">
-                            <div className="h-[22px] text-[17px] leading-[22px]">3747</div>
-                            <div className="h-[20px] text-[14px] leading-[20px] text-[#667781]">Hey there! I am using Whatsapp</div>
-                        </div>
-                    </div>
-                    <div className="h-[72px] flex items-center pl-8 text-[#a52729] text-[16px]">A</div>
-                    <div className="flex items-center hover:bg-[#ececec] hover:transition-all cursor-pointer">
-                        <div className="h-[72px] w-[76px] grow-0 shrink-0 flex items-center justify-center">
-                            <div className="w-[48px] h-[48px] rounded-full bg-[#00A884] flex items-center justify-center">
-                                <img src={dp} alt="" className="h-full w-full rounded-full"/>
+                        <div className="h-[60px] flex items-center">
+                            <div className="w-[74px] flex items-center justify-center">
+                                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
+                                    <path fill="#8696a0" d="M4.9,5.9h6.4V4.1H4.9c-1,0-1.8,0.8-1.8,1.8v6.4h1.8V5.9z M10.2,13.9l-3.6,4.4h10.7 l-2.7-3.6l-1.8,2.4L10.2,13.9z M16.4,9.9c0-0.7-0.6-1.3-1.3-1.3s-1.3,0.6-1.3,1.3s0.6,1.3,1.3,1.3S16.4,10.6,16.4,9.9z M19.1,4.1 h-6.4v1.8h6.4v6.4h1.8V5.9C20.9,4.9,20.1,4.1,19.1,4.1z M19.1,20.1h-6.4v1.8h6.4c1,0,1.8-0.8,1.8-1.8v-6.4h-1.8V20.1z M4.9,13.7H3.1 v6.4c0,1,0.8,1.8,1.8,1.8h6.4v-1.8H4.9V13.7z"></path>
+                                </svg>
                             </div>
+                            <div className="text-[17px] text-[#111b21] h-full flex items-center border-b grow">Chat Wallpaper</div>
                         </div>
-                        <div className="shrink grow h-[72px] border-t text-[17px] text-[#111b21] leading-[72px] flex flex-col justify-center">
-                            <div className="h-[22px] text-[17px] leading-[22px]">Arman (You)</div>
-                            <div className="h-[20px] text-[14px] leading-[20px] text-[#667781]">Message yourself</div>
+                        <div className="h-[60px] flex items-center">
+                            <div className="w-[74px] flex items-center justify-center">
+                                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1">
+                                    <path d="M19.4725963,12.2 L15.1725963,12.2 L15.1725963,2.9 C15.1725963,2.4 14.7725963,2 14.2725963,2 L9.97259631,2 C9.47259631,2 9.07259631,2.4 9.07259631,2.9 L9.07259631,12.2 L4.77259631,12.2 C3.97259631,12.2 3.77259631,12.7 4.27259631,13.3 L11.0725963,20.6 C11.7725963,21.5 12.4725963,21.3 13.1725963,20.6 L19.9725963,13.3 C20.4725963,12.7 20.2725963,12.2 19.4725963,12.2 Z" fill="#8696a0"></path>
+                                </svg>
+                            </div>
+                            <div className="text-[17px] text-[#111b21] h-full flex items-center border-b grow">Media auto-download</div>
+                        </div>
+                        <div className="h-[60px] flex items-center">
+                            <div className="w-[74px] flex items-center justify-center">
+                                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C4.9 2 4.01 2.9 4.01 4L4 20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8.83C20 8.3 19.79 7.79 19.41 7.42L14.58 2.59C14.21 2.21 13.7 2 13.17 2H6ZM13 8V3.5L18.5 9H14C13.45 9 13 8.55 13 8ZM8 12C7.44772 12 7 12.4477 7 13C7 13.5523 7.44772 14 8 14H16C16.5523 14 17 13.5523 17 13C17 12.4477 16.5523 12 16 12H8ZM14 17C14 16.4477 13.5523 16 13 16H8C7.44772 16 7 16.4477 7 17C7 17.5523 7.44772 18 8 18H13C13.5523 18 14 17.5523 14 17Z" fill="#8696a0"></path>
+                                </svg>
+                            </div>
+                            <div className="text-[17px] text-[#111b21] h-full flex items-center border-b grow">Request Account Info</div>
+                        </div>
+                        <div className="h-[60px] flex items-center">
+                            <div className="w-[74px] flex items-center justify-center">
+                                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1">
+                                    <path fill="#8696a0" d="M 10.851562 12.648438 L 13.148438 12.648438 L 12 9 Z M 20 8.691406 L 20 6 C 20 4.898438 19.101562 4 18 4 L 15.308594 4 L 13.410156 2.101562 C 12.628906 1.320312 11.359375 1.320312 10.582031 2.101562 L 8.691406 4 L 6 4 C 4.898438 4 4 4.898438 4 6 L 4 8.691406 L 2.101562 10.589844 C 1.320312 11.371094 1.320312 12.640625 2.101562 13.421875 L 4 15.320312 L 4 18 C 4 19.101562 4.898438 20 6 20 L 8.691406 20 L 10.589844 21.898438 C 11.371094 22.679688 12.640625 22.679688 13.421875 21.898438 L 15.320312 20 L 18 20 C 19.101562 20 20 19.101562 20 18 L 20 15.308594 L 21.898438 13.410156 C 22.679688 12.628906 22.679688 11.359375 21.898438 10.578125 Z M 14.089844 15.398438 L 13.601562 14 L 10.398438 14 L 9.910156 15.398438 C 9.78125 15.761719 9.449219 16 9.070312 16 C 8.449219 16 8.019531 15.390625 8.230469 14.808594 L 10.671875 7.949219 C 10.871094 7.378906 11.398438 7 12 7 C 12.601562 7 13.128906 7.378906 13.339844 7.941406 L 15.78125 14.800781 C 15.988281 15.378906 15.558594 15.988281 14.941406 15.988281 C 14.550781 16 14.21875 15.761719 14.089844 15.398438 Z M 14.089844 15.398438 "></path>
+                                </svg>
+                            </div>
+                            <div className="text-[17px] text-[#111b21] h-full flex items-center border-b grow">Keyboard shortcuts</div>
+                        </div>
+                        <div className="h-[60px] flex items-center">
+                            <div className="w-[74px] flex items-center justify-center">
+                                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
+                                    <path fill="#8696a0" d="M12,4.7c-4.5,0-8.2,3.7-8.2,8.2s3.7,8.2,8.2,8.2s8.2-3.7,8.2-8.2S16.5,4.7,12,4.7z  M12.8,18.6h-1.6V17h1.6V18.6z M14.5,12.3L13.8,13c-0.7,0.6-1,1.1-1,2.3h-1.6v-0.4c0-0.9,0.3-1.7,1-2.3l1-1.1 c0.3-0.2,0.5-0.7,0.5-1.1c0-0.9-0.7-1.6-1.6-1.6s-1.6,0.7-1.6,1.6H8.7c0-1.8,1.5-3.3,3.3-3.3s3.3,1.5,3.3,3.3 C15.3,11.2,14.9,11.8,14.5,12.3z"></path>
+                                </svg>
+                            </div>
+                            <div className="text-[17px] text-[#111b21] h-full flex items-center border-b grow">Help</div>
                         </div>
                     </div>
                 </div>
@@ -683,6 +702,7 @@ function Chats(){
                                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={SetNewCommunityTrue}>New community</p>
                                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={SetArchivedTrue}>Archived</p>
                                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={setStarredMessagesTrue}>Starred messages</p>
+                                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={setSelectChatsTrue}>Select chats</p>
                                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={setSettingsTrue}>Settings</p>
                                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Log out</p>
                                 </div>
@@ -690,7 +710,25 @@ function Chats(){
                     </div>
                 </div>
                 <div className="w-full bg-white">
-                    <div className="h-[50px] flex items-center pl-[10px] grow-0 shrink-0 bg-[#1e2321]">
+                    <div className={selectChats ? "hidden" : "h-[50px] flex items-center pl-[10px] grow-0 shrink-0 bg-[#1e2321]" }>
+                        <div className="flex items-center bg-[#0f1110] rounded-lg w-full h-[35px] px-4">
+                            <svg viewBox="0 0 24 24" height="20" width="20" class="fill-[#54656f]">
+                                <path fill="#ffffffe6" d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"></path>
+                            </svg>
+                            <div className="w-full">
+                                <input type="text" className={ filter ? "hidden" : "bg-[#0f1110]  outline-none placeholder:text-white/70 text-[13px] px-7 w-full h-[35px]" }  placeholder="Search or start a new chat" title="Search input textbox"/>
+                                <input type="text" className={ filter ? "bg-[#0f1110] outline-none placeholder:text-white/70 text-[13px] px-7 w-full" : "hidden" } placeholder="Search unread chats" title="Search input textbox"/>
+                            </div>
+                        </div>
+                        <div className="w-[50px] h-[40px] flex items-center justify-center cursor-pointer" title="Unread chats filter" onClick={alterFilter}>
+                            <div className={ filter ? "flex items-center justify-center h-[28px] w-[28px] rounded-full bg-[#a52729]" : "flex items-center justify-center h-[30px] w-[30px] rounded-full" }>
+                                <svg viewBox="0 0 24 24" height="20" width="20"  class="fill-[#54656f]">
+                                    <path fill="#ffffffe6" d="M10,18.1h4v-2h-4V18.1z M3,6.1v2h18v-2H3z M6,13.1h12v-2H6V13.1z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={selectChats ? "h-[50px] flex items-center pl-[10px] grow-0 shrink-0 bg-[#1e2321]" : "hidden"}>
                         <div className="flex items-center bg-[#0f1110] rounded-lg w-full h-[35px] px-4">
                             <svg viewBox="0 0 24 24" height="20" width="20" class="fill-[#54656f]">
                                 <path fill="#ffffffe6" d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"></path>
@@ -732,9 +770,13 @@ function Chats(){
                     <div className={ filter ? "hidden" : notified ? "chats_container_notified overflow-y-scroll chats_scroll" : "chats_container overflow-y-scroll chats_scroll" }>
                         <Chats_component/>
                     </div>
-                    <div className={ filter ? "chats_container unread_chats_container overflow-y-scroll chats_scroll" : "hidden" }>
+                    <div className={ filter  ? "chats_container unread_chats_container overflow-y-scroll chats_scroll" : "hidden" }>
                         <Unread_chats_component/>
                     </div>
+                    {/* <div className={ selectChats ? ( notified ? "chats_container_notified overflow-y-scroll chats_scroll" : "chats_container overflow-y-scroll chats_scroll" ) : "hidden" }>
+                        <Select_chats/>
+                        1
+                    </div> */}
                 </div>
             </div>
         </div>

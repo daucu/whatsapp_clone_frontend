@@ -159,7 +159,7 @@ module.exports = {
         },
         chats_menu:{
           '0%':{opacity:'0',width:'0px',height:'0px',left:'0px'},
-          '100%':{opacity:'1',width:'180px',height:'252px',left:'-130px'}
+          '100%':{opacity:'1',width:'180px',height:'292px',left:'-130px'}
         },
         new_chats_show:{
           '0%':{opacity:'0',left:'-400px'},
