@@ -190,14 +190,14 @@ function Chat_single(){
                     </div>
                 </div>
 
-                <div className="h-full grow shrink bg-cover bg-no-repeat bg-center flex px-[65px]" style={{backgroundImage:`url(${whatsapp_web_bg_light})`}}>
+                <div className="h-full grow shrink bg-cover bg-no-repeat bg-center flex px-[65px] pt-2 chat_section overflow-y-scroll" style={{backgroundImage:`url(${whatsapp_web_bg_light})`}}>
                     <div className="w-full">
                     {chat.map((val, key) => {
                       return (
                         <>
                         <div className={ val.isSentByMe === true ? "w-full flex justify-end my-1" : "w-full flex justify-start my-1" }>
                             <div className={ val.isSentByMe === true ? "max-w-[60%] bg-[#D9FDD3] text-[#111b21]  rounded-md text-[14px] flex" : "max-w-[60%] bg-white text-[#111b21] h- text-[14px] rounded-md flex" }>
-                                <div className="leading-[34px] px-2">
+                                <div className="leading-[20px] px-2 py-[7px]">
                                     {val.message}
                                 </div>
                                 <div className="flex items-end pb-[5px] text-[#667781] text-[12px] leading-[15px] pr-2">

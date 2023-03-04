@@ -51,3 +51,10 @@
     width: 6px;
     background: #f0f2f5;
 }
+
+.chat_section{
+    height: calc(100vh - 124px);
+}
+.chat_section::-webkit-scrollbar{
+    display: none;
+}
