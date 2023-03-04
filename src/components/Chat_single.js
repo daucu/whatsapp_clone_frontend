@@ -31,6 +31,130 @@ function Chat_single(){
         setMenu(!menu);
     }
 
+
+
+    var chat = [
+        {
+          "name": "John Doe",
+          "message": "Hello, Rishu how are you?",
+          "time": "15:30",
+          "avatar_url":
+              "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+          "isMessageRead": false,
+          "isSentByMe": false,
+        },
+        {
+          "name": "John Doe",
+          "message": "Hi, I am fine. What about you? How is your family?",
+          "time": "15:31",
+          "avatar_url":
+              "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+          "isMessageRead": false,
+          "isSentByMe": true,
+        },
+        {
+          "name": "John Doe",
+          "message": "Are you working right now?",
+          "time": "15:31",
+          "avatar_url":
+              "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+          "isMessageRead": false,
+          "isSentByMe": false,
+        },
+        {
+          "name": "John Doe",
+          "message": "??",
+          "time": "15:31",
+          "avatar_url":
+              "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+          "isMessageRead": false,
+          "isSentByMe": false,
+        },
+        {
+          "name": "John Doe",
+          "message": "Yes I am working. I am working on a new project.",
+          "time": "15:31",
+          "avatar_url":
+              "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+          "isMessageRead": false,
+          "isSentByMe": true,
+        },
+        {
+          "name": "John Doe",
+          "message": "Please don't disturb me right now.",
+          "time": "15:31",
+          "avatar_url":
+              "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+          "isMessageRead": false,
+          "isSentByMe": true,
+        },
+        {
+          "name": "John Doe",
+          "message": "OKay, I will call you later.",
+          "time": "15:31",
+          "avatar_url":
+              "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+          "isMessageRead": false,
+          "isSentByMe": false,
+        },
+        {
+          "name": "John Doe",
+          "message": "Bye",
+          "time": "15:31",
+          "avatar_url":
+              "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+          "isMessageRead": false,
+          "isSentByMe": false,
+        },
+        {
+          "name": "John Doe",
+          "message": "👋",
+          "time": "15:31",
+          "avatar_url":
+              "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+          "isMessageRead": false,
+          "isSentByMe": false,
+        },
+        {
+          "name": "John Doe",
+          "message": "👋",
+          "time": "15:31",
+          "avatar_url":
+              "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+          "isMessageRead": false,
+          "isSentByMe": true,
+        },
+        {
+          "name": "John Doe",
+          "message":
+              "Hi, are you there? I am waiting for your reply. Please reply me. it's urgent. you have to reply me.",
+          "time": "15:31",
+          "avatar_url":
+              "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+          "isMessageRead": false,
+          "isSentByMe": false,
+        },
+        {
+          "name": "John Doe",
+          "message":
+              "Okay I am replying you. I am sorry for the late reply. I was busy in my work.",
+          "time": "15:31",
+          "avatar_url":
+              "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+          "isMessageRead": false,
+          "isSentByMe": true,
+        },
+        {
+          "name": "John Doe",
+          "message": "😀",
+          "time": "15:31",
+          "avatar_url":
+              "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+          "isMessageRead": true,
+          "isSentByMe": true,
+        },
+      ];
+
     return(
         <div className="chat_single flex">
             <div className="h-[100vh] flex flex-col grow shrink">
@@ -66,9 +190,34 @@ function Chat_single(){
                     </div>
                 </div>
 
-                <div className="h-full grow shrink bg-cover bg-no-repeat bg-center flex" style={{backgroundImage:`url(${whatsapp_web_bg_light})`}}>
+                <div className="h-full grow shrink bg-cover bg-no-repeat bg-center flex px-[65px]" style={{backgroundImage:`url(${whatsapp_web_bg_light})`}}>
                     <div className="w-full">
-
+                    {chat.map((val, key) => {
+                      return (
+                        <>
+                        <div className={ val.isSentByMe === true ? "w-full flex justify-end my-1" : "w-full flex justify-start my-1" }>
+                            <div className={ val.isSentByMe === true ? "max-w-[60%] bg-[#D9FDD3] text-[#111b21]  rounded-md text-[14px] flex" : "max-w-[60%] bg-white text-[#111b21] h- text-[14px] rounded-md flex" }>
+                                <div className="leading-[34px] px-2">
+                                    {val.message}
+                                </div>
+                                <div className="flex items-end pb-[5px] text-[#667781] text-[12px] leading-[15px] pr-2">
+                                    <div className="pr-[2px]">{val.time}</div>
+                                    <div>{val.isSentByMe === true ? (<>
+                                            {
+                                                val.isMessageRead === true ? (
+                                                <svg viewBox="0 0 18 18" height="18" width="18" preserveAspectRatio="xMidYMid meet" class="mr-1" version="1.1" x="0px" y="0px" enable-background="new 0 0 18 18">
+                                                    <path fill="#53bdeb" d="M17.394,5.035l-0.57-0.444c-0.188-0.147-0.462-0.113-0.609,0.076l-6.39,8.198 c-0.147,0.188-0.406,0.206-0.577,0.039l-0.427-0.388c-0.171-0.167-0.431-0.15-0.578,0.038L7.792,13.13 c-0.147,0.188-0.128,0.478,0.043,0.645l1.575,1.51c0.171,0.167,0.43,0.149,0.577-0.039l7.483-9.602 C17.616,5.456,17.582,5.182,17.394,5.035z M12.502,5.035l-0.57-0.444c-0.188-0.147-0.462-0.113-0.609,0.076l-6.39,8.198 c-0.147,0.188-0.406,0.206-0.577,0.039l-2.614-2.556c-0.171-0.167-0.447-0.164-0.614,0.007l-0.505,0.516 c-0.167,0.171-0.164,0.447,0.007,0.614l3.887,3.8c0.171,0.167,0.43,0.149,0.577-0.039l7.483-9.602 C12.724,5.456,12.69,5.182,12.502,5.035z"></path>
+                                                    </svg>) : (
+                                                    <svg viewBox="0 0 18 18" height="18" width="18" preserveAspectRatio="xMidYMid meet" class="mr-1" version="1.1" x="0px" y="0px" enable-background="new 0 0 18 18">
+                                                        <path fill="#667781" d="M17.394,5.035l-0.57-0.444c-0.188-0.147-0.462-0.113-0.609,0.076l-6.39,8.198 c-0.147,0.188-0.406,0.206-0.577,0.039l-0.427-0.388c-0.171-0.167-0.431-0.15-0.578,0.038L7.792,13.13 c-0.147,0.188-0.128,0.478,0.043,0.645l1.575,1.51c0.171,0.167,0.43,0.149,0.577-0.039l7.483-9.602 C17.616,5.456,17.582,5.182,17.394,5.035z M12.502,5.035l-0.57-0.444c-0.188-0.147-0.462-0.113-0.609,0.076l-6.39,8.198 c-0.147,0.188-0.406,0.206-0.577,0.039l-2.614-2.556c-0.171-0.167-0.447-0.164-0.614,0.007l-0.505,0.516 c-0.167,0.171-0.164,0.447,0.007,0.614l3.887,3.8c0.171,0.167,0.43,0.149,0.577-0.039l7.483-9.602 C12.724,5.456,12.69,5.182,12.502,5.035z"></path>
+                                                    </svg>)}</>) : null}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </>
+                      );
+                    })}
                     </div>
                 </div>
 
