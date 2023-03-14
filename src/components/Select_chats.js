@@ -6,8 +6,8 @@ function Select_chats(){
         <div>
             <div className="">
                 <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all">
-                    <div className="">
-                        <input type="button" value="" className="h-[20px] w-[20px] rounded-sm outline-none border-[2px]"/>
+                    <div className="ml-6 mr-1">
+                        <input type="button" value="" className="h-[18px] w-[18px] rounded-sm outline-none border-[2px] border-[#6C777F]"/>
                     </div>
                     <div className="w-[49px] h-[49px] mx-[15px]">
                         <img src={dp} alt="" className="h-[49px] w-[49px] rounded-full"/>
@@ -42,6 +42,9 @@ function Select_chats(){
                     </div>
                 </div>
                 <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all">
+                    <div className="ml-6 mr-1">
+                        <input type="button" value="" className="h-[18px] w-[18px] rounded-sm outline-none border-[2px] border-[#6C777F]"/>
+                    </div>
                     <div className="w-[49px] h-[49px] mx-[15px]">
                         <img src="{}" alt="" className="h-[49px] w-[49px] rounded-full hidden"/>
                         <svg viewBox="0 0 212 212" height="49" width="49" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 212 212">
@@ -70,6 +73,9 @@ function Select_chats(){
                     </div>
                 </div>
                 <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all">
+                    <div className="ml-6 mr-1">
+                        <input type="button" value="" className="h-[18px] w-[18px] rounded-sm outline-none border-[2px] border-[#6C777F]"/>
+                    </div>
                     <div className="w-[49px] h-[49px] mx-[15px]">
                         <img src={neeraj_dp} alt="" className="h-[49px] w-[49px] rounded-full"/>
                         <svg viewBox="0 0 212 212" height="49" width="49" preserveAspectRatio="xMidYMid meet" class="hidden" version="1.1" x="0px" y="0px" enable-background="new 0 0 212 212">
@@ -103,6 +109,9 @@ function Select_chats(){
                     </div>
                 </div>
                 <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all">
+                    <div className="ml-6 mr-1">
+                        <input type="button" value="" className="h-[18px] w-[18px] rounded-sm outline-none border-[2px] border-[#6C777F]"/>
+                    </div>
                     <div className="w-[49px] h-[49px] mx-[15px]">
                         <img src={neeraj_dp} alt="" className="h-[49px] w-[49px] rounded-full"/>
                         <svg viewBox="0 0 212 212" height="49" width="49" preserveAspectRatio="xMidYMid meet" class="hidden" version="1.1" x="0px" y="0px" enable-background="new 0 0 212 212">
@@ -136,6 +145,9 @@ function Select_chats(){
                     </div>
                 </div>
                 <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all">
+                    <div className="ml-6 mr-1">
+                        <input type="button" value="" className="h-[18px] w-[18px] rounded-sm outline-none border-[2px] border-[#6C777F]"/>
+                    </div>
                     <div className="w-[49px] h-[49px] mx-[15px]">
                         <img src={neeraj_dp} alt="" className="h-[49px] w-[49px] rounded-full"/>
                         <svg viewBox="0 0 212 212" height="49" width="49" preserveAspectRatio="xMidYMid meet" class="hidden" version="1.1" x="0px" y="0px" enable-background="new 0 0 212 212">
@@ -169,6 +181,9 @@ function Select_chats(){
                     </div>
                 </div>
                 <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all">
+                    <div className="ml-6 mr-1">
+                        <input type="button" value="" className="h-[18px] w-[18px] rounded-sm outline-none border-[2px] border-[#6C777F]"/>
+                    </div>
                     <div className="w-[49px] h-[49px] mx-[15px]">
                         <img src={neeraj_dp} alt="" className="h-[49px] w-[49px] rounded-full"/>
                         <svg viewBox="0 0 212 212" height="49" width="49" preserveAspectRatio="xMidYMid meet" class="hidden" version="1.1" x="0px" y="0px" enable-background="new 0 0 212 212">
@@ -202,6 +217,9 @@ function Select_chats(){
                     </div>
                 </div>
                 <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all">
+                    <div className="ml-6 mr-1">
+                        <input type="button" value="" className="h-[18px] w-[18px] rounded-sm outline-none border-[2px] border-[#6C777F]"/>
+                    </div>
                     <div className="w-[49px] h-[49px] mx-[15px]">
                         <img src={neeraj_dp} alt="" className="h-[49px] w-[49px] rounded-full"/>
                         <svg viewBox="0 0 212 212" height="49" width="49" preserveAspectRatio="xMidYMid meet" class="hidden" version="1.1" x="0px" y="0px" enable-background="new 0 0 212 212">
@@ -235,6 +253,9 @@ function Select_chats(){
                     </div>
                 </div>
                 <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all">
+                    <div className="ml-6 mr-1">
+                        <input type="button" value="" className="h-[18px] w-[18px] rounded-sm outline-none border-[2px] border-[#6C777F]"/>
+                    </div>
                     <div className="w-[49px] h-[49px] mx-[15px]">
                         <img src={neeraj_dp} alt="" className="h-[49px] w-[49px] rounded-full"/>
                         <svg viewBox="0 0 212 212" height="49" width="49" preserveAspectRatio="xMidYMid meet" class="hidden" version="1.1" x="0px" y="0px" enable-background="new 0 0 212 212">

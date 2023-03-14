@@ -8,14 +8,17 @@ import rishabh_dp from "./images/rishabh_dp.jfif";
 import rishi_mam_dp from "./images/rishi_mam_dp.jfif";
 import video_call_icon from "./images/video-call-icon.png";
 
-import  {FaVideo}  from "react-icons/fa";
-import  {MdCall}  from "react-icons/md";
+import  { FaVideo }  from "react-icons/fa";
+import  { MdCall }  from "react-icons/md";
 
 function Chat_single(){
     const [ searchMessagesWidth, setSearchMessagesWidth ] = useState("");
     const [ profileDetails, setProfileDetails ] = useState("");
 
     const [ menu, setMenu ] = useState(false);
+
+    const [ audioCall, setAudioCall ] = useState(false);
+    const [ videoCall, setVideoCall ] = useState(false);
 
     function setSearchMessagesWidthTrue(){
         setSearchMessagesWidth(true);
@@ -35,12 +38,10 @@ function Chat_single(){
         setMenu(!menu);
     }
 
-
-
     var chat = [
         {
           "name": "John Doe",
-          "message": "Hello, Rishu how are you?",
+          "message": "Hello, Arman how are you?",
           "time": "15:30",
           "avatar_url":
               "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
@@ -171,10 +172,10 @@ function Chat_single(){
                         </div>
                     </div>
                     <div className="flex items-center">
-                        <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Video call">
+                        <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Audio call" onClick={()=>setAudioCall(true)}>
                             <MdCall className="text-[#ffffffe6] text-[20px]"/>
                         </div>
-                        <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Video call">
+                        <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Video call" onClick={()=>setVideoCall(true)}>
                             <FaVideo className="text-[#ffffffe6] text-[20px]"/>
                         </div>
                         <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" onClick={setSearchMessagesWidthTrue} title="Search...">
@@ -864,6 +865,16 @@ function Chat_single(){
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className={ videoCall ? "video_call_section fixed rounded-md bg-black p-4 w-full h-full text-white" : "hidden" }>
+                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="mr-7 cursor-pointer" fill="#fff" enable-background="new 0 0 24 24" onClick={()=>setVideoCall(false)}>
+                    <path d="M19.6004 17.2L14.3004 11.9L19.6004 6.60005L17.8004 4.80005L12.5004 10.2L7.20039 4.90005L5.40039 6.60005L10.7004 11.9L5.40039 17.2L7.20039 19L12.5004 13.7L17.8004 19L19.6004 17.2Z"></path>
+                </svg>
+            </div>
+            <div className={audioCall ? "audio_call_section fixed rounded-md bg-black p-4 w-[400px] h-[100px] shadow-md text-white" : "hidden"}>
+                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="mr-7 cursor-pointer" fill="#fff" enable-background="new 0 0 24 24" onClick={()=>setAudioCall(false)}>
+                    <path d="M19.6004 17.2L14.3004 11.9L19.6004 6.60005L17.8004 4.80005L12.5004 10.2L7.20039 4.90005L5.40039 6.60005L10.7004 11.9L5.40039 17.2L7.20039 19L12.5004 13.7L17.8004 19L19.6004 17.2Z"></path>
+                </svg>
             </div>
         </div>
         );
