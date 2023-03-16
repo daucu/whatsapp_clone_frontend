@@ -178,7 +178,7 @@ function Chat_section(props){
                                 return (
 <>
     <div className={ val.isSentByMe === true ? "w-full flex justify-end my-1" : "w-full flex justify-start my-1" }>
-            <div className={ val.isSentByMe === true ? "max-w-[60%] bg-[#A52729] text-[#ffffffe6]  rounded-md text-[14px] flex shadow-sm" : "max-w-[60%] bg-[#F0F2F5] text-[#111b21] h- text-[14px] rounded-md flex shadow-sm" }>
+            <div className={ val.isSentByMe === true ? "max-w-[60%] bg-[#A52729] text-[#ffffffe6]  rounded-md text-[14px] flex shadow-sm" : "max-w-[60%] bg-white text-[#111b21] h- text-[14px] rounded-md flex shadow-sm" }>
                 <div className="leading-[20px] px-2 py-[7px]">{val.message}</div>
                 <div className="flex items-end pb-[5px] text-[12px] leading-[15px] pr-2">
                     <div className={val.isSentByMe ? "pr-[2px] text-[#ffffffe6] text-[11px]" : "pr-[2px] text-[#111b21] text-[11px]"}>{val.time}</div>

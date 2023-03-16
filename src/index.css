@@ -16,9 +16,9 @@
 .communities::-webkit-scrollbar-thumb{
     background: #CED0D1;
 }
-.new_chats_scroll{
+/* .new_chats_scroll{
     height: calc(100vh - 158px);
-}
+} */
 
 .communities{
     height: calc(100vh - 95px);

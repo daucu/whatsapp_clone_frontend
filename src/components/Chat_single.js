@@ -149,7 +149,6 @@ function Chat_single(){
             <div className="grow shrink">
                 <Chat_section profileDetails={()=>setProfileDetails(true)} searchMessages={()=>setSearchMessages(true)} videoCall={()=>setVideoCall(true)} audioCall={()=>setAudioCall(true)}/>
             </div>
-
             
             <div className={ searchMessages === "" ? "h-0 w-[0px] overflow-hidden" : searchMessages ? "animate-search_messages_full overflow-hidden w-full h-screen grow-0 shrink-0" : "animate-search_messages_zero overflow-hidden w-full h-screen"  }>
                 <div className="h-[60px] bg-[#1E2321] flex items-center px-4 shadow-sm grow-0 shrink-0 border-l border-[#D1D7DB]">

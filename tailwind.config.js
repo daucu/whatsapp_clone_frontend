@@ -30,6 +30,9 @@ module.exports = {
         new_chats_hide: 'new_chats_hide 0.16s ease-in-out forwards',
         communities_show: 'communities_show 0.16s ease-in-out forwards',
         communities_hide: 'communities_hide 0.16s ease-in-out forwards',
+        opacity : 'opacity 0.25s ease-in-out forwards',
+        group_creation_result_true : 'group_creation_result_true 0.25s ease-in-out forwards',
+        group_creation_result_false : 'group_creation_result_false 0.25s ease-in-out forwards',
       },
       keyframes:{
         blink:{'0%':{opacity:'0.1'},'100%':{opacity:'1'}},
@@ -176,6 +179,18 @@ module.exports = {
         communities_hide:{
           '0%':{opacity:'1',left:'0px'},
           '100%':{opacity:'0',left:'-800px'}
+        },
+        opacity:{
+          '0%':{opacity:'0'},
+          '100%':{opacity:'1'}
+        },
+        group_creation_result_true :{
+          '0%':{width:'0px',height:'0px'},
+          '100%':{width:'480px',height:'100%'}
+        },
+        group_creation_result_false :{
+          '0%':{width:'480px',height:'100%'},
+          '100%':{width:'0px',height:'0px'}
         },
 
     },

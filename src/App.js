@@ -5,6 +5,7 @@ import ChatSingle from "./components/Chat_single";
 import Chats_component from "./components/Chats_component";
 import New_chats from "./components/New_chats";
 import Status from "./components/Status";
+import Svg from "./components/Svg";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/chats-component" element={<Chats_component/>} />
           <Route path="/new-chats" element={<New_chats/>} />
           <Route path="/status" element={<Status/>} />
+          <Route path="/svg" element={<Svg/>} />
         </Routes>
       </BrowserRouter>
     </div>

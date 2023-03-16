@@ -6,31 +6,46 @@ import { Link } from "react-router-dom";
 import Unread_chats_component from "./Unread_chats_component";
 import Select_chats from "./Select_chats";
 import Starred_messages from "./Starred_messages";
-import New_group from "./New_group";
+import New_group from "./group/New_group";
 import New_community from "./New_community";
 import Archived from "./Archived";
 import Settings from "./Settings";
 import Communities from "./Communities";
+import Add_new_group_info from "./group/Add_new_group_info";
 
 function Chats(){
     const [ menu, setMenu ] = useState(false);
     const [ newChats, setNewChats ] = useState("");
     const [ community, setCommunity ] = useState("");
     const [ newGroup, setNewGroup ] = useState("");
+    const [ addNewGroupInfo, setAddNewGroupInfo ] = useState("");
     const [ newCommunity, setNewCommunity ] = useState("");
     const [ archived, setArchived ] = useState("");
     const [ notified, setNotified ] = useState(false);
     const [ starredMessages, setStarredMessages ] = useState("");
     const [ settings, setSettings ] = useState("");
     const [ selectChats, setSelectChats ] = useState(false);
+    const [ logout, setLogout ] = useState(false);
+    const [ groupCreationResult, setGroupCreationResult ] = useState(false);
 
     //unread chats filter
     
     const [ filter, setFilter ] = useState("");
+
+    function handleGroupCreationResult(){
+        setGroupCreationResult(false);
+        setAddNewGroupInfo(false);
+        setNewGroup(false);
+    }
+
     return(
         <div>
-            <div className={ newGroup === "" ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : newGroup ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
-                <New_group newGroup={()=>setNewGroup(false)}/>
+            <div className={ newGroup === "" && !(addNewGroupInfo === "") ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : newGroup ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
+                <New_group newGroupFalse={()=>setNewGroup(false)} addNewGroupInfoTrue={()=>setAddNewGroupInfo(true)} />
+            </div>
+
+            <div className={ addNewGroupInfo === "" && !(newGroup === "") ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : addNewGroupInfo ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
+                <Add_new_group_info addNewGroupInfoFalse={()=>setAddNewGroupInfo(false)} groupCreationResult={()=>setGroupCreationResult(true)}/>
             </div>
 
             <div className={ newCommunity === "" ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : newCommunity ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
@@ -55,6 +70,27 @@ function Chats(){
 
             <div className={ starredMessages === "" ? "h-screen w-[400px] fixed left-[-800px] z-10 bg-white" : starredMessages ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-[#f0f2f5] z-10" }>
                 <Starred_messages starredMessages={()=>setStarredMessages(false)}/>
+            </div>
+
+            <div className={ logout ? "fixed w-screen min-h-screen flex items-center justify-center bg-white/90 z-10 opacity-0 animate-opacity" : "hidden"}>
+                <div className="bg-white p-6 rounded-md shadow-xl w-[480px]">
+                    <p className="text-[20px] leading-[25px] text-[#3b4a54]">Log out?</p>
+                    <p className="text-[14px] leading-[20px] text-[#3b4a54] mt-4">Are you sure you want to logout?</p>
+                    <div className="mt-10 flex w-full justify-end">
+                        <button className="h-[36px] rounded-sm text-[#0B856F] px-4 leading-[36px] border mr-2" onClick={()=>setLogout(false)}>CANCEL</button>
+                        <button className="h-[36px] leading-[36px] bg-[#008069] text-white px-4 font-medium rounded-sm">LOG OUT</button>
+                    </div>
+                </div>
+            </div>
+
+            <div className={ groupCreationResult ? "fixed w-screen min-h-screen flex items-center justify-center bg-white/90 z-10 opacity-0 animate-opacity" : "hidden"}>
+                <div className={groupCreationResult ? "bg-white p-6 rounded-md shadow-xl w-[480px] animate-group_creation_result_true" : "animate-group_creation_result_false"} >
+                    <p className="text-[14px] leading-[20px] text-[#3b4a54] mt-4">couldn't add +917456998001. You can invite them privately to join this group.</p>
+                    <div className="mt-10 flex w-full justify-end">
+                        <button className="h-[36px] rounded-sm text-[#0B856F] px-4 leading-[36px] border mr-2" onClick={handleGroupCreationResult}>CANCEL</button>
+                        <button className="h-[36px] leading-[36px] bg-[#008069] text-white px-4 font-medium rounded-sm">INVITE TO GROUP</button>
+                    </div>
+                </div>
             </div>
 
             <div className="w-[400px] border-r border-[#919599]">
@@ -90,7 +126,7 @@ function Chats(){
                                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={()=>setStarredMessages(true)}>Starred messages</p>
                                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={()=>setSelectChats(true)}>Select chats</p>
                                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={()=>setSettings(true)}>Settings</p>
-                                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Log out</p>
+                                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={()=>setLogout(true)}>Log out</p>
                                 </div>
                         </div>
                     </div>
