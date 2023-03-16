@@ -1,12 +1,16 @@
-function Start_community(){
+import dp from "./images/dp.jfif";
+import lm from "./images/lm.jfif";
+import car from "./images/car.jfif";
+
+function Archived(props){
     return(
-        <div className="start-community">
+        <div>
                 <div className="h-[108px] bg-[#A52729] flex flex-col justify-end">
                     <div className="h-[54px] w-full flex items-center">
-                        <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="fill-[#ffffffe6] mx-6 cursor-pointer" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
+                        <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="fill-[#ffffffe6] mx-6 cursor-pointer" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24" onClick={props.archived}>
                             <path fill="#fffffffe6" d="M12,4l1.4,1.4L7.8,11H20v2H7.8l5.6,5.6L12,20l-8-8L12,4z"></path>
                         </svg>
-                        <p className="text-[19px] text-[#ffffffe6] font-medium">New Community</p>
+                        <p className="text-[19px] text-[#ffffffe6] font-medium">Archived</p>
                     </div>
                 </div>
                 <div className="h-[70px] flex items-center px-[10px] grow-0 shrink-0">
@@ -72,5 +76,5 @@ function Start_community(){
                 </div>
         </div>
     )
-};
-export default Start_community;
+}
+export default Archived;

@@ -5,11 +5,15 @@
 .chats_scroll{
     height: calc(100vh - 199px);
 }
-.chats_scroll::-webkit-scrollbar,.new_chats_scroll::-webkit-scrollbar,.communities::-webkit-scrollbar{
+.chats_scroll::-webkit-scrollbar,
+.new_chats_scroll::-webkit-scrollbar,
+.communities::-webkit-scrollbar{
     width: 4px;
     background: white;
 }
-.chats_scroll::-webkit-scrollbar-thumb,.new_chats_scroll::-webkit-scrollbar-thumb,.communities::-webkit-scrollbar-thumb{
+.chats_scroll::-webkit-scrollbar-thumb,
+.new_chats_scroll::-webkit-scrollbar-thumb,
+.communities::-webkit-scrollbar-thumb{
     background: #CED0D1;
 }
 .new_chats_scroll{

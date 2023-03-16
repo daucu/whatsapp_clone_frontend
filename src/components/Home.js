@@ -1,7 +1,6 @@
 import Chats from "./Chats";
 import Chat_single from "./Chat_single";
 
-
 function Home(){
     return(
         <div>

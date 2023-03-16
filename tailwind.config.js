@@ -146,12 +146,12 @@ module.exports = {
           '100%':{opacity:'1',left:'470px'}
         },
         search_messages_full:{
-          '0%':{opacity:'0',width:'0px'},
-          '100%':{opacity:'1',width:'400px'}
+          '0%':{opacity:'0',minWidth:'0px',maxWidth:'0px'},
+          '100%':{opacity:'1',minWidth:'400px',maxWidth:'400px'}
         },
         search_messages_zero:{
-          '0%':{opacity:'1',width:'400px'},
-          '100%':{opacity:'0',width:'0px'}
+          '0%':{opacity:'1',minWidth:'400px',maxWidth:'400px'},
+          '100%':{opacity:'0',minWidth:'0px',maxWidth:'0px'}
         },
         chat_single_menu:{
           '0%':{opacity:'0',width:'0px',height:'0px',left:'0px'},
