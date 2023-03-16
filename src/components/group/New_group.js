@@ -71,7 +71,7 @@ const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
                                         <div className="h-[26px] w-[26px] rounded-full">
                                             <img src={item.dp} alt="" className="rounded-full h-[26px] w-[26px]" />
                                         </div>
-                                        <div className="text-[14px] text-[#3b4a54] px-2">{item.name}</div>
+                                        <div className="text-[14px] text-[#3b4a54] px-2 leading-[26px]">{item.name}</div>
                                         <div className="h-[20px] w-[20px] flex items-center justify-center hover:bg-white mr-[3px] rounded-full cursor-pointer hover:transition-all" onClick={()=>removeContactFromNewGroup(item.name)}>
                                             <svg viewBox="0 0 16 16" height="16" width="16" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 16 16" ><path fill="#8696a0" enable-background="new" d="M12.174,4.661l-0.836-0.835L8,7.165L4.661,3.826L3.826,4.661 L7.165,8l-3.339,3.339l0.835,0.835L8,8.835l3.338,3.339l0.836-0.835L8.835,8L12.174,4.661z"></path>
                                             </svg>

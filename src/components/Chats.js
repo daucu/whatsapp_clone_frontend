@@ -7,10 +7,10 @@ import Unread_chats_component from "./Unread_chats_component";
 import Select_chats from "./Select_chats";
 import Starred_messages from "./Starred_messages";
 import New_group from "./group/New_group";
-import New_community from "./New_community";
+import New_community from "./community/New_community";
 import Archived from "./Archived";
 import Settings from "./Settings";
-import Communities from "./Communities";
+import Communities from "./community/Communities";
 import Add_new_group_info from "./group/Add_new_group_info";
 
 function Chats(){
