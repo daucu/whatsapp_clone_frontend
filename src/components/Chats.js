@@ -1,6 +1,6 @@
 import Chats_component from "./Chats_component";
 import dp from "./images/dp.jfif";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import New_chats from "./New_chats";
 import { Link } from "react-router-dom";
 import Unread_chats_component from "./Unread_chats_component";
@@ -12,8 +12,9 @@ import Archived from "./Archived";
 import Settings from "./Settings";
 import Communities from "./community/Communities";
 import Add_new_group_info from "./group/Add_new_group_info";
+import './Chats_details';
 
-function Chats(){
+function Chats(props){
     const [ menu, setMenu ] = useState(false);
     const [ newChats, setNewChats ] = useState("");
     const [ community, setCommunity ] = useState("");
@@ -32,11 +33,22 @@ function Chats(){
     
     const [ filter, setFilter ] = useState("");
 
+    var contact_name = "";
+
     function handleGroupCreationResult(){
         setGroupCreationResult(false);
         setAddNewGroupInfo(false);
         setNewGroup(false);
     }
+
+    // function setContactName(data){
+    //     contact_name = data;
+    //     props.contact_name(contact_name);
+    // }
+
+    // useEffect(() => {
+    //     handleSingleChatContent();
+    // },[])
 
     return(
         <div>
@@ -132,7 +144,7 @@ function Chats(){
                     </div>
                 </div>
                 <div className="w-full bg-white">
-                    <div className={selectChats ? "hidden" : "h-[50px] flex items-center pl-[10px] grow-0 shrink-0 bg-[#1e2321]" }>
+                    <div className={selectChats ? "hidden" : "h-[50px] flex items-center pl-[10px] grow-0 shrink-0 bg-[#1e2321]"}>
                         <div className="flex items-center bg-[#0f1110] rounded-lg w-full h-[35px] px-4">
                             <svg viewBox="0 0 24 24" height="20" width="20" class="fill-[#54656f]">
                                 <path fill="#ffffffe6" d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"></path>
