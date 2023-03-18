@@ -247,7 +247,7 @@ export const Chats = [
     },
 ]
 
-function Chats_details() {
+function Chats_details(props) {
     var data = "";
     function setContactName(name) {
         data = name;

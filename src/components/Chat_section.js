@@ -7,8 +7,18 @@ import { MdCall } from "react-icons/md";
 import { Chats } from "./Chats_details";
 
 function Chat_section(props) {
-  const [menu, setMenu] = useState(false);
-  const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
+  const [menuSelf, setMenuSelf] = useState(false);
+  const [menuBusiness, setMenuBusiness] = useState(false);
+  const [menuNormal, setMenuNormal] = useState(false);
+  const [menuGroup, setMenuGroup] = useState(false);
+  const [profileType, setProfileType] = useState("business");
+
+  const [send, setSend] = useState(false);
+
+  // function handleSend(){
+  //   if()
+  //   setSend(!send);
+  // }
 
   var chat = [
     {
@@ -138,14 +148,28 @@ function Chat_section(props) {
 //     forceUpdate();
 //   }, []);
 
+// code to find index of element in array
+  // function findIndex() {
+  //   for (var i = 0; i < Chats.length; i++) {
+  //     if (chat[i].name == contact_name) {
+  //       return i;
+  //       console.log(i)
+  //     }
+  //   }
+  // }
+  // var index = findIndex();
+  // console.log(index);
+  // chat = chat[index];
+
+
   return (
     <div className="h-[100vh] flex flex-col grow shrink">
-      {
+      {/* {
                 Chats.map((val,key) => {
                     if(chat.name == contact_name)
                     {
                         return(
-                            <div className="h-[60px] bg-[#1E2321] flex items-center justify-between px-4 shadow-sm grow-0 shrink-0">
+                            <div className="h-[60px] bg-[#1E2321] flex items-center justify-between px-4 shadow-sm grow-0 shrink-0" onClick={()=>props.contact(val.name)}>
                                 <div className="flex items-center grow shrink" onClick={props.profileDetails}>
                                     <div className="rounded-full h-[40px] w-[40px] bg-cover bg-center mr-4 cursor-pointer" style={{ backgroundImage:`url(${dp})` }} title="Profile Details"></div>
                                     <div className="h-[40px] flex flex-col cursor-pointer">
@@ -187,11 +211,106 @@ function Chat_section(props) {
                     }
                     // console.log(props.contact_name)
                 })
-                }
-      
+                } */}
+    
+        <div className="h-[60px] bg-[#1E2321] flex items-center justify-between px-4 shadow-sm grow-0 shrink-0">
+        <div className="flex items-center grow shrink" onClick={props.profileDetails}>
+            <div className="rounded-full h-[40px] w-[40px] bg-cover bg-center mr-4 cursor-pointer" style={{ backgroundImage:`url(${dp})` }} title="Profile Details"></div>
+            <div className="h-[40px] flex flex-col cursor-pointer">
+                <p className="text-[16px] leading-[21px] text-white/90">{chat.name}</p>
+                <p className="text-[13px] leading-[19px] text-white/70">Message yourself</p>
+            </div>
+        </div>
+        <div className="flex items-center">
+            <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Audio call" onClick={props.audioCall}>
+                <MdCall className="text-[#ffffffe6] text-[20px]"/>
+            </div>
+            <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Video call" onClick={props.videoCall}>
+                <FaVideo className="text-[#ffffffe6] text-[20px]"/>
+            </div>
+            <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" onClick={props.searchMessages} title="Search...">
+                <svg viewBox="0 0 24 24" height="24" width="24" class="fill-[#ffffffe6]">
+                    <path fill="#ffffffe6" d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"></path>
+                </svg>
+            </div>
+            <div className="relative">
+                <div>
+                  {
+                    profileType === "self" ? (
+                    <div className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full hover:bg-[#0F1110]" title="Menu" onClick={()=>setMenuSelf(!menuSelf)}>
+                      <svg viewBox="0 0 24 24" height="24" width="24"  class="fill-[#ffffffe6]" >
+                        <path fill="fffffffe6" d="M12,7c1.104,0,2-0.896,2-2c0-1.105-0.895-2-2-2c-1.104,0-2,0.894-2,2 C10,6.105,10.895,7,12,7z M12,9c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,9.895,13.104,9,12,9z M12,15 c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,15.894,13.104,15,12,15z"></path>
+                      </svg>
+                    </div>) : null
+                  }
+                  {
+                    profileType === "business" ? (
+                    <div className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full hover:bg-[#0F1110]" title="Menu" onClick={()=>setMenuBusiness(!menuBusiness)}>
+                      <svg viewBox="0 0 24 24" height="24" width="24"  class="fill-[#ffffffe6]" >
+                        <path fill="fffffffe6" d="M12,7c1.104,0,2-0.896,2-2c0-1.105-0.895-2-2-2c-1.104,0-2,0.894-2,2 C10,6.105,10.895,7,12,7z M12,9c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,9.895,13.104,9,12,9z M12,15 c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,15.894,13.104,15,12,15z"></path>
+                      </svg>
+                    </div>) : null
+                  }
+                  {
+                    profileType === "group" ? (
+                    <div className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full hover:bg-[#0F1110]" title="Menu" onClick={()=>setMenuGroup(!menuGroup)}>
+                      <svg viewBox="0 0 24 24" height="24" width="24"  class="fill-[#ffffffe6]" >
+                        <path fill="fffffffe6" d="M12,7c1.104,0,2-0.896,2-2c0-1.105-0.895-2-2-2c-1.104,0-2,0.894-2,2 C10,6.105,10.895,7,12,7z M12,9c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,9.895,13.104,9,12,9z M12,15 c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,15.894,13.104,15,12,15z"></path>
+                      </svg>
+                    </div>) : null
+                  }
+                  {
+                    profileType === "normal" ? (
+                    <div className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full hover:bg-[#0F1110]" title="Menu" onClick={()=>setMenuNormal(!menuNormal)}>
+                      <svg viewBox="0 0 24 24" height="24" width="24"  class="fill-[#ffffffe6]" >
+                        <path fill="fffffffe6" d="M12,7c1.104,0,2-0.896,2-2c0-1.105-0.895-2-2-2c-1.104,0-2,0.894-2,2 C10,6.105,10.895,7,12,7z M12,9c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,9.895,13.104,9,12,9z M12,15 c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,15.894,13.104,15,12,15z"></path>
+                      </svg>
+                    </div>) : null
+                  }
+                </div>
+                <div className={ menuSelf ? "bg-white rounded-sm shadow-md py-[6px] absolute top-[46px] left-[-200px] w-[230px] h-[252px] animate-chat_single_menu_self overflow-hidden" : "w-0 h-0 overflow-hidden" }>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={props.profileDetails}>Contact info</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Select messages</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Close chat</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Disappearing messages</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Clear messages</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Delete chat</p>
+                </div>
+                <div className={ menuGroup ? "bg-white rounded-sm shadow-md py-[6px] absolute top-[46px] left-[-200px] w-[230px] h-[212px] animate-chat_single_menu overflow-hidden" : "w-0 h-0 overflow-hidden" }>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={props.profileDetails}>Group info</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Select messages</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Mute Notifications</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Clear messages</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Exit Group</p>
+                </div>
+                <div className={ menuBusiness ? "bg-white rounded-sm shadow-md py-[6px] absolute top-[46px] left-[-200px] w-[230px] h-[412px] animate-chat_single_menu overflow-hidden" : "w-0 h-0 overflow-hidden" }>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={props.profileDetails}>Contact info</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Business details</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Select messages</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Close chat</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Mute notifications</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Disappearing messages</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Clear messages</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Delete chat</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Report</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Block</p>
+                </div>
+                <div className={ menuNormal ? "bg-white rounded-sm shadow-md py-[6px] absolute top-[46px] left-[-200px] w-[230px] h-[372px] animate-chat_single_menu overflow-hidden" : "w-0 h-0 overflow-hidden" }>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={props.profileDetails}>Contact info</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Select messages</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Close chat</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Mute Notifications</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Disappearing messages</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Clear messages</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Delete chat</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Report</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Block</p>
+                </div>
+            </div>
+        </div>
+        </div>
 
-      <div
-        className="h-full grow shrink bg-cover bg-no-repeat bg-center flex  bg-white"
+      <div className="h-full grow shrink bg-cover bg-no-repeat bg-center flex  bg-white"
         style={{ backgroundImage: `url(${whatsapp_web_bg_light})` }}
       >
         <div className=" w-full px-5 lg:px-[65px] pt-2 chat_section overflow-y-scroll">
@@ -307,27 +426,15 @@ function Chat_section(props) {
             ></path>
           </svg>
         </div>
-        <div
-          className="grow shrink h-[40px] bg-white rounded-xl shadow-sm cursor-pointer"
-          title="Type a message"
-        >
-          <input
-            type="text"
-            className="outline-none rounded-lg h-[40px] placeholder:text-white/50 text-[15px] px-4 w-full bg-[#0f1110] text-white/60"
-            placeholder="Type a message"
-          />
+        <div className="grow shrink h-[40px] bg-white rounded-xl shadow-sm cursor-pointer" title="Type a message">
+          <input type="text" className="outline-none rounded-lg h-[40px] placeholder:text-white/50 text-[15px] px-4 w-full bg-[#0f1110] text-white/60" placeholder="Type a message" onChange={()=>setSend(true)}/>
         </div>
         <div className="h-[37px] w-[52px] flex items-center justify-center cursor-pointer">
-          <svg
-            viewBox="0 0 24 24"
-            height="24"
-            width="24"
-            class="fill-[#ffffffe6]"
-          >
-            <path
-              fill="#ffffffe6"
-              d="M11.999,14.942c2.001,0,3.531-1.53,3.531-3.531V4.35c0-2.001-1.53-3.531-3.531-3.531 S8.469,2.35,8.469,4.35v7.061C8.469,13.412,9.999,14.942,11.999,14.942z M18.237,11.412c0,3.531-2.942,6.002-6.237,6.002 s-6.237-2.471-6.237-6.002H3.761c0,4.001,3.178,7.297,7.061,7.885v3.884h2.354v-3.884c3.884-0.588,7.061-3.884,7.061-7.885 L18.237,11.412z"
-            ></path>
+          <svg viewBox="0 0 24 24" height="24" width="24" class={ send ? "hidden" : "fill-[#ffffffe6]" }>
+            <path fill="#ffffffe6" d="M11.999,14.942c2.001,0,3.531-1.53,3.531-3.531V4.35c0-2.001-1.53-3.531-3.531-3.531 S8.469,2.35,8.469,4.35v7.061C8.469,13.412,9.999,14.942,11.999,14.942z M18.237,11.412c0,3.531-2.942,6.002-6.237,6.002 s-6.237-2.471-6.237-6.002H3.761c0,4.001,3.178,7.297,7.061,7.885v3.884h2.354v-3.884c3.884-0.588,7.061-3.884,7.061-7.885 L18.237,11.412z" ></path>
+          </svg>
+          <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class={ send ? "#ffffffe6" : "hidden" } version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
+            <path fill="#ffffffe6" d="M1.101,21.757L23.8,12.028L1.101,2.3l0.011,7.912l13.623,1.816L1.112,13.845 L1.101,21.757z"></path>
           </svg>
         </div>
       </div>

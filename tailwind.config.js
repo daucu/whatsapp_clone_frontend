@@ -24,7 +24,10 @@ module.exports = {
         fade_in_left:'fade_in_left 1.2s forwards',
         search_messages_full:'search_messages_full 0.16s ease-in-out forwards',
         search_messages_zero:'search_messages_zero 0.16s ease-in-out forwards',
-        chat_single_menu: 'chat_single_menu 0.16s ease-in-out forwards',
+        chat_single_menu_self: 'chat_single_menu_self 0.16s ease-in-out forwards',
+        chat_single_menu_normal: 'chat_single_menu_normal 0.16s ease-in-out forwards',
+        chat_single_menu_business: 'chat_single_menu_business 0.16s ease-in-out forwards',
+        chat_single_menu_group: 'chat_single_menu_group 0.16s ease-in-out forwards',
         chats_menu : 'chats_menu 0.16s ease-in-out forwards',
         new_chats_show: 'new_chats_show 0.16s ease-in-out forwards',
         new_chats_hide: 'new_chats_hide 0.16s ease-in-out forwards',
@@ -156,9 +159,21 @@ module.exports = {
           '0%':{opacity:'1',minWidth:'400px',maxWidth:'400px'},
           '100%':{opacity:'0',minWidth:'0px',maxWidth:'0px'}
         },
-        chat_single_menu:{
+        chat_single_menu_self:{
           '0%':{opacity:'0',width:'0px',height:'0px',left:'0px'},
           '100%':{opacity:'1',width:'230px',height:'252px',left:'-180px'}
+        },
+        chat_single_menu_normal:{
+          '0%':{opacity:'0',width:'0px',height:'0px',left:'0px'},
+          '100%':{opacity:'1',width:'230px',height:'372px',left:'-180px'}
+        },
+        chat_single_menu_business:{
+          '0%':{opacity:'0',width:'0px',height:'0px',left:'0px'},
+          '100%':{opacity:'1',width:'230px',height:'412px',left:'-180px'}
+        },
+        chat_single_menu_group:{
+          '0%':{opacity:'0',width:'0px',height:'0px',left:'0px'},
+          '100%':{opacity:'1',width:'230px',height:'212px',left:'-180px'}
         },
         chats_menu:{
           '0%':{opacity:'0',width:'0px',height:'0px',left:'0px'},
