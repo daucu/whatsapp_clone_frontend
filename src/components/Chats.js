@@ -12,6 +12,10 @@ import Archived from "./Archived";
 import Settings from "./Settings";
 import Communities from "./community/Communities";
 import Add_new_group_info from "./group/Add_new_group_info";
+import Add_existing_community_groups from "./community/Add_existing_community_groups";
+import Add_community_groups from "./community/Add_community_groups";
+import Add_new_community_info from "./community/Add_new_community_info";
+import Start_community from "./community/Start_community";
 import './Chats_details';
 
 function Chats(props){
@@ -20,7 +24,11 @@ function Chats(props){
     const [ community, setCommunity ] = useState("");
     const [ newGroup, setNewGroup ] = useState("");
     const [ addNewGroupInfo, setAddNewGroupInfo ] = useState("");
-    const [ newCommunity, setNewCommunity ] = useState("");
+    const [ addExistingCommunityGroups, setAddExistingCommunityGroups ] = useState("");
+    const [ addCommunityGroups, setAddCommunityGroups ] = useState("");
+    const [ addNewCommunityInfo, setAddNewCommunityInfo ] = useState("");
+    const [ startCommunity, setStartCommunity ] = useState("");
+    const [ communities, setCommunities ] = useState("");
     const [ archived, setArchived ] = useState("");
     const [ notified, setNotified ] = useState(false);
     const [ starredMessages, setStarredMessages ] = useState("");
@@ -32,6 +40,8 @@ function Chats(props){
     //unread chats filter
     
     const [ filter, setFilter ] = useState("");
+
+
 
     var contact_name = "";
 
@@ -60,8 +70,20 @@ function Chats(props){
                 <Add_new_group_info addNewGroupInfoFalse={()=>setAddNewGroupInfo(false)} groupCreationResult={()=>setGroupCreationResult(true)}/>
             </div>
 
-            <div className={ newCommunity === "" ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : newCommunity ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
-                <New_community newCommunity={()=>setNewCommunity(false)}/>
+            <div className={ addExistingCommunityGroups === "" ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : addExistingCommunityGroups ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
+                <Add_existing_community_groups addExistingCommunityGroupsFalse={()=>setAddExistingCommunityGroups(false)} />
+            </div>
+
+            <div className={ addCommunityGroups === "" ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : addCommunityGroups && !(addExistingCommunityGroups) ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
+                <Add_community_groups addCommunityGroupsFalse={()=>setAddCommunityGroups(false)} addExistingCommunityGroupsTrue={()=>setAddExistingCommunityGroups(true)}/>
+            </div>
+
+            <div className={ addNewCommunityInfo === "" ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : addNewCommunityInfo && !(addCommunityGroups)  ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
+                <Add_new_community_info addNewCommunityInfoFalse={()=>setAddNewCommunityInfo(false)} addCommunityGroupsTrue={()=>setAddCommunityGroups(true)}/>
+            </div>
+
+            <div className={ startCommunity === "" ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : startCommunity && !(addNewCommunityInfo) ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
+                <Start_community startCommunityFalse={()=>setStartCommunity(false)} addNewCommunityInfoTrue={()=>setAddNewCommunityInfo(true)}/>
             </div>
 
             <div className={ archived === "" ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : archived ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
@@ -133,7 +155,7 @@ function Chats(props){
                                 </div>
                                 <div className={ menu ? "bg-white rounded-sm shadow-md py-[6px] absolute top-[46px] left-[-130px] w-[180px] h-[252px] animate-chats_menu overflow-hidden" : "w-0 h-0 overflow-hidden" }>
                                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={()=>setNewGroup(true)}>New group</p>
-                                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={()=>setNewCommunity(true)}>New community</p>
+                                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={()=>setStartCommunity(true)}>New community</p>
                                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={()=>setArchived(true)}>Archived</p>
                                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={()=>setStarredMessages(true)}>Starred messages</p>
                                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={()=>setSelectChats(true)}>Select chats</p>
