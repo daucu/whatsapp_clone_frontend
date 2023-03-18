@@ -31,6 +31,9 @@ export default function Login() {
         if (res.status === 200) {
           setLoading(false);
           toast.success(res.data.message);
+          setTimeout(() => {
+            window.location.href = "/";
+          }, [1500]);
         }
         setLoading(false);
       })
