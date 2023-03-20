@@ -1,12 +1,12 @@
-import Chats from "./Chats";
+import Settings_component from "./settings/Settings_component";
 import Chat_single from "./Chat_single";
 
-function Home(){
+function Settings_page(){
     return(
         <div>
             <div className="flex min-w-[800px]">
-                <div className="chats_section">
-                    <Chats/>
+                <div className="chats_section w-[400px]">
+                    <Settings_component/>
                 </div>
                 <div className="single_chat grow shrink">
                     <Chat_single/>
@@ -15,4 +15,4 @@ function Home(){
         </div>
     );
 }
-export default Home;
+export default Settings_page;

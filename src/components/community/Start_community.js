@@ -2,18 +2,19 @@ import dp from "./images/dp.jfif";
 import lm from "./images/lm.jfif";
 import car from "./images/car.jfif";
 import { Community_icon, Manage_icon, Reach_icon, Organise_icon } from "../Svg";
+import { Link } from "react-router-dom";
 
 
 function Start_community(props){
     return(
         <div>
                 <div className="h-[108px] bg-[#A52729] flex flex-col justify-end">
-                    <div className="h-[54px] w-full flex items-center">
-                        <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="fill-[#ffffffe6] mx-6 cursor-pointer" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24" onClick={props.startCommunityFalse}>
+                    <Link to="/" className="h-[54px] w-full flex items-center" >
+                        <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="fill-[#ffffffe6] mx-6 cursor-pointer" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
                             <path fill="#fffffffe6" d="M12,4l1.4,1.4L7.8,11H20v2H7.8l5.6,5.6L12,20l-8-8L12,4z"></path>
                         </svg>
                         <p className="text-[19px] text-[#ffffffe6] font-medium">New Community</p>
-                    </div>
+                    </Link>
                 </div>
                 <div className="new_chats_scroll overflow-x-scroll h-[calc(100vh-108px)]">
                     <div className="flex justify-center pt-8">

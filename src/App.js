@@ -1,17 +1,17 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Home from "./components/Home";
-import Chats from "./components/Chats";
-import ChatSingle from "./components/Chat_single";
-import Chats_component from "./components/Chats_component";
-import New_chats from "./components/New_chats";
-import Status from "./components/Status";
-import Svg from "./components/Svg";
+import Home_new from "./components/Home_new";
+import Status from "./components/status/Status";
+import Community_page from "./components/Community_page";
+import Group_page from "./components/Group_page";
+import Archived_page from "./components/Archived_page";
+import Settings_page from "./components/Settings_page";
+
+import axios from "axios";
 import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
+import New_chats from "./components/New_chat";
 
 axios.defaults.withCredentials = true;
 
@@ -20,13 +20,13 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/chats" element={<Chats />} />
-          <Route path="/chat-single" element={<ChatSingle />} />
-          <Route path="/chats-component" element={<Chats_component />} />
-          <Route path="/new-chats" element={<New_chats />} />
+          <Route path="/" element={<Home_new />} />
           <Route path="/status" element={<Status />} />
-          <Route path="/svg" element={<Svg />} />
+          <Route path="/community" element={<Community_page />} />
+          <Route path="/group" element={<Group_page />} />
+          <Route path="/new_chats" element={<New_chats />} />
+          <Route path="/archived" element={<Archived_page />} />
+          <Route path="/settings" element={<Settings_page />} />
           <Route path="/login" element={<Login />} />
           <Route path="/singup" element={<Signup />} />
         </Routes>

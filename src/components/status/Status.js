@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import dp from "./images/dp.jfif";
+import dp from "./../images/dp.jfif";
 
 function Status(){
     return (

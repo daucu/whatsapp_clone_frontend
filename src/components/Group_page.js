@@ -1,12 +1,12 @@
-import Chats from "./Chats";
+import Group_component from "./group/Group_component";
 import Chat_single from "./Chat_single";
 
-function Home(){
+function Group_page(){
     return(
         <div>
             <div className="flex min-w-[800px]">
-                <div className="chats_section">
-                    <Chats/>
+                <div className="chats_section w-[400px]">
+                    <Group_component/>
                 </div>
                 <div className="single_chat grow shrink">
                     <Chat_single/>
@@ -15,4 +15,4 @@ function Home(){
         </div>
     );
 }
-export default Home;
+export default Group_page;

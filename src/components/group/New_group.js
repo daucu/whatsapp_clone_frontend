@@ -1,36 +1,38 @@
-import dp from "./images/dp.jfif";
-import lm from "./images/lm.jfif";
-import car from "./images/car.jfif";
-import a from "./images/a.svg";
-import svg from "./images/svg.svg";
+import dp from "./../images/dp.jfif";
+import lm from "./../images/lm.jfif";
+import car from "./../images/car.jfif";
+import anas_dp from "./../images/anas_dp.enc";
 import { useEffect, useState, useReducer } from "react";
+import { contacts, contactIconDefault } from "../Contacts_collection";
+import {IoPersonSharp} from "react-icons/io";
+import { Link } from "react-router-dom";
 
 function New_group(props){
 
 const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
 // const [ignored1, forceUpdate1] = useReducer(x => x - 1, 0);
-    var contacts = [
-        {
-            name : "+917456998001",
-            dp: null,
-            about : ""
-        },
-        {
-            name : "+919560132730",
-            dp: lm,
-            about : "Hey there! I am using WhatsApp."
-        },
-        {
-            name : "3747",
-            dp: car,
-            about : "Hey there! I am using WhatsApp."
-        },
-        {
-            name : "Arman (You)",
-            dp: dp,
-            about : "Message yourself"
-        },
-    ];
+    // var contacts = [
+    //     {
+    //         name : "+917456998001",
+    //         dp: null,
+    //         about : ""
+    //     },
+    //     {
+    //         name : "+919560132730",
+    //         dp: lm,
+    //         about : "Hey there! I am using WhatsApp."
+    //     },
+    //     {
+    //         name : "3747",
+    //         dp: car,
+    //         about : "Hey there! I am using WhatsApp."
+    //     },
+    //     {
+    //         name : "Arman (You)",
+    //         dp: dp,
+    //         about : "Message yourself"
+    //     },
+    // ];
     
 
     var contactsNewGroup = localStorage.getItem("contactsNewGroup") ? JSON.parse(localStorage.getItem("contactsNewGroup")) : [];
@@ -52,28 +54,31 @@ const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
     
     return(
         <div className="flex flex-col h-screen">
-                <div className="h-[108px] bg-[#A52729] flex flex-col justify-end">
-                    <div className="h-[54px] w-full flex items-center">
-                        <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="fill-[#ffffffe6] mx-6 cursor-pointer" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24" onClick={props.newGroupFalse}>
+                <div className="h-[108px] bg-[#A52729] flex flex-col justify-end grow-0 shrink-0">
+                    <Link to="/" className="h-[54px] w-full flex items-center">
+                        <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="fill-[#ffffffe6] mx-6 cursor-pointer" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
                             <path fill="#fffffffe6" d="M12,4l1.4,1.4L7.8,11H20v2H7.8l5.6,5.6L12,20l-8-8L12,4z"></path>
                         </svg>
                         <p className="text-[19px] text-[#ffffffe6] font-medium">Add group participants</p>
-                    </div>
+                    </Link>
                 </div>
                 <div className="min-h-[70px] flex items-center px-[10px] grow-0 shrink-0 w-full">
                     <div className="w-full">
                     <div className={ contactsNewGroup.length === 0 ? "hidden" : "min-h-[32px] w-full flex items-center flex-wrap mt-6" }>
                         {
-                            contacts.map((item, key) => {
-                                if(contactsNewGroup.includes(item.name))
+                            contacts.map((item) => {
+                                if(contactsNewGroup.includes(item.contactName))
                                 return(
                                     <div className="flex items-center shrink-0 grow-0 h-[26px] rounded-full bg-[#E9EDEF] m-[3px]">
                                         <div className="h-[26px] w-[26px] rounded-full">
-                                            <img src={item.dp} alt="" className="rounded-full h-[26px] w-[26px]" />
-                                        </div>
-                                        <div className="text-[14px] text-[#3b4a54] px-2 leading-[26px]">{item.name}</div>
-                                        <div className="h-[20px] w-[20px] flex items-center justify-center hover:bg-white mr-[3px] rounded-full cursor-pointer hover:transition-all" onClick={()=>removeContactFromNewGroup(item.name)}>
-                                            <svg viewBox="0 0 16 16" height="16" width="16" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 16 16" ><path fill="#8696a0" enable-background="new" d="M12.174,4.661l-0.836-0.835L8,7.165L4.661,3.826L3.826,4.661 L7.165,8l-3.339,3.339l0.835,0.835L8,8.835l3.338,3.339l0.836-0.835L8.835,8L12.174,4.661z"></path>
+                                            {
+                                                item.contactIcon === null ? (contactIconDefault) : (<div className="h-[26px] w-[26px] rounded-full flex items-center justify-center"><img src={item.contactIcon} className="rounded-full h-[26px] w-[26px]" /></div>)
+                                            }
+                                        </div> 
+                                        <div className="text-[14px] text-[#3b4a54] px-2 leading-[26px]">{item.contactName}</div>
+                                        <div className="h-[20px] w-[20px] flex items-center justify-center hover:bg-white mr-[3px] rounded-full cursor-pointer hover:transition-all" onClick={()=>removeContactFromNewGroup(item.contactName)}>
+                                            <svg viewBox="0 0 16 16" height="16" width="16" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 16 16" >
+                                                <path fill="#8696a0" enable-background="new" d="M12.174,4.661l-0.836-0.835L8,7.165L4.661,3.826L3.826,4.661 L7.165,8l-3.339,3.339l0.835,0.835L8,8.835l3.338,3.339l0.836-0.835L8.835,8L12.174,4.661z"></path>
                                             </svg>
                                         </div>
                                     </div>
@@ -94,19 +99,18 @@ const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
                         contacts.map((item, key) => {
                             return(
                                 <div 
-                                onClick={()=>addContactToNewGroup(item.name)}
-                                className={contactsNewGroup.includes(item.name) ? "hidden" : "flex hover:bg-[#ececec] hover:transition-all cursor-pointer"} 
+                                onClick={()=>addContactToNewGroup(item.contactName)}
+                                className={contactsNewGroup.includes(item.contactName) ? "hidden" : "flex hover:bg-[#ececec] hover:transition-all cursor-pointer"} 
                                 >
                                     <div className="h-[72px] w-[76px] grow-0 shrink-0 flex items-center justify-center">
                                         <div className="w-[48px] h-[48px] rounded-full flex items-center justify-center">
                                             {
-                                                item.dp === null ? (<img src={dp} alt="" className="rounded-full w-full h-full" />) : (<img src={item.dp} alt="" className="rounded-full w-full h-full" />)
+                                                item.contactIcon === null ? (contactIconDefault) : (<img src={item.contactIcon} alt="" className="rounded-full w-full h-full" />)
                                             }
-                                            
                                         </div>
                                     </div>
                                     <div className="shrink grow h-[72px] border-t text-[17px] text-[#111b21] leading-[72px] flex flex-col justify-center">
-                                        <div className="h-[22px] text-[17px] leading-[22px]">{item.name}</div>
+                                        <div className="h-[22px] text-[17px] leading-[22px]">{item.contactName}</div>
                                         <div className="h-[20px] text-[14px] leading-[20px] text-[#667781]">{item.about}</div>
                                     </div>
                                 </div>

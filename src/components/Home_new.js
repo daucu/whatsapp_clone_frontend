@@ -1,4 +1,4 @@
-import Chats from "./Chats";
+import New_chats_component from "./New_chats_component";
 import Chat_single from "./Chat_single";
 
 function Home(){
@@ -6,7 +6,7 @@ function Home(){
         <div>
             <div className="flex min-w-[800px]">
                 <div className="chats_section">
-                    <Chats/>
+                    <New_chats_component/>
                 </div>
                 <div className="single_chat grow shrink">
                     <Chat_single/>

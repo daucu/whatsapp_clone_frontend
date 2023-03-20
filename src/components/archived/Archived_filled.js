@@ -1,17 +1,63 @@
 import dp from "./images/dp.jfif";
-import neeraj_dp from "./images/neeraj_dp.jpeg";
-import {BsPersonCircle} from "react-icons/bs";
+import lm from "./images/lm.jfif";
+import car from "./images/car.jfif";
+import sahil_dp from "./../images/sahil_dp.jpg";
 
-import { Contact_icon, Gif_icon, Location_icon, Image_icon, Sticker_icon, Document_icon, Video_icon, Audio_icon, Seen_icon, Unseen_icon, Undelivered_icon, Unsent_icon }  from "./Svg";
-import { chats } from "./Chats_details";
-import { contactIconDefault } from "./Contacts_collection";
+import "./Archived_filled.css";
+import { Link } from "react-router-dom";
 
-function Chats_component(props){
+
+import { Contact_icon, Gif_icon, Location_icon, Image_icon, Sticker_icon, Document_icon, Video_icon, Audio_icon, Seen_icon, Unseen_icon, Undelivered_icon, Unsent_icon }  from "./../Svg";
+import { chats } from "./../Chats_details";
+import { contactIconDefault } from "./../Contacts_collection";
+
+function Archived_filled(){
+    const chats = [
+        {
+            name: "Sahil_khatri",
+            dp: sahil_dp,
+            is_online: true,
+            last_seen: "12:00",
+            last_message: {
+                    is_sent_by_me: true,
+                    is_sent: true,
+                    is_delivered: true,
+                    is_seen: true,
+                    is_text: true,
+                    is_audio: false,
+                    audio_duration: "0:02",
+                    is_video: false,
+                    is_document: false,
+                    document_name: "",
+                    is_sticker: false,
+                    is_image: false,
+                    is_gif: false,
+                    is_contact: false,
+                    is_location: false,
+                    is_audio_call: false,
+                    is_video_call: false,
+                    message: "Acha",
+                    time: "15:27",
+                }
+        },
+    ];
     return(
         <div>
-            <div className="">
-{chats.map((chat_item) => {return(
-    <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all" onclick={() => props.contact(chat_item.name)}>
+            <div className="h-[108px] bg-[#A52729] flex flex-col justify-end">
+                <Link to="/" className="h-[54px] w-full flex items-center">
+                    <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="fill-[#ffffffe6] mx-6 cursor-pointer" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
+                        <path fill="#fffffffe6" d="M12,4l1.4,1.4L7.8,11H20v2H7.8l5.6,5.6L12,20l-8-8L12,4z"></path>
+                    </svg>
+                    <p className="text-[19px] text-[#ffffffe6] font-medium">Archived</p>
+                </Link>
+            </div>
+            <div className="h-[85px] bg-[#F0F2F5] p-[10px]">
+                <p className="text-[14px] text-[#667781] leading-[20px]">These chats are unarchived when new messages are received. To change this experience, go to Settings Chats on your phone </p>
+            </div>
+            <div className="archived_filled overflow-scroll h-[calc(100vh-193px)]">
+                <div className="">
+                    {chats.map((chat_item) => {return(
+    <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all">
 
         <div className="w-[49px] h-[49px] mx-[15px] flex items-center bg-[#DFE5E7] overflow-hidden rounded-full justify-center">
             {
@@ -137,9 +183,10 @@ function Chats_component(props){
             </div>
         </div>
         
-    </div>)})}
+    </div>           )})}
+                </div>
             </div>
         </div>
-    );
+    )
 }
-export default Chats_component;
+export default Archived_filled;

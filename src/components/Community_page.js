@@ -1,12 +1,12 @@
-import Chats from "./Chats";
+import Community_component from "./community/Community_component";
 import Chat_single from "./Chat_single";
 
-function Home(){
+function Community_page(){
     return(
         <div>
             <div className="flex min-w-[800px]">
-                <div className="chats_section">
-                    <Chats/>
+                <div className="chats_section w-[400px]">
+                    <Community_component/>
                 </div>
                 <div className="single_chat grow shrink">
                     <Chat_single/>
@@ -15,4 +15,4 @@ function Home(){
         </div>
     );
 }
-export default Home;
+export default Community_page;
