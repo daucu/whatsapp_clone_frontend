@@ -166,7 +166,7 @@ const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
                     </div> */}
                 </div>
                 <div className={ contactsNewGroup.length === 0 ? "hidden" : "w-full flex justify-center pt-[24px] pb-[40px]" }>
-                    <div className="rounded-full bg-[#00A884] flex items-center justify-center h-[46px] w-[46px] cursor-pointer" onClick={props.addNewGroupInfoTrue}>
+                    <div className="rounded-full bg-[#A52729] flex items-center justify-center h-[46px] w-[46px] cursor-pointer" onClick={props.addNewGroupInfoTrue}>
                         <svg viewBox="0 0 30 30" height="30" width="30" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 30 30" >
                             <path fill="white" d="M15,7l-1.4,1.4l5.6,5.6H7v2h12.2l-5.6,5.6L15,23l8-8L15,7z"></path>
                         </svg>

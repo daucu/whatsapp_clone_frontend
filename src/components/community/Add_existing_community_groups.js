@@ -7,33 +7,35 @@ import butlerians_dp from "./images/butlerians_dp.jpg";
 
 import { useEffect, useState, useReducer } from "react";
 import { Group_icon } from "../Svg";
+import {groupIconDefault, groups} from "../group/Groups_collection";
+
 
 function Add_existing_community_groups(props){
 
 const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
 
-    var groups = [
-        {
-            name : "Ahmad_Dogar",
-            dp: null,
-            participants : "You, Vishnu_Sharma",
-        },
-        {
-            name : "Butlerians",
-            dp: butlerians_dp,
-            participants: "Anas, You, Chetan"
-        },
-        // {
-        //     name : "3747",
-        //     dp: car,
-        //     about : "Hey there! I am using WhatsApp."
-        // },
-        // {
-        //     name : "Arman (You)",
-        //     dp: dp,
-        //     about : "Message yourself"
-        // },
-    ];
+    // var groups = [
+    //     {
+    //         name : "Ahmad_Dogar",
+    //         dp: null,
+    //         participants : "You, Vishnu_Sharma",
+    //     },
+    //     {
+    //         name : "Butlerians",
+    //         dp: butlerians_dp,
+    //         participants: "Anas, You, Chetan"
+    //     },
+    //     // {
+    //     //     name : "3747",
+    //     //     dp: car,
+    //     //     about : "Hey there! I am using WhatsApp."
+    //     // },
+    //     // {
+    //     //     name : "Arman (You)",
+    //     //     dp: dp,
+    //     //     about : "Message yourself"
+    //     // },
+    // ];
 
     var groupsNewCommunity = localStorage.getItem("groupsNewCommunity") ? JSON.parse(localStorage.getItem("groupsNewCommunity")) : [];
 
@@ -67,15 +69,17 @@ const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
                 <div className="w-full">
                 <div className={ groupsNewCommunity.length === 0 ? "hidden" : "min-h-[32px] w-full flex items-center flex-wrap mt-6" }>
                 {
-                    groups.map((item, key) => {
-                    if(groupsNewCommunity.includes(item.name))
+                    groups.map((item) => {
+                    if(groupsNewCommunity.includes(item.groupName))
                     return(
                         <div className="flex items-center shrink-0 grow-0 h-[26px] rounded-full bg-[#E9EDEF] m-[3px]">
                             <div className="h-[26px] w-[26px] rounded-full">
-                                <img src={item.dp} alt="" className="rounded-full h-[26px] w-[26px]" />
+                            {
+                                item.groupIcon === null ? (groupIconDefault) : (<div><img src={item.groupIcon} alt="" className="rounded-full h-[26px] w-[26px]" /></div>)
+                            }
                             </div>
-                            <div className="text-[14px] text-[#3b4a54] px-2 leading-[26px]">{item.name}</div>
-                            <div className="h-[20px] w-[20px] flex items-center justify-center hover:bg-white mr-[3px] rounded-full cursor-pointer hover:transition-all" onClick={()=>removeGroupFromNewCommunity(item.name)}>
+                            <div className="text-[14px] text-[#3b4a54] px-2 leading-[26px]">{item.groupName}</div>
+                            <div className="h-[20px] w-[20px] flex items-center justify-center hover:bg-white mr-[3px] rounded-full cursor-pointer hover:transition-all" onClick={()=>removeGroupFromNewCommunity(item.groupName)}>
                                 <svg viewBox="0 0 16 16" height="16" width="16" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 16 16" >
                                     <path fill="#8696a0" enable-background="new" d="M12.174,4.661l-0.836-0.835L8,7.165L4.661,3.826L3.826,4.661 L7.165,8l-3.339,3.339l0.835,0.835L8,8.835l3.338,3.339l0.836-0.835L8.835,8L12.174,4.661z"></path>
                                 </svg>
@@ -91,22 +95,22 @@ const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
             </div>
             <div className="new_chats_scroll grow shrink  overflow-y-scroll">
                 {
-                    groups.map((item, key) => {
+                    groups.map((item) => {
                         return(
-                            <div onClick={()=>addGroupToNewCommunity(item.name)} className={groupsNewCommunity.includes(item.name) ? "hidden" : "flex hover:bg-[#ececec] hover:transition-all cursor-pointer"} >
+                            <div onClick={()=>addGroupToNewCommunity(item.groupName)} className={groupsNewCommunity.includes(item.groupName) ? "hidden" : "flex hover:bg-[#ececec] hover:transition-all cursor-pointer"} >
                                 {/* <div className="h-[72px] flex items-center pl-6">
                                     <input type="checkbox" className="h-[20px] w-[20px] border-[2px] border-black outline-none"/>
                                 </div> */}
                                 <div className="h-[72px] w-[76px] grow-0 shrink-0 flex items-center justify-center">
                                     <div className="w-[48px] h-[48px] rounded-full flex items-center justify-center">
                                     {
-                                        item.dp === null ? (Group_icon) : (<img src={item.dp} alt="" className="rounded-full w-full h-full" />)
+                                        item.groupIcon === null ? (groupIconDefault) : (<div><img src={item.groupIcon} alt="" className="rounded-full h-[26px] w-[26px]" /></div>)
                                     }
                                     </div>
                                 </div>
                                 <div className="shrink grow h-[72px] border-t text-[17px] text-[#111b21] leading-[72px] flex flex-col justify-center">
-                                    <div className="h-[22px] text-[17px] leading-[22px]">{item.name}</div>
-                                    <div className="h-[20px] text-[14px] leading-[20px] text-[#667781]">{item.participants}</div>
+                                    <div className="h-[22px] text-[17px] leading-[22px]">{item.groupName}</div>
+                                    <div className="h-[20px] text-[14px] leading-[20px] text-[#667781]">{item.participants.length} members</div>
                                 </div>
                             </div>)})
                 }

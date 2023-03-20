@@ -50,17 +50,7 @@ function Chats(props){
         setAddNewGroupInfo(false);
         setNewGroup(false);
     }
-
-    // function setContactName(data){
-    //     contact_name = data;
-    //     props.contact_name(contact_name);
-    // }
-
-    // useEffect(() => {
-    //     handleSingleChatContent();
-    // },[])
-
-    return(
+   return(
         <div>
             <div className={ newGroup === "" && !(addNewGroupInfo === "") ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : newGroup ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
                 <New_group newGroupFalse={()=>setNewGroup(false)} addNewGroupInfoTrue={()=>setAddNewGroupInfo(true)} />
@@ -86,6 +76,10 @@ function Chats(props){
                 <Start_community startCommunityFalse={()=>setStartCommunity(false)} addNewCommunityInfoTrue={()=>setAddNewCommunityInfo(true)}/>
             </div>
 
+            <div className={ community === "" ? "h-screen w-[400px] fixed left-[-800px] z-10 bg-white" : community ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
+                <Communities community={()=>setCommunity(false)} />
+            </div>
+
             <div className={ archived === "" ? "h-screen w-[400px] fixed left-[-400px] z-10 bg-white" : archived ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
                 <Archived archived={()=>setArchived(false)}/>
             </div>
@@ -98,10 +92,6 @@ function Chats(props){
                 <Settings settings={()=>setSettings(false)} />
             </div>
 
-            <div className={ community === "" ? "h-screen w-[400px] fixed left-[-800px] z-10 bg-white" : community ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-white z-10" }>
-                <Communities community={()=>setCommunity(false)} />
-            </div>
-
             <div className={ starredMessages === "" ? "h-screen w-[400px] fixed left-[-800px] z-10 bg-white" : starredMessages ? "animate-new_chats_show fixed w-[400px] bg-white z-10" : "animate-new_chats_hide fixed w-[400px] bg-[#f0f2f5] z-10" }>
                 <Starred_messages starredMessages={()=>setStarredMessages(false)}/>
             </div>
@@ -111,8 +101,8 @@ function Chats(props){
                     <p className="text-[20px] leading-[25px] text-[#3b4a54]">Log out?</p>
                     <p className="text-[14px] leading-[20px] text-[#3b4a54] mt-4">Are you sure you want to logout?</p>
                     <div className="mt-10 flex w-full justify-end">
-                        <button className="h-[36px] rounded-sm text-[#0B856F] px-4 leading-[36px] border mr-2" onClick={()=>setLogout(false)}>CANCEL</button>
-                        <button className="h-[36px] leading-[36px] bg-[#008069] text-white px-4 font-medium rounded-sm">LOG OUT</button>
+                        <button className="h-[36px] rounded-sm text-[#A52729] px-4 leading-[36px] border mr-2" onClick={()=>setLogout(false)}>CANCEL</button>
+                        <button className="h-[36px] leading-[36px] bg-[#A52729] text-white px-4 font-medium rounded-sm">LOG OUT</button>
                     </div>
                 </div>
             </div>
@@ -121,8 +111,8 @@ function Chats(props){
                 <div className={groupCreationResult ? "bg-white p-6 rounded-md shadow-xl w-[480px] animate-group_creation_result_true" : "animate-group_creation_result_false"} >
                     <p className="text-[14px] leading-[20px] text-[#3b4a54] mt-4">couldn't add +917456998001. You can invite them privately to join this group.</p>
                     <div className="mt-10 flex w-full justify-end">
-                        <button className="h-[36px] rounded-sm text-[#0B856F] px-4 leading-[36px] border mr-2" onClick={handleGroupCreationResult}>CANCEL</button>
-                        <button className="h-[36px] leading-[36px] bg-[#008069] text-white px-4 font-medium rounded-sm">INVITE TO GROUP</button>
+                        <button className="h-[36px] rounded-sm text-[#A52729] px-4 leading-[36px] border mr-2" onClick={handleGroupCreationResult}>CANCEL</button>
+                        <button className="h-[36px] leading-[36px] bg-[#A52729] text-white px-4 font-medium rounded-sm">INVITE TO GROUP</button>
                     </div>
                 </div>
             </div>
