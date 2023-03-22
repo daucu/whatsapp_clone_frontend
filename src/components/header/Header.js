@@ -18,7 +18,7 @@ export default function Header() {
                         <Link to="/status" className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full active:bg-[#0F1110]" title="status">
                             {Status_icon}
                         </Link>
-                        <Link to ="/" className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full active:bg-[#0F1110]" title="New chat">
+                        <Link to ="/new-chat" className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full active:bg-[#0F1110]" title="New chat">
                             {New_chats_icon}
                         </Link>
                         <div className="relative">

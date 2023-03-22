@@ -1,73 +1,18 @@
-import dp from "./../images/dp.jfif";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { chats } from './../Chats_details';
-import { Community_icon_new_chats, New_chats_icon, Status_icon, Menu_icon, Select_Chats_Menu_icon } from "../Svg";
+import { Select_Chats_Menu_icon } from "../Svg";
 import { Contact_icon, Gif_icon, Location_icon, Image_icon, Sticker_icon, Document_icon, Video_icon, Audio_icon, Seen_icon, Unseen_icon, Undelivered_icon, Unsent_icon }  from "./../Svg";
 import { contactIconDefault } from "./../Contacts_collection";
 import "./Select_chats.css";
+import Header from "../header/Header";
 
 function Select_chats_component(props){
     const [ menu, setMenu ] = useState(false);
-    const [ menuSelectChats, setMenuSelectChats ] = useState(false);
-    const [ notified, setNotified ] = useState(false);
-    const [ selectChats, setSelectChats ] = useState(false);
-    const [ logout, setLogout ] = useState(false);
-    //unread chats filter
-    
-    const [ filter, setFilter ] = useState("");
    return(
         <div>
-            <div className={ logout ? "fixed w-screen min-h-screen flex items-center justify-center bg-white/90 z-10 opacity-0 animate-opacity" : "hidden"}>
-                <div className="bg-white p-6 rounded-md shadow-xl w-[480px]">
-                    <p className="text-[20px] leading-[25px] text-[#3b4a54]">Log out?</p>
-                    <p className="text-[14px] leading-[20px] text-[#3b4a54] mt-4">Are you sure you want to logout?</p>
-                    <div className="mt-10 flex w-full justify-end">
-                        <button className="h-[36px] rounded-sm text-[#A52729] px-4 leading-[36px] border mr-2" onClick={()=>setLogout(false)}>CANCEL</button>
-                        <button className="h-[36px] leading-[36px] bg-[#A52729] text-white px-4 font-medium rounded-sm">LOG OUT</button>
-                    </div>
-                </div>
-            </div>
-
             <div className="w-[400px] border-r border-[#919599] h-screen">
-                <div className="h-[60px] bg-[#1E2321] flex items-center justify-between px-4 border-b border-white/50">
-                    <div className="rounded-full h-[40px] w-[40px] bg-cover bg-center cursor-pointer" style={{backgroundImage:`url(${dp})`}}></div>
-                    <div className="flex items-center">
-                        <Link to="/community" className="w-[40px] h-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Communities">
-                            {Community_icon_new_chats}
-                        </Link>
-                        <Link to="/status" className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full active:bg-[#0F1110]" title="status">
-                            {Status_icon}
-                        </Link>
-                        <Link to ="/" className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full active:bg-[#0F1110]" title="New chat">
-                            {New_chats_icon}
-                        </Link>
-                        <div className="relative">
-                                <div className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full active:bg-[#0F1110]" title="Menu" onClick={()=>setMenu(!menu)}>{Menu_icon}</div>
-                                <div className={ menu ? "bg-white rounded-sm shadow-md py-[6px] absolute top-[46px] left-[-130px] w-[180px] h-[252px] animate-chats_menu overflow-hidden" : "w-0 h-0 overflow-hidden" }>
-                                    <Link to="group">
-                                        <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">New group</p>
-                                    </Link>
-                                    <Link to="/community">
-                                        <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">New community</p>
-                                    </Link>
-                                    <Link to="/archived">
-                                        <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Archived</p>
-                                    </Link>
-                                    <Link to="/starred-messages">
-                                        <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Starred messages</p>
-                                    </Link>
-                                    <Link to="/select-chats">
-                                        <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Select chats</p>
-                                    </Link>
-                                    <Link to="/settings">
-                                        <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Settings</p>
-                                    </Link>
-                                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={()=>setLogout(true)}>Log out</p>
-                                </div>
-                        </div>
-                    </div>
-                </div>
+                <Header/>
                 <div className="w-full bg-white">
                     <div className="flex items-center justify-between h-[54px] bg-[#f0f2f5]">
                         <div className="flex items-center">
@@ -79,8 +24,8 @@ function Select_chats_component(props){
                             <div className="text-[16px] text-[#3b4a54]">0 selected</div>
                         </div>
                         <div className="relative mr-3">
-                                <div className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full active:bg-[#0F1110] rotate-90" title="Menu" onClick={()=>setMenuSelectChats(!menuSelectChats)}>{Select_Chats_Menu_icon}</div>
-                                <div className={ menuSelectChats ? "bg-white rounded-sm shadow-md py-[6px] absolute top-[46px] left-[-130px] w-[180px] h-[252px] animate-select_chats_menu overflow-hidden" : "w-0 h-0 overflow-hidden" }>
+                                <div className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full active:bg-[#0F1110] rotate-90" title="Menu" onClick={()=>setMenu(!menu)}>{Select_Chats_Menu_icon}</div>
+                                <div className={ menu ? "bg-white rounded-sm shadow-md py-[6px] absolute top-[46px] left-[-130px] w-[180px] h-[252px] animate-select_chats_menu overflow-hidden" : "w-0 h-0 overflow-hidden" }>
                                     <div>
                                         <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Mark as unread</p>
                                     </div>
@@ -91,7 +36,6 @@ function Select_chats_component(props){
                         </div>
                     </div>
                     <div className="h-[calc(100vh-114px)] overflow-y-scroll select_chats">
-                    <div className="">
 {chats.map((chat_item) => {return(
     <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all" onclick={() => props.contact(chat_item.name)}>
         <div className="w-[60px] h-full flex items-center justify-center">
@@ -223,7 +167,6 @@ function Select_chats_component(props){
         </div>
         
     </div>)})}
-            </div>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { Select_Chats_Menu_icon } from "../Svg";
+import { useState } from "react";
 
 function Starred_messages_component(props){
+    const [menu, setMenu] = useState(false);
     return(
         <div>
                 <div className="h-[60px] bg-[#f0f2f5] pl-[25px] pr-[20px] flex items-center justify-between">
@@ -10,11 +13,14 @@ function Starred_messages_component(props){
                         </svg>
                         <p className="text-[16px] text-[#111b21] pl-7">Starred messages</p>
                     </Link>
-                    <div className="h-[40px] w-[40px] flex items-center justify-center rounded-full hover:bg-[#8a8a8a] hover:transition-all cursor-pointer shrink-0">
-                        <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
-                            <path fill="#54656f" d="M12,7c1.104,0,2-0.896,2-2c0-1.105-0.895-2-2-2c-1.104,0-2,0.894-2,2 C10,6.105,10.895,7,12,7z M12,9c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,9.895,13.104,9,12,9z M12,15 c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,15.894,13.104,15,12,15z"></path>
-                        </svg>
-                    </div>
+                    <div className="relative">
+                        <div className="w-[40px] h-[40px] flex items-center justify-center ml-[10px] cursor-pointer rounded-full active:bg-[#0F1110]" title="Menu" onClick={()=>setMenu(!menu)}>{Select_Chats_Menu_icon}</div>
+                            <div className={ menu ? "bg-white rounded-sm shadow-md py-[6px] absolute top-[46px] left-[-130px] w-[180px] h-[252px] animate-starred_messages_menu overflow-hidden" : "w-0 h-0 overflow-hidden" }>
+                                <div>
+                                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Unstar all</p>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <div className="starred_messages overflow-y-scroll bg-[#f0f2f5] flex flex-col">
                     <div className="grow shrink flex items-center justify-center">

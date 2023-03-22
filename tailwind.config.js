@@ -13,6 +13,7 @@ module.exports = {
         chat_single_menu_group: 'chat_single_menu_group 0.16s ease-in-out forwards',
         chats_menu : 'chats_menu 0.16s ease-in-out forwards',
         select_chats_menu : 'select_chats_menu 0.16s ease-in-out forwards',
+        starred_messages_menu : 'starred_messages_menu 0.16s ease-in-out forwards',
         new_chats_show: 'new_chats_show 0.16s ease-in-out forwards',
         new_chats_hide: 'new_chats_hide 0.16s ease-in-out forwards',
         communities_show: 'communities_show 0.16s ease-in-out forwards',
@@ -56,6 +57,10 @@ module.exports = {
         select_chats_menu:{
           '0%':{opacity:'0',width:'0px',height:'0px',left:'0px'},
           '100%':{opacity:'1',width:'180px',height:'92px',left:'-130px'}
+        },
+        starred_messages_menu:{
+          '0%':{opacity:'0',width:'0px',height:'0px',left:'0px'},
+          '100%':{opacity:'1',width:'180px',height:'52px',left:'-130px'}
         },
         new_chats_show:{
           '0%':{opacity:'0',left:'-400px'},

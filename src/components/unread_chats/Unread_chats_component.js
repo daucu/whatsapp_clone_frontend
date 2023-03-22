@@ -19,7 +19,6 @@ function Unread_chats_component(){
             setUnreadChatsFilled(true);
         }
     }, [noOfUnreadChats, unreadChatsEmpty, unreadChatsFilled]);
-
     
     return(
         <div className="">

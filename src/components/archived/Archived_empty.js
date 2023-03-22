@@ -1,6 +1,3 @@
-import dp from "./images/dp.jfif";
-import lm from "./images/lm.jfif";
-import car from "./images/car.jfif";
 import { Link } from "react-router-dom";
 
 function Archived_empty(props){
