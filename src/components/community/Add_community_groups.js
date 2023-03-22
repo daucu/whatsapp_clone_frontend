@@ -65,7 +65,7 @@ function Add_community_groups(props){
                 </div>
                 
                 <div className="w-full flex justify-center pt-[24px] pb-[40px]">
-                    <div className="rounded-full bg-[#00A884] flex items-center justify-center h-[46px] w-[46px] cursor-pointer" onClick={props.communityCreationResult}>
+                    <div className="rounded-full bg-[#A52729] flex items-center justify-center h-[46px] w-[46px] cursor-pointer" onClick={props.communityCreationResult}>
                         <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
                             <path fill="white" d="M8,17.1l-5.2-5.2l-1.7,1.7l6.9,7L22.9,5.7L21.2,4L8,17.1z"></path>
                         </svg>

@@ -9,6 +9,7 @@ import people from "./images/people.svg";
 function Add_new_group_info(props){
     const [groupPhotoMenu, setGroupPhotoMenu] = useState("");
     const [groupName, setGroupName] = useState("");
+    const [disappearingMessages, setDisappearingMessages] = useState("");
     return(
         <div className="flex flex-col h-screen">
             <div className="h-[108px] bg-[#A52729] flex flex-col justify-end">
@@ -49,7 +50,7 @@ function Add_new_group_info(props){
                 <div className="mt-4 bg-white shadow-md">
                     <div className="flex h-[78px] px-[32px] cursor-pointer items-center">
                         <div className="flex justify-between w-full">
-                            <div>
+                            <div className="" onClick={()=>setDisappearingMessages(true)}>
                                 <p className="text-[17px] leading-[22px] text-[#111b21]">Disappearing messages</p>
                                 <p className="text-[14px] text-[#8696a0]">Off</p>
                             </div>
@@ -67,6 +68,96 @@ function Add_new_group_info(props){
                             <path fill="white" d="M8,17.1l-5.2-5.2l-1.7,1.7l6.9,7L22.9,5.7L21.2,4L8,17.1z"></path>
                         </svg>
                     </div>
+                </div>
+            </div>
+            <div className={ disappearingMessages === "" ? "hidden" : disappearingMessages ? "absolute w-screen h-screen overflow-scroll flex items-center justify-center bg-white/90 z-10 opacity-0 animate-opacity" : "hidden"}>
+                <div className="min-h-screen mt-[200px]">
+                <div className={ disappearingMessages === "" ? "hidden" : disappearingMessages ?  "bg-white p-6 rounded-md shadow-xl w-[480px] animate-disappearing_messages_true" : "animate-disappearing_messages_false"} >
+                    <p className="text-[20px] leading-[25px] text-[#3b4a54]">Disappearing messages</p>
+                    <p className="text-[14px] leading-[20px] text-[#3b4a54] mt-4">All new messages in this chat will disappear after the selected duration</p>
+                    <div>
+                        <div className="flex items-center mt-4 mb-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">1 hour</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">3 hour</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">6 hour</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">12 hour</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">24 hour</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">2 days</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">3 days</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">4 days</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">5 days</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">6 days</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">7 days</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">14 days</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">21 days</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">30 days</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">60 days</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">90 days</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">180 days</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">365 days</p>
+                        </div>
+                        <div className="flex items-center my-3">
+                            <input type="radio" name="duration" id="" />
+                            <p className="text-[14px] leading-[18px] text-[#3b4a54] ml-2">Off</p>
+                        </div>
+                    </div>
+                    <div className="mt-10 flex w-full justify-end">
+                        <button className="h-[36px] rounded-sm text-[#A52729] px-4 leading-[36px] border mr-2" onClick={()=>setDisappearingMessages(false)}>CANCEL</button>
+                        <button className="h-[36px] leading-[36px] bg-[#A52729] text-white px-4 font-medium rounded-sm" onClick={()=>setDisappearingMessages(false)}>OK</button>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

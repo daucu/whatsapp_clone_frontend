@@ -1,12 +1,12 @@
-import Archived_component from "./archived/Archived_component";
-import Chat_single from "./Chat_single";
+import Settings_component from "./../components/settings/Settings_component";
+import Chat_single from "./../components/Chat_single";
 
-function Archived_page(){
+function Settings_page(){
     return(
         <div>
             <div className="flex min-w-[800px]">
                 <div className="chats_section w-[400px]">
-                    <Archived_component/>
+                    <Settings_component/>
                 </div>
                 <div className="single_chat grow shrink">
                     <Chat_single/>
@@ -15,4 +15,4 @@ function Archived_page(){
         </div>
     );
 }
-export default Archived_page;
+export default Settings_page;

@@ -5,7 +5,7 @@ import Archived_empty from './Archived_empty';
 export default function Archived_component() {
     const [archivedEmpty, setArchivedEmpty] = React.useState(true);
     const [archivedFilled, setArchivedFilled] = React.useState(false);
-    const [noOfChatsArchived, setNoOfArchivedChats] = React.useState(0);
+    const [noOfChatsArchived, setNoOfArchivedChats] = React.useState(1);
 
     React.useEffect(() => {
         if(noOfChatsArchived === 0){

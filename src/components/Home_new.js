@@ -1,4 +1,4 @@
-import New_chats_component from "./New_chats_component";
+import New_chats_component from "./home/New_chats_component";
 import Chat_single from "./Chat_single";
 
 function Home(){

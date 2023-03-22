@@ -1,5 +1,5 @@
-import Community_component from "./community/Community_component";
-import Chat_single from "./Chat_single";
+import Community_component from "./../components/community/Community_component";
+import Chat_single from "./../components/Chat_single";
 
 function Community_page(){
     return(

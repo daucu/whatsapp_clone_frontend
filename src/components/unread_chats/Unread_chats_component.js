@@ -3,6 +3,7 @@ import neeraj_dp from "./../images/neeraj_dp.jpeg";
 import Unread_empty from "./Unread_empty";
 import Unread_filled from "./Unread_filled";
 import { useState, useEffect } from "react";
+import { Lock_icon } from "../Svg";
 
 function Unread_chats_component(){
     const [noOfUnreadChats, setNoOfUnreadChats] = useState(0);
@@ -21,7 +22,7 @@ function Unread_chats_component(){
 
     
     return(
-        <div>
+        <div className="">
             <div className={ unreadChatsEmpty ? "" : "hidden" }>
                 <Unread_empty/>
             </div>
