@@ -6,7 +6,7 @@ import { useState } from 'react';
 import {Context} from '../../context/Context';
 
 export default function Right_component(props) {
-    const [ searchMessages, setSearchMessages ] = useState(false);
+    const [ searchMessages, setSearchMessages ] = useState("");
     const [ videoCall, setVideoCall ] = useState(false);
     const [ audioCall, setAudioCall ] = useState(false);
     const {profileType} = useContext(Context);
