@@ -1,5 +1,5 @@
-import Chats_component from "./Chats_component";
-import Chat_section from "./Chat_section";
+import Chats_component from "./home/Chats_component";
+import Chat_section from "./chat_section/Chat_section";
 
 import dp from "./images/dp.jfif";
 import sahil_dp from "./images/sahil_dp.jpg";
@@ -261,6 +261,7 @@ export const  chats = [
         name: "Sahil_khatri",
         dp: sahil_dp,
         is_online: true,
+        profiletype: "normal",
         last_seen: "12:00",
         last_message: {
                 is_sent_by_me: true,
@@ -289,6 +290,7 @@ export const  chats = [
         name: "Aman",
         dp: "",
         is_online: true,
+        profiletype: "self",
         last_seen: "12:00",
         last_message: {
                 is_sent_by_me: false,
@@ -317,6 +319,7 @@ export const  chats = [
         name: "Rishi_mam",
         dp: rishi_mam_dp,
         is_online: true,
+        profiletype: "business",
         last_seen: "12:00",
         last_message: {
                 is_sent_by_me: true,
@@ -345,6 +348,7 @@ export const  chats = [
         name: "Nayan Roy",
         dp: nayan_roy_dp,
         is_online: true,
+        profiletype: "group",
         last_seen: "12:00",
         last_message: {
                 is_sent_by_me: true,
@@ -373,6 +377,7 @@ export const  chats = [
         name: "Daya_Sagar_Office",
         dp: daya_dp,
         is_online: true,
+        profiletype: "normal",
         last_seen: "12:00",
         last_message: {
                 is_sent_by_me: false,
@@ -401,6 +406,7 @@ export const  chats = [
         name: "Anas Khan",
         dp: anas_dp,
         is_online: true,
+        profiletype: "self",
         last_seen: "12:00",
         last_message: {
                 is_sent_by_me: false,
@@ -429,6 +435,7 @@ export const  chats = [
         name: "Harsh_sir",
         dp: harsh_sir_dp,
         is_online: true,
+        profiletype: "business",
         last_seen: "12:00",
         last_message: {
                 is_sent_by_me: false,
@@ -457,6 +464,7 @@ export const  chats = [
         name: "Kampodar Mama",
         dp: km_dp,
         is_online: true,
+        profiletype: "group",
         last_seen: "12:00",
         last_message: {
                 is_sent_by_me: false,
@@ -485,6 +493,7 @@ export const  chats = [
         name: "Arman (You)",
         dp: dp,
         is_online: true,
+        profiletype: "normal",
         last_seen: "12:00",
         last_message: {
                 is_sent_by_me: true,

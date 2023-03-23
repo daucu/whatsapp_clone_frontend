@@ -1,17 +1,19 @@
-import dp from "./images/dp.jfif";
-import neeraj_dp from "./images/neeraj_dp.jpeg";
-import {BsPersonCircle} from "react-icons/bs";
-
-import { Contact_icon, Gif_icon, Location_icon, Image_icon, Sticker_icon, Document_icon, Video_icon, Audio_icon, Seen_icon, Unseen_icon, Undelivered_icon, Unsent_icon }  from "./Svg";
-import { chats } from "./Chats_details";
-import { contactIconDefault } from "./Contacts_collection";
+import { Contact_icon, Gif_icon, Location_icon, Image_icon, Sticker_icon, Document_icon, Video_icon, Audio_icon, Seen_icon, Unseen_icon, Undelivered_icon, Unsent_icon }  from "../Svg";
+import { chats } from "../Chats_details";
+import { contactIconDefault } from "../Contacts_collection";
+import { useContext } from "react";
+import { Context } from "../../context/Context";
 
 function Chats_component(props){
+    const {profileType, changeProfileType} = useContext(Context);
+    const changePType = (profiletype) => {
+        changeProfileType(profiletype);
+    }
     return(
         <div>
             <div className="">
 {chats.map((chat_item) => {return(
-    <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all" onclick={() => props.contact(chat_item.name)}>
+    <div className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all" onclick={()=>changePType(chat_item.profiletype)}>
 
         <div className="w-[49px] h-[49px] mx-[15px] flex items-center bg-[#DFE5E7] overflow-hidden rounded-full justify-center">
             {

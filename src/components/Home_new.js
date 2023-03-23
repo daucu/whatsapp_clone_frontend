@@ -1,7 +1,11 @@
 import New_chats_component from "./home/New_chats_component";
 import Chat_single from "./Chat_single";
+import Right_component from "./right/Right_component";
+import { useState } from "react";
+
 
 function Home(){
+    
     return(
         <div>
             <div className="flex min-w-[800px]">
@@ -9,7 +13,7 @@ function Home(){
                     <New_chats_component/>
                 </div>
                 <div className="single_chat grow shrink">
-                    <Chat_single/>
+                    <Right_component />
                 </div>
             </div>
         </div>

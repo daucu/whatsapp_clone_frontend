@@ -24,6 +24,7 @@ module.exports = {
         disappearing_messages_true : 'disappearing_messages_true 0.25s ease-in-out forwards',
         scale_full: 'scale_full 0.25s ease-in-out forwards',
         scale_zero: 'scale_zero 0.25s ease-in-out forwards',
+        doodle: 'doodle 0.25s ease-in-out forwards',
       },
       keyframes:{
         search_messages_full:{
@@ -102,6 +103,11 @@ module.exports = {
           '0%':{transform:'scale(0)'},
           '100%':{transform:'scale(1)'}
         },
+        doodle:{
+          '0%':{left:'3870px'},
+          '6%':{left:'3870px'},
+          '6.66%':{left:'3870px'},
+        }
     },
   },
   plugins: [],

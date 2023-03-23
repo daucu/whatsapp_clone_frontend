@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Settings from "./Settings";
 import { Link } from 'react-router-dom';
+import Sett_notifications from './Settings_notifications_component';
 
 export default function Settings_component(props) {
     const [ settings, setSettings ] = useState(true);

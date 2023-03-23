@@ -39,7 +39,7 @@ function Settings(props){
                     </div>
                 </div>
                 <div>
-                    <div className="h-[60px] flex items-center">
+                    <div className="h-[60px] hidden items-center">
                         <div className="w-[74px] flex items-center justify-center">
                             <svg viewBox="0 0 16 21" height="21" width="16" preserveAspectRatio="xMidYMid meet" class="" fill="#8696a0">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0.71003V2.50003C12.42 2.50003 16 6.08003 16 10.5C16 11.54 15.8 12.54 15.43 13.45C15.16 14.12 14.3 14.3 13.79 13.79C13.52 13.52 13.41 13.11 13.56 12.75C13.85 12.06 14 11.29 14 10.5C14 7.19003 11.31 4.50003 8 4.50003V6.29003C8 6.74003 7.46 6.96003 7.14 6.65003L4.35 3.86003C4.15 3.66003 4.15 3.35003 4.35 3.15003L7.15 0.360031C7.46 0.0400305 8 0.260031 8 0.71003ZM2 10.5C2 13.81 4.69 16.5 8 16.5V14.71C8 14.26 8.54 14.04 8.85 14.35L11.64 17.14C11.84 17.34 11.84 17.65 11.64 17.85L8.85 20.64C8.54 20.96 8 20.74 8 20.29V18.5C3.58 18.5 0 14.92 0 10.5C0 9.46003 0.2 8.46003 0.57 7.55003C0.84 6.88003 1.7 6.70003 2.21 7.21003C2.48 7.48003 2.59 7.89003 2.44 8.25003C2.15 8.94003 2 9.71003 2 10.5Z" fill="#8696A0"></path>
@@ -52,14 +52,14 @@ function Settings(props){
                             </div>
                         </div>
                     </div>
-                    <div className="h-[60px] flex items-center">
+                    <Link to="/settings/notifications" className="h-[60px] flex items-center">
                         <div className="w-[74px] flex items-center justify-center">
                             <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
                                 <path fill="#8696A0" d="M12,21.7c0.9,0,1.7-0.8,1.7-1.7h-3.4C10.3,20.9,11.1,21.7,12,21.7z M17.6,16.5v-4.7 c0-2.7-1.8-4.8-4.3-5.4V5.8c0-0.7-0.6-1.3-1.3-1.3s-1.3,0.6-1.3,1.3v0.6C8.2,7,6.4,9.1,6.4,11.8v4.7l-1.7,1.7v0.9h14.6v-0.9 L17.6,16.5z"></path>
                             </svg>
                         </div>
                         <div className="text-[17px] text-[#111b21] h-full flex items-center border-b grow">Notifications</div>
-                    </div>
+                    </Link>
                     <div className="h-[60px] flex items-center">
                         <div className="w-[74px] flex items-center justify-center">
                             <svg viewBox="0 0 28 35" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1">
@@ -116,14 +116,14 @@ function Settings(props){
                         </div>
                         <div className="text-[17px] text-[#111b21] h-full flex items-center border-b grow">Keyboard shortcuts</div>
                     </div>
-                    <div className="h-[60px] flex items-center">
+                    <Link to="/settings/help" className="h-[60px] flex items-center">
                         <div className="w-[74px] flex items-center justify-center">
                             <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
                                 <path fill="#8696a0" d="M12,4.7c-4.5,0-8.2,3.7-8.2,8.2s3.7,8.2,8.2,8.2s8.2-3.7,8.2-8.2S16.5,4.7,12,4.7z  M12.8,18.6h-1.6V17h1.6V18.6z M14.5,12.3L13.8,13c-0.7,0.6-1,1.1-1,2.3h-1.6v-0.4c0-0.9,0.3-1.7,1-2.3l1-1.1 c0.3-0.2,0.5-0.7,0.5-1.1c0-0.9-0.7-1.6-1.6-1.6s-1.6,0.7-1.6,1.6H8.7c0-1.8,1.5-3.3,3.3-3.3s3.3,1.5,3.3,3.3 C15.3,11.2,14.9,11.8,14.5,12.3z"></path>
                             </svg>
                         </div>
                         <div className="text-[17px] text-[#111b21] h-full flex items-center border-b grow">Help</div>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import Chats_component from "../Chats_component";
+import Chats_component from "./Chats_component";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "./../header/Header";
@@ -6,6 +6,7 @@ import './New_chats.css';
 
 function New_chats_component(props){
     const [ notified, setNotified ] = useState(false);
+    localStorage.setItem("profileType", "group");
    return(
         <div>
             <div className="w-[400px]">

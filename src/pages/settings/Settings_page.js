@@ -1,5 +1,5 @@
-import Settings_component from "./../components/settings/Settings_component";
-import Chat_single from "./../components/Chat_single";
+import Settings_component from "../../components/settings/Settings_component";
+import Chat_single from "../../components/Chat_single";
 
 function Settings_page(){
     return(

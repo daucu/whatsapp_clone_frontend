@@ -1,23 +1,17 @@
 import dp from "./images/dp.jfif";
-import whatsapp_web_bg_light from "./images/whatsapp_web_bg_light.jpg";
 import dp_normal from "./images/dp_profile_normal.jfif";
 import { useEffect, useState } from "react";
 import harsh_sir_dp from "./images/harsh_sir_dp.jfif";
 import neeraj_dp from "./images/neeraj_dp.jpeg";
 import rishabh_dp from "./images/rishabh_dp.jfif";
 import rishi_mam_dp from "./images/rishi_mam_dp.jfif";
-import video_call_icon from "./images/video-call-icon.png";
 
-import  { FaVideo }  from "react-icons/fa";
-import  { MdCall }  from "react-icons/md";
-import Chat_section from "./Chat_section";
+import Chat_section from "./chat_section/Chat_section";
 import './Chats_details';
 
 function Chat_single(props){
     const [ searchMessages, setSearchMessages ] = useState("");
     const [ profileDetails, setProfileDetails ] = useState("");
-
-    const [ menu, setMenu ] = useState(false);
 
     const [ audioCall, setAudioCall ] = useState(false);
     const [ videoCall, setVideoCall ] = useState(false);
@@ -163,7 +157,9 @@ function Chat_single(props){
                         <svg viewBox="0 0 24 24" height="20" width="20" class="fill-[#54656f]">
                             <path fill="#54656f" d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"></path>
                         </svg>
-                        <div className="w-full"><input type="text" className="bg-[#F0F2F5] outline-none placeholder:text-[#3b4a54] text-[13px] px-7 w-full" placeholder="Search..."/></div>
+                        <div className="w-full">
+                            <input type="text" className="bg-[#F0F2F5] outline-none placeholder:text-[#3b4a54] text-[13px] px-7 w-full" placeholder="Search..."/>
+                        </div>
                     </div>
                 </div>
                 <div className="px-[50px] py-[90px]">
@@ -760,18 +756,6 @@ function Chat_single(props){
                     </div>
                 </div>
             </div>
-
-            {/* <div className={ videoCall ? "video_call_section fixed rounded-md bg-black p-4 w-full h-full text-white" : "hidden" }>
-                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="mr-7 cursor-pointer" fill="#fff" enable-background="new 0 0 24 24" onClick={()=>setVideoCall(false)}>
-                    <path d="M19.6004 17.2L14.3004 11.9L19.6004 6.60005L17.8004 4.80005L12.5004 10.2L7.20039 4.90005L5.40039 6.60005L10.7004 11.9L5.40039 17.2L7.20039 19L12.5004 13.7L17.8004 19L19.6004 17.2Z"></path>
-                </svg>
-            </div> */}
-
-            {/* <div className={audioCall ? "audio_call_section fixed rounded-md bg-black p-4 w-[400px] h-[100px] shadow-md text-white" : "hidden"}>
-                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="mr-7 cursor-pointer" fill="#fff" enable-background="new 0 0 24 24" onClick={()=>setAudioCall(false)}>
-                    <path d="M19.6004 17.2L14.3004 11.9L19.6004 6.60005L17.8004 4.80005L12.5004 10.2L7.20039 4.90005L5.40039 6.60005L10.7004 11.9L5.40039 17.2L7.20039 19L12.5004 13.7L17.8004 19L19.6004 17.2Z"></path>
-                </svg>
-            </div> */}
 
             <div className={ videoCall ? "fixed w-screen min-h-screen flex items-center justify-center bg-black/80 z-10 opacity-0 animate-opacity left-0" : "hidden"}>
                 <div className="bg-white h-[300px] w-[600px] rounded-md shadow-xl p-3">
