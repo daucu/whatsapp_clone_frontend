@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <div>
         <div className="h-[60px] bg-[#1E2321] flex items-center justify-between px-4 border-b border-r border-[#8E9296]">
-                    <div className="rounded-full h-[40px] w-[40px] bg-cover bg-center cursor-pointer" style={{backgroundImage:`url(${dp})`}}></div>
+                    <Link to="/profile" className="rounded-full h-[40px] w-[40px] bg-cover bg-center cursor-pointer" style={{backgroundImage:`url(${dp})`}}></Link>
                     <div className="flex items-center">
                         <Link to="/community" className="w-[40px] h-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Communities">
                             {Community_icon_new_chats}
