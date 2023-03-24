@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import dp from "../images/dp.jfif";
+import { Edit_icon, Emoji_icon } from "../Svg";
 
 function Profile_component(props){
     return(
@@ -19,7 +20,20 @@ function Profile_component(props){
                         <div className="hover:opacity-1 h-[200px] w-[200px] bg-black/70 rounded-full"></div>
                     </div>
                 </div>
-                <div></div>
+                <div className="bg-white px-[30px] py-[14px]">
+                    <p className="text-[14px] text-[#a52729] font-medium">Your name</p>
+                    <div className="h-[36px] flex items-center border-b-2 border-[#a52729]">
+                        <input type="text" className=" h-[32px] w-full outline-none"/>
+                        <div>
+                            {Edit_icon}
+                        </div>
+                        <div>
+                            <div className="text-[#d1d7d8] text-[14px] mx-1">15</div>
+                            <div className="mx-1">{Emoji_icon}</div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
