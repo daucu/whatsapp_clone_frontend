@@ -3,25 +3,22 @@ import dp from './../images/dp.jfif';
 import { Context } from '../../context/Context';
 
 export default function Profile_self() {
-    const {profileType, changeProfileType} = useContext(Context);
-    const closePT = () => {
-        changeProfileType("");
-    }
+    const {changeIsProfileOpen} = useContext(Context);
   return (
     <div>
         <div className="w-[400px]">
-                    <div className="h-[60px] bg-[#1E2321] flex items-center px-4 shadow-sm grow-0 shrink-0 border-l border-[#D1D7DB]">
-                        <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="mr-7 cursor-pointer" fill="#ffffffe6" enable-background="new 0 0 24 24" onClick={closePT}>
-                            <path d="M19.6004 17.2L14.3004 11.9L19.6004 6.60005L17.8004 4.80005L12.5004 10.2L7.20039 4.90005L5.40039 6.60005L10.7004 11.9L5.40039 17.2L7.20039 19L12.5004 13.7L17.8004 19L19.6004 17.2Z"></path>
-                        </svg>
-                        <p className="text-white/90 text-[16px]">Contact info</p>
+            <div className="h-[60px] bg-[#1E2321] flex items-center px-4 shadow-sm grow-0 shrink-0 border-l border-[#D1D7DB]">
+                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="mr-7 cursor-pointer" fill="#ffffffe6" enable-background="new 0 0 24 24" onClick={()=>changeIsProfileOpen(false)}>
+                    <path d="M19.6004 17.2L14.3004 11.9L19.6004 6.60005L17.8004 4.80005L12.5004 10.2L7.20039 4.90005L5.40039 6.60005L10.7004 11.9L5.40039 17.2L7.20039 19L12.5004 13.7L17.8004 19L19.6004 17.2Z"></path>
+                    </svg>
+                    <p className="text-white/90 text-[16px]">Contact info</p>
+                </div>
+                <div className="overflow-y-scroll bg-[#EFF1F4] y_scroll">
+                    <div className="p-6 bg-white shadow-sm">
+                        <div className="h-[200px] w-[200px] rounded-full bg-cover bg-center m-auto" style={{backgroundImage:`url(${dp})`}}></div>
+                        <p className="text-center pt-5 text-[24px] text-[#3b4a54]">Arman (You)</p>
+                        <p className="text-center text-[16px] text-[#667781]">+91 99539 52112</p>
                     </div>
-                    <div className="overflow-y-scroll bg-[#EFF1F4] y_scroll">
-                        <div className="p-6 bg-white shadow-sm">
-                            <div className="h-[200px] w-[200px] rounded-full bg-cover bg-center m-auto" style={{backgroundImage:`url(${dp})`}}></div>
-                            <p className="text-center pt-5 text-[24px] text-[#3b4a54]">Arman (You)</p>
-                            <p className="text-center text-[16px] text-[#667781]">+91 99539 52112</p>
-                        </div>
                         <div className="mt-3 bg-white px-[30px] pt-[19px] pb-[17px]">
                             <p className="text-[15px] text-[#667781] leading-[23px]">About</p>
                             <p className="text-[17px] text-[#111b21] leading-[23px]">Waiting for u..... My Life.</p>

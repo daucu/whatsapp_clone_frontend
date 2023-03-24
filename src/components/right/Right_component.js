@@ -4,24 +4,31 @@ import Profile_details from '../profile_details/Profile_details';
 import Search_messages_component from '../search_messages/Search_messages_component';
 import { useState } from 'react';
 import {Context} from '../../context/Context';
+import { Lock_icon, Whatsapp_icon } from '../Svg';
 
 export default function Right_component(props) {
-    const [ searchMessages, setSearchMessages ] = useState("");
+    // const [ searchMessages, setSearchMessages ] = useState("");
     const [ videoCall, setVideoCall ] = useState(false);
     const [ audioCall, setAudioCall ] = useState(false);
-    const {profileType} = useContext(Context);
+    const {profileType, isProfileOpen, searchMessages, chatProfile} = useContext(Context);
   return (
     
-    <div className='flex'>
+    <div className=''>
+
+        <div>
+            {
+                chatProfile.name != null ? 
+                (
+        <div className='flex'>
         <div className='grow'>
             <Chat_section />
         </div>
 
-        <div className={profileType === "" ? "" : profileType ? "animate-search_messages_full overflow-hidden w-full h-screen" : "animate-search_messages_zero overflow-hidden w-0 h-screen"}>
+        <div className={profileType === "" ? "" : isProfileOpen === "" ? "hidden w-0 overflow-hidden" : isProfileOpen ?  "animate-search_messages_full overflow-hidden w-full h-screen" : "animate-search_messages_zero overflow-hidden w-0 h-screen"}>
             <Profile_details profileType={profileType}  />
         </div>
         
-        <div className={ searchMessages ? "" : searchMessages ? "animate-search_messages_full overflow-hidden w-full h-screen" : "animate-search_messages_zero overflow-hidden w-0 h-screen" }>
+        <div className={ searchMessages === "" ? "w-0 overflow-hidden" : searchMessages ? "animate-search_messages_full overflow-hidden w-full h-screen" : "animate-search_messages_zero overflow-hidden w-0 h-screen" }>
             <Search_messages_component/>
         </div>
 
@@ -39,6 +46,24 @@ export default function Right_component(props) {
                     <path d="M19.6004 17.2L14.3004 11.9L19.6004 6.60005L17.8004 4.80005L12.5004 10.2L7.20039 4.90005L5.40039 6.60005L10.7004 11.9L5.40039 17.2L7.20039 19L12.5004 13.7L17.8004 19L19.6004 17.2Z"></path>
                 </svg>
             </div>
+        </div>
+        </div>) : 
+        (<div className='w-full flex flex-col h-screen '>
+            <div className='flex items-center justify-center grow'>
+                <div>
+                {Whatsapp_icon}
+                <div className='mt-8 text-center text-[#41525d] text-[32px] font-extralight'>Whatsapp Web</div></div>
+            </div>
+            <div className='flex items-center justify-center border-b-[6px] border-[#25D366]'>
+                <div className='mb-6 flex items-center'>
+                    {Lock_icon}
+                    <div className='text-[#8696a0] text-[14px]'>
+                        end-to-end encrypted
+                    </div>
+                </div>
+            </div>
+        </div>)
+            }
         </div>
     </div>
   )

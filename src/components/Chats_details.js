@@ -289,7 +289,7 @@ export const  chats = [
     {
         name: "Aman",
         dp: "",
-        is_online: true,
+        is_online: false,
         profiletype: "self",
         last_seen: "12:00",
         last_message: {
@@ -347,7 +347,7 @@ export const  chats = [
     {
         name: "Nayan Roy",
         dp: nayan_roy_dp,
-        is_online: true,
+        is_online: false,
         profiletype: "group",
         last_seen: "12:00",
         last_message: {
@@ -405,7 +405,7 @@ export const  chats = [
     {
         name: "Anas Khan",
         dp: anas_dp,
-        is_online: true,
+        is_online: false,
         profiletype: "self",
         last_seen: "12:00",
         last_message: {
@@ -463,7 +463,7 @@ export const  chats = [
     {
         name: "Kampodar Mama",
         dp: km_dp,
-        is_online: true,
+        is_online: false,
         profiletype: "group",
         last_seen: "12:00",
         last_message: {

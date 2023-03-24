@@ -6,43 +6,39 @@ import rishabh_dp from './../images/rishabh_dp.jfif';
 import dp_normal from './../images/dp_profile_normal.jfif';
 import { Context } from '../../context/Context';
 
-
 export default function Profile_group() {
-    const {profileType, changeProfileType} = useContext(Context);
-    const closePT = () => {
-        changeProfileType("");
-    }
+    const {changeProfileType, changeIsProfileOpen} = useContext(Context);
   return (
     <div>
         <div className="w-[400px]">
-                    <div className="h-[60px] bg-[#1E2321] flex items-center px-4 shadow-sm grow-0 shrink-0 border-l border-[#D1D7DB]">
-                        <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="mr-7 cursor-pointer" fill="#ffffffe6" enable-background="new 0 0 24 24" onClick={closePT}>
-                            <path d="M19.6004 17.2L14.3004 11.9L19.6004 6.60005L17.8004 4.80005L12.5004 10.2L7.20039 4.90005L5.40039 6.60005L10.7004 11.9L5.40039 17.2L7.20039 19L12.5004 13.7L17.8004 19L19.6004 17.2Z"></path>
-                        </svg>
-                        <p className="text-white/90 text-[16px]">Group info</p>
-                    </div>
-                    <div className="overflow-y-scroll bg-[#EFF1F4] y_scroll">
-                        <div className="p-6 bg-white shadow-sm">
-                            <div className="h-[200px] w-[200px] rounded-full bg-cover bg-center m-auto" style={{backgroundImage:`url(${dp_normal})`}}></div>
-                            <p className="text-center pt-5 text-[24px] text-[#3b4a54]">Harsha Web</p>
-                            <p className="text-center text-[16px] text-[#667781] flex items-center justify-center">
-                                <div className="">Group</div>
-                                <div className="h-[4px] w-[4px] rounded-full mx-2 bg-[#667781]"></div>
-                                <div>12 participants</div>
-                            </p>
-                        </div>
-                        <div className="mt-3 bg-white px-[30px] pt-[19px] pb-[17px]">
-                            <p className="text-[14px] text-[#a52729] leading-[23px]">Add group description</p>
-                            <p className="text-[14px] text-[#8696a0] leading-[23px]">Group created by Harsh_sir, on 13/10/2022 at 11:19</p>
-                        </div>
-                        <div className="mt-3 bg-white pt-[17px]">
-                            <div className="flex items-center justify-between px-[30px]">
-                                <p className="text-[15px] leading-[23px] text-[#667781]">12 participants</p>
-                                <div>
-                                    <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
-                                        <path fill="#667781" d="M15.009,13.805h-0.636l-0.22-0.219c0.781-0.911,1.256-2.092,1.256-3.386 c0-2.876-2.332-5.207-5.207-5.207c-2.876,0-5.208,2.331-5.208,5.207s2.331,5.208,5.208,5.208c1.293,0,2.474-0.474,3.385-1.255 l0.221,0.22v0.635l4.004,3.999l1.194-1.195L15.009,13.805z M10.201,13.805c-1.991,0-3.605-1.614-3.605-3.605 s1.614-3.605,3.605-3.605s3.605,1.614,3.605,3.605S12.192,13.805,10.201,13.805z"></path>
-                                    </svg>
-                                </div>
+            <div className="h-[60px] bg-[#1E2321] flex items-center px-4 shadow-sm grow-0 shrink-0 border-l border-[#D1D7DB]">
+                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="mr-7 cursor-pointer" fill="#ffffffe6" enable-background="new 0 0 24 24" onClick={() => changeIsProfileOpen(false)}>
+                    <path d="M19.6004 17.2L14.3004 11.9L19.6004 6.60005L17.8004 4.80005L12.5004 10.2L7.20039 4.90005L5.40039 6.60005L10.7004 11.9L5.40039 17.2L7.20039 19L12.5004 13.7L17.8004 19L19.6004 17.2Z"></path>
+                </svg>
+                <p className="text-white/90 text-[16px]">Group info</p>
+            </div>
+            <div className="overflow-y-scroll bg-[#EFF1F4] y_scroll">
+                <div className="p-6 bg-white shadow-sm">
+                    <div className="h-[200px] w-[200px] rounded-full bg-cover bg-center m-auto" style={{backgroundImage:`url(${dp_normal})`}}></div>
+                    <p className="text-center pt-5 text-[24px] text-[#3b4a54]">Harsha Web</p>
+                    <p className="text-center text-[16px] text-[#667781] flex items-center justify-center">
+                        <div className="">Group</div>
+                        <div className="h-[4px] w-[4px] rounded-full mx-2 bg-[#667781]"></div>
+                        <div>12 participants</div>
+                    </p>
+                </div>
+                <div className="mt-3 bg-white px-[30px] pt-[19px] pb-[17px]">
+                    <p className="text-[14px] text-[#a52729] leading-[23px]">Add group description</p>
+                    <p className="text-[14px] text-[#8696a0] leading-[23px]">Group created by Harsh_sir, on 13/10/2022 at 11:19</p>
+                </div>
+                <div className="mt-3 bg-white pt-[17px]">
+                    <div className="flex items-center justify-between px-[30px]">
+                        <p className="text-[15px] leading-[23px] text-[#667781]">12 participants</p>
+                            <div>
+                                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24">
+                                    <path fill="#667781" d="M15.009,13.805h-0.636l-0.22-0.219c0.781-0.911,1.256-2.092,1.256-3.386 c0-2.876-2.332-5.207-5.207-5.207c-2.876,0-5.208,2.331-5.208,5.207s2.331,5.208,5.208,5.208c1.293,0,2.474-0.474,3.385-1.255 l0.221,0.22v0.635l4.004,3.999l1.194-1.195L15.009,13.805z M10.201,13.805c-1.991,0-3.605-1.614-3.605-3.605 s1.614-3.605,3.605-3.605s3.605,1.614,3.605,3.605S12.192,13.805,10.201,13.805z"></path>
+                                </svg>
+                            </div>
                             </div>
                             <div className="h-[68px] cursor-pointer w-full flex items-center px-[15px] hover:bg-[#F0F2F5] hover:transition-all">
                                 <div className="w-[40px] h-[40px] mx-[14px]">

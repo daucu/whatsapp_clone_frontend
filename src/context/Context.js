@@ -3,46 +3,34 @@ import {createContext, useState} from 'react';
 export const Context = createContext({
     profileType: "",
     changeProfileType: () => {},
-    profileDp: "",
-    changeProfileDp: () => {},
-    profileName: "",
-    changeProfileName: () => {},
-    profileLastSeen: "",
-    changeProfileLastSeen: () => {},
-    profileOnline: false,
-    changeProfileOnline: () => {},
+    chatProfile: "",
+    changeChatProfile: () => {},
+    isProfileOpen: "",
+    changeIsProfileOpen: () => {},
     searchMessages: "",
     changeSearchMessages: () => {},
 });
 
 export const ContextProvider = ({children}) => {
-    const [profileType, setProfileType] = useState("");
-    const [profileDp, setProfileDp] = useState("");
-    const [profileName, setProfileName] = useState("");
-    const [profileLastSeen, setProfileLastSeen] = useState("");
-    const [profileOnline, setProfileOnline] = useState(false);
+    const [profileType, setProfileType] = useState("group");
+    const [isProfileOpen, setIsProfileOpen] = useState("");
     const [searchMessages, setSearchMessages] = useState("");
+    const [chatProfile, setChatProfile] = useState({});
 
-    const changeProfileType = (type) => {
-        setProfileType(type);
+    const changeProfileType = (value) => {
+        setProfileType(value);
     }
-    const changeProfileDp = (dp) => {
-        setProfileDp(dp);
+    const changeChatProfile = (value) => {
+        setChatProfile(value);
     }
-    const changeProfileName = (name) => {
-        setProfileName(name);
+    const changeIsProfileOpen = (value) => {
+        setIsProfileOpen(value);
     }
-    const changeProfileLastSeen = (last_seen) => {
-        setProfileLastSeen(last_seen);
-    }
-    const changeProfileOnline = (online) => {
-        setProfileOnline(online);
-    }
-    const changeSearchMessages = (search) => {
-        setSearchMessages(search);
+    const changeSearchMessages = (value) => {
+        setSearchMessages(value);
     }
     return (
-        <Context.Provider value={{profileType, changeProfileType, profileDp, changeProfileDp, profileName, changeProfileName, profileLastSeen, changeProfileLastSeen, profileOnline, changeProfileOnline }}>
+        <Context.Provider value={{ profileType, changeProfileType, isProfileOpen, changeIsProfileOpen,  searchMessages, changeSearchMessages, chatProfile, changeChatProfile }}>
             {children}
         </Context.Provider>
     )

@@ -1,5 +1,5 @@
 import Select_chats_component from "./../components/select_chats/Select_chats_component";
-import Chat_single from "./../components/Chat_single";
+import Right_component from "../components/right/Right_component";
 
 function Select_chats_page(){
     return(
@@ -9,7 +9,7 @@ function Select_chats_page(){
                     <Select_chats_component/>
                 </div>
                 <div className="single_chat grow shrink">
-                    <Chat_single/>
+                    <Right_component/>
                 </div>
             </div>
         </div>

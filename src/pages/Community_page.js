@@ -1,5 +1,5 @@
 import Community_component from "./../components/community/Community_component";
-import Chat_single from "./../components/Chat_single";
+import Right_component from "../components/right/Right_component";
 
 function Community_page(){
     return(
@@ -9,7 +9,7 @@ function Community_page(){
                     <Community_component/>
                 </div>
                 <div className="single_chat grow shrink">
-                    <Chat_single/>
+                    <Right_component/>
                 </div>
             </div>
         </div>

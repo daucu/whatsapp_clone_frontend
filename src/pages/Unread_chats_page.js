@@ -1,9 +1,8 @@
 import Unread_chats_component from "../components/unread_chats/Unread_chats_component";
-import Chat_single from "../components/Chat_single";
 import { Lock_icon } from "../components/Svg";
 import Header from "../components/header/Header";
 import { Link } from "react-router-dom";
-
+import Right_component from "../components/right/Right_component";
 
 function Unread_chats_page(){
     return(
@@ -47,7 +46,7 @@ function Unread_chats_page(){
                     </div>
                 </div>
                 <div className="single_chat grow shrink">
-                    <Chat_single/>
+                    <Right_component/>
                 </div>
             </div>
         </div>

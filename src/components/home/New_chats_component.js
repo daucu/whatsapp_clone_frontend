@@ -6,7 +6,6 @@ import './New_chats.css';
 
 function New_chats_component(props){
     const [ notified, setNotified ] = useState(false);
-    localStorage.setItem("profileType", "group");
    return(
         <div>
             <div className="w-[400px]">
