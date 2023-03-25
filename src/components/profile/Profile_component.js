@@ -1,8 +1,10 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import dp from "../images/dp.jfif";
-import { Edit_icon, Emoji_icon } from "../Svg";
+import { Edit_icon, Emoji_icon, Emoji_icon_grey } from "../Svg";
 
 function Profile_component(props){
+    const [edit, setEdit] = React.useState(true);
     return(
         <div className="flex flex-col h-screen">
             <div className="h-[108px] bg-[#A52729] flex flex-col justify-end">
@@ -24,14 +26,13 @@ function Profile_component(props){
                     <p className="text-[14px] text-[#a52729] font-medium">Your name</p>
                     <div className="h-[36px] flex items-center border-b-2 border-[#a52729]">
                         <input type="text" className=" h-[32px] w-full outline-none"/>
-                        <div>
-                            {Edit_icon}
-                        </div>
-                        <div>
-                            <div className="text-[#d1d7d8] text-[14px] mx-1">15</div>
-                            <div className="mx-1">{Emoji_icon}</div>
-                            <div></div>
-                        </div>
+                        {
+                            edit ? (<div className="cursor-pointer" onClick={()=>setEdit(false)}>{Edit_icon}</div>) : (<div className="flex items-center">
+                                        <div className="text-[#d1d7d8] text-[14px] mx-1">15</div>
+                                        <div className="mx-1">{Emoji_icon_grey}</div>
+                                        <div>{}</div>
+                                    </div>)
+                        }
                     </div>
                 </div>
             </div>

@@ -24,7 +24,7 @@ export default function Right_component(props) {
             <Chat_section />
         </div>
 
-        <div className={profileType === "" ? "" : isProfileOpen === "" ? "hidden w-0 overflow-hidden" : isProfileOpen ?  "animate-search_messages_full overflow-hidden w-full h-screen" : "animate-search_messages_zero overflow-hidden w-0 h-screen"}>
+        <div className={profileType === "" ? "" : isProfileOpen === "" ? "hidden w-0 overflow-hidden" : isProfileOpen === "" ?  "animate-search_messages_full overflow-hidden w-full h-screen" : ""}>
             <Profile_details profileType={profileType}  />
         </div>
         

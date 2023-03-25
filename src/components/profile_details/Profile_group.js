@@ -12,7 +12,7 @@ export default function Profile_group() {
     <div>
         <div className="w-[400px]">
             <div className="h-[60px] bg-[#1E2321] flex items-center px-4 shadow-sm grow-0 shrink-0 border-l border-[#D1D7DB]">
-                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="mr-7 cursor-pointer" fill="#ffffffe6" enable-background="new 0 0 24 24" onClick={() => changeIsProfileOpen(false)}>
+                <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="mr-7 cursor-pointer" fill="#ffffffe6" enable-background="new 0 0 24 24" onClick={() => changeIsProfileOpen("")}>
                     <path d="M19.6004 17.2L14.3004 11.9L19.6004 6.60005L17.8004 4.80005L12.5004 10.2L7.20039 4.90005L5.40039 6.60005L10.7004 11.9L5.40039 17.2L7.20039 19L12.5004 13.7L17.8004 19L19.6004 17.2Z"></path>
                 </svg>
                 <p className="text-white/90 text-[16px]">Group info</p>
