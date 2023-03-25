@@ -9,6 +9,10 @@ export const Context = createContext({
     changeIsProfileOpen: () => {},
     searchMessages: "",
     changeSearchMessages: () => {},
+    videoCall: "",
+    changeVideoCall: () => {},
+    audioCall: "",
+    changeAudioCall: () => {},
 });
 
 export const ContextProvider = ({children}) => {
@@ -16,6 +20,8 @@ export const ContextProvider = ({children}) => {
     const [isProfileOpen, setIsProfileOpen] = useState("");
     const [searchMessages, setSearchMessages] = useState("");
     const [chatProfile, setChatProfile] = useState({});
+    const [videoCall, setVideoCall] = useState("");
+    const [audioCall, setAudioCall] = useState("");
 
     const changeProfileType = (value) => {
         setProfileType(value);
@@ -29,8 +35,14 @@ export const ContextProvider = ({children}) => {
     const changeSearchMessages = (value) => {
         setSearchMessages(value);
     }
+    const changeVideoCall = (value) => {
+        setVideoCall(value);
+    }
+    const changeAudioCall = (value) => {
+        setAudioCall(value);
+    }
     return (
-        <Context.Provider value={{ profileType, changeProfileType, isProfileOpen, changeIsProfileOpen,  searchMessages, changeSearchMessages, chatProfile, changeChatProfile }}>
+        <Context.Provider value={{ profileType, changeProfileType, isProfileOpen, changeIsProfileOpen,  searchMessages, changeSearchMessages, chatProfile, changeChatProfile, videoCall, changeVideoCall, audioCall, changeAudioCall }}>
             {children}
         </Context.Provider>
     )
