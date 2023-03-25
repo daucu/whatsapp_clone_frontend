@@ -8,7 +8,7 @@ import { contactIconDefault } from '../Contacts_collection';
 
 export default function Header_self(props) {
     const [ menu, setMenu ] = React.useState(false);
-    const {chatProfile, changeIsProfileOpen, changeSearchMessages, changeAudioCall, changeVideoCall} = useContext(Context);
+    const {chatProfile, changeIsProfileOpen, changeSearchMessages, changeAudioCall, changeVideoCall, changeChatProfile} = useContext(Context);
   return (
     <div>
         <div className="h-[60px] bg-[#1E2321] flex items-center justify-between px-4 shadow-sm grow-0 shrink-0">
@@ -42,7 +42,7 @@ export default function Header_self(props) {
                 <div className={ menu ? "bg-white rounded-sm shadow-md py-[6px] absolute top-[46px] left-[-200px] w-[230px] h-[252px] animate-chat_single_menu_self overflow-hidden" : "w-0 h-0 overflow-hidden" }>
                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={()=>changeIsProfileOpen(true)}>Contact info</p>
                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Select messages</p>
-                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Close chat</p>
+                    <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer" onClick={()=>changeChatProfile("")}>Close chat</p>
                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Disappearing messages</p>
                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Clear messages</p>
                     <p className="h-[40px] text-[#3b4a54] text-[15px] leading-[40px] hover:bg-[#ececec] hover:transition-all px-6 cursor-pointer">Delete chat</p>

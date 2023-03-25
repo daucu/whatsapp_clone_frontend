@@ -20,7 +20,7 @@ export default function Introducing_communities(props) {
             <p className='text-[24px] leading-[36px] text-[#111b21] font-bold text-center mt-5'>Introducing communities</p>
             <p className='text-[14px] leading-[21px] text-[#8696a0] text-center px-8 mt-3'>Easily organise your related groups and send announcements. Now, your communities, like neighbourhoods or schools, can have their own space.</p>
             <div className='flex justify-center w-full mt-8'>
-                <button className='bg-[#A52729] text-white px-4 py-2 rounded-sm' onClick={()=>props}>START A COMMUNITY</button>
+                <button className='bg-[#A52729] text-white px-4 py-2 rounded-sm' onClick={""}>START A COMMUNITY</button>
             </div>
         </div>
     </div>

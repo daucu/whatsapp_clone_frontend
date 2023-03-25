@@ -49,7 +49,7 @@ export default function Right_component(props) {
             <div className='flex items-center justify-center grow'>
                 <div>
                 {Whatsapp_icon}
-                <div className='mt-8 text-center text-[#41525d] text-[32px] font-extralight'>Whatsapp Web</div></div>
+                <div className='mt-8 text-center text-[#41525d] text-[32px] font-extralight'>PinUp Web</div></div>
             </div>
             <div className='flex items-center justify-center border-b-[6px] border-[#25D366]'>
                 <div className='mb-6 flex items-center'>

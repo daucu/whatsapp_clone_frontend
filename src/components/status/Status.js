@@ -174,7 +174,6 @@ function Status(){
                     </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     )

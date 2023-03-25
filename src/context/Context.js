@@ -19,7 +19,7 @@ export const Context = createContext({
 });
 
 export const ContextProvider = ({ children }) => {
-    const [profileType, setProfileType] = useState("");
+    const [profileType, setProfileType] = useState("self");
     const [isProfileOpen, setIsProfileOpen] = useState("");
     const [searchMessages, setSearchMessages] = useState("");
     const [chatProfile, setChatProfile] = useState({});
