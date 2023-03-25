@@ -77,3 +77,11 @@
 .select_chats_scroll{
     height: calc(100vh - 114px);
 }
+
+.profile_scroll::-webkit-scrollbar{
+    width: 6px;
+    background: #f0f2f5;
+}
+.profile_scroll::-webkit-scrollbar-thumb{
+    background: #CED0D1;
+}
