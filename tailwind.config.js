@@ -25,6 +25,10 @@ module.exports = {
         scale_full: 'scale_full 0.25s ease-in-out forwards',
         scale_zero: 'scale_zero 0.25s ease-in-out forwards',
         doodle: 'doodle 0.25s ease-in-out forwards',
+        scale_up: 'scale_up 0.5s ease-in-out forwards',
+        scale_down: 'scale_down 0.5s ease-in-out forwards',
+        attach_up : 'attach_up 1s ease-in-out forwards',
+        attach_down : 'attach_down 1s ease-in-out forwards',
       },
       keyframes:{
         search_messages_full:{
@@ -107,7 +111,25 @@ module.exports = {
           '0%':{left:'3870px'},
           '6%':{left:'3870px'},
           '6.66%':{left:'3870px'},
-        }
+        },
+        scale_up:{
+          '0%':{height:"0px",width:"0px"},
+          '80%':{height:"58px",width:"58px"},
+          '100%':{ height:"53px",width:"53px"}
+        },
+        scale_down:{
+          '0%':{transform:'scale(1)'},
+          '20%':{transform:'scale(1.1)'},
+          '100%':{transform:'scale(0)'}
+        },
+        attach_up:{
+          '0%':{height:'0px'},
+          '100%':{height:'375px'}
+        },
+        attach_down:{
+          '0%':{height:'375px'},
+          '100%':{height:'0px'}
+        },
     },
   },
   plugins: [],
