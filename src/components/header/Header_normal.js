@@ -16,7 +16,7 @@ export default function Header_normal(props) {
             { chatProfile.dp ? (<div className="rounded-full h-[40px] w-[40px] bg-cover bg-center mr-4 cursor-pointer" style={{ backgroundImage:`url(${chatProfile.dp})` }} title="Profile Details"></div>) : (<div className='h-[40px] w-[40px] rounded-full mr-4'>{contactIconDefault}</div>) }
             <div className="h-[40px] flex flex-col cursor-pointer">
                 <p className="text-[16px] leading-[21px] text-white/90">{chatProfile.name}</p>
-                <p className="text-[13px] leading-[19px] text-white/70">{chatProfile.is_online ? (<p>Online</p>) : (<p>last seen today at {chatProfile.last_seen}</p>) }</p>
+                <p className="text-[13px] leading-[19px] text-white/70">{chatProfile?.is_online ? (<p>Online</p>) : (<p>last seen today at {chatProfile.last_seen}</p>) }</p>
             </div>
         </div>
         <div className="flex items-center">

@@ -12,21 +12,40 @@ import {
   Undelivered_icon,
   Unsent_icon,
 } from "../Svg";
-import { chats } from "../Chats_details";
+import { chats, myData } from "../Chats_details";
 import { contactIconDefault } from "../Contacts_collection";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../../context/Context";
+
+import axios from "axios";
+import { API } from "../Constant/API";
 
 function Chats_component(props) {
   const { changeProfileType, changeChatProfile } = useContext(Context);
   const changeProfile = (value) => {
     changeChatProfile(value);
-    changeProfileType(value.profiletype);
+    changeProfileType(value.profiletype || "normal");
   };
+
+  const [myData, setMyData] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${API}/friends`, {
+        headers: {
+            token: localStorage.getItem("token"),
+        },
+    }).then((res) => {
+        console.log(res);
+        setMyData(res.data[0]?.friends || []);
+    }).catch((err) => {
+        console.log(err);
+    })
+}, [])
+
   return (
     <div>
       <div className="">
-        {chats.map((chat_item) => {
+        {myData.map((chat_item) => {
           return (
             <div
               className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all"
@@ -51,19 +70,19 @@ function Chats_component(props) {
                       {chat_item.name}
                     </div>
                     <div className="text-[12px] text-[#667781]">
-                      {chat_item.last_message.time}
+                      {chat_item?.last_message?.time}
                     </div>
                   </div>
 
                   <div className="h-[20px]">
                     <div className="flex items-center">
-                      {chat_item.last_message.is_sent_by_me ? (
+                      {chat_item?.last_message?.is_sent_by_me ? (
                         <div className="mr-1">
-                          {chat_item.last_message.is_sent ? (
+                          {chat_item?.last_message?.is_sent ? (
                             <div>
-                              {chat_item.last_message.is_delivered ? (
+                              {chat_item?.last_message?.is_delivered ? (
                                 <div>
-                                  {chat_item.last_message.is_seen
+                                  {chat_item?.last_message?.is_seen
                                     ? Seen_icon
                                     : Unseen_icon}
                                 </div>
@@ -78,23 +97,23 @@ function Chats_component(props) {
                       ) : null}
 
                       <div>
-                        {chat_item.last_message.is_text ? (
+                        {chat_item?.last_message?.is_text ? (
                           <div>
                             <p className="text-[#3b4a54] text-[15px]">
-                              {chat_item.last_message.message}
+                              {chat_item?.last_message?.message}
                             </p>
                           </div>
                         ) : (
                           <div>
-                            {chat_item.last_message.is_audio ? (
+                            {chat_item?.last_message?.is_audio ? (
                               <div className="flex items-center">
                                 {Audio_icon}
                                 <p className="text-[#3b4a54] text-[15px]">
-                                  {chat_item.last_message.audio_duration}
+                                  {chat_item?.last_message?.audio_duration}
                                 </p>
                               </div>
                             ) : null}
-                            {chat_item.last_message.is_video ? (
+                            {chat_item?.last_message?.is_video ? (
                               <div className="flex items-center">
                                 {Video_icon}
                                 <p className="text-[#3b4a54] text-[15px]">
@@ -102,15 +121,15 @@ function Chats_component(props) {
                                 </p>
                               </div>
                             ) : null}
-                            {chat_item.last_message.is_document ? (
+                            {chat_item?.last_message?.is_document ? (
                               <div className="flex items-center">
                                 {Document_icon}
                                 <p className="text-[#3b4a54] text-[15px]">
-                                  {chat_item.last_message.document_name}
+                                  {chat_item?.last_message?.document_name}
                                 </p>
                               </div>
                             ) : null}
-                            {chat_item.last_message.is_sticker ? (
+                            {chat_item?.last_message?.is_sticker ? (
                               <div className="flex items-center">
                                 {Sticker_icon}
                                 <p className="text-[#3b4a54] text-[15px]">
@@ -118,7 +137,7 @@ function Chats_component(props) {
                                 </p>
                               </div>
                             ) : null}
-                            {chat_item.last_message.is_image ? (
+                            {chat_item?.last_message?.is_image ? (
                               <div className="flex items-center">
                                 {Image_icon}
                                 <p className="text-[#3b4a54] text-[15px]">
@@ -126,7 +145,7 @@ function Chats_component(props) {
                                 </p>
                               </div>
                             ) : null}
-                            {chat_item.last_message.is_gif ? (
+                            {chat_item?.last_message?.is_gif ? (
                               <div className="flex items-center">
                                 {Gif_icon}
                                 <p className="text-[#3b4a54] text-[15px]">
@@ -134,15 +153,15 @@ function Chats_component(props) {
                                 </p>
                               </div>
                             ) : null}
-                            {chat_item.last_message.is_contact ? (
+                            {chat_item?.last_message?.is_contact ? (
                               <div className="flex items-center">
                                 {Contact_icon}
                                 <p className="text-[#3b4a54] text-[15px]">
-                                  {chat_item.last_message.contact_name}
+                                  {chat_item?.last_message?.contact_name}
                                 </p>
                               </div>
                             ) : null}
-                            {chat_item.last_message.is_location ? (
+                            {chat_item?.last_message?.is_location ? (
                               <div className="flex items-center">
                                 {Location_icon}
                                 <p className="text-[#3b4a54] text-[15px]">
@@ -150,10 +169,10 @@ function Chats_component(props) {
                                 </p>
                               </div>
                             ) : null}
-                            {chat_item.last_message.is_audio_call ? (
+                            {chat_item?.last_message?.is_audio_call ? (
                               <div></div>
                             ) : null}
-                            {chat_item.last_message.is_video_call ? (
+                            {chat_item?.last_message?.is_video_call ? (
                               <div></div>
                             ) : null}
                           </div>

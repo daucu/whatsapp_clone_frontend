@@ -1,13 +1,16 @@
-import {createContext, useState} from 'react';
+import { createContext, useState } from 'react';
 
 export const Context = createContext({
     profileType: "",
-    changeProfileType: () => {},
+    changeProfileType: () => { },
     chatProfile: "",
-    changeChatProfile: () => {},
+    changeChatProfile: () => { },
     isProfileOpen: "",
-    changeIsProfileOpen: () => {},
+    changeIsProfileOpen: () => { },
     searchMessages: "",
+    changeSearchMessages: () => { },
+    chatMessages: [],
+    changeChatMessages: () => { },
     changeSearchMessages: () => {},
     videoCall: "",
     changeVideoCall: () => {},
@@ -15,7 +18,7 @@ export const Context = createContext({
     changeAudioCall: () => {},
 });
 
-export const ContextProvider = ({children}) => {
+export const ContextProvider = ({ children }) => {
     const [profileType, setProfileType] = useState("");
     const [isProfileOpen, setIsProfileOpen] = useState("");
     const [searchMessages, setSearchMessages] = useState("");
