@@ -1,21 +1,29 @@
-import {createContext, useState} from 'react';
+import { createContext, useState } from 'react';
 
 export const Context = createContext({
     profileType: "",
-    changeProfileType: () => {},
+    changeProfileType: () => { },
     chatProfile: "",
-    changeChatProfile: () => {},
+    changeChatProfile: () => { },
     isProfileOpen: "",
-    changeIsProfileOpen: () => {},
+    changeIsProfileOpen: () => { },
     searchMessages: "",
-    changeSearchMessages: () => {},
+    changeSearchMessages: () => { },
+    chatMessages: [],
+    changeChatMessages: () => { },
 });
 
-export const ContextProvider = ({children}) => {
+export const ContextProvider = ({ children }) => {
     const [profileType, setProfileType] = useState("group");
     const [isProfileOpen, setIsProfileOpen] = useState("");
     const [searchMessages, setSearchMessages] = useState("");
     const [chatProfile, setChatProfile] = useState({});
+    const [chatMessages, setChatMessages] = useState([]);
+
+    const changeChatMessages = (value) => {
+        setChatMessages(value);
+    }
+
 
     const changeProfileType = (value) => {
         setProfileType(value);
@@ -30,7 +38,18 @@ export const ContextProvider = ({children}) => {
         setSearchMessages(value);
     }
     return (
-        <Context.Provider value={{ profileType, changeProfileType, isProfileOpen, changeIsProfileOpen,  searchMessages, changeSearchMessages, chatProfile, changeChatProfile }}>
+        <Context.Provider value={{ 
+            profileType, 
+            changeProfileType, 
+            isProfileOpen, 
+            changeIsProfileOpen, 
+            searchMessages, 
+            changeSearchMessages, 
+            chatProfile, 
+            changeChatProfile,
+            chatMessages,
+            changeChatMessages,
+             }}>
             {children}
         </Context.Provider>
     )

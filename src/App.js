@@ -41,7 +41,7 @@ function App() {
             <Route path="/unread-chats" element={<Unread_chats_page />} />
             <Route path="/settings/help" element={<Settings_help_page />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/singup" element={<Signup />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/header" element={<Header />} />
           </Routes>
         </BrowserRouter>

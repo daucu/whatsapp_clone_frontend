@@ -9,39 +9,44 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [phonenumber, setPhonenumber] = useState("");
+  const [phone, setPhone] = useState("");
 
   const handleLogin = (e) => {
-    setLoading(true);
-    axios
-      .post(
-        `${API}/login`,
-        {
-          email: email,
-          password: password,
-          phonenumber: phonenumber,
-        },
-        {
-          withCredentials: true,
-        }
-      )
-      .then((res) => {
-        console.log(res);
-        setData(res);
-        if (res.status === 200) {
-          setLoading(false);
-          toast.success(res.data.message);
-          setTimeout(() => {
-            window.location.href = "/";
-          }, [1500]);
-        }
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-        toast.error(err.response.data.message);
-      });
+    try {
+      setLoading(true);
+      axios
+        .post(
+          `${API}/login`,
+          {
+            email: email,
+            password: password,
+            phonenumber: phone,
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("user", JSON.stringify(res.data.user));
+          setData(res);
+          if (res.status === 200) {
+            toast.success(res.data.message);
+            setTimeout(() => {
+              window.location.href = "/";
+            }, [1000]);
+          }
+
+        })
+    }
+    catch (err) {
+      console.log(err);
+      toast.error(err.response.data.message);
+    } finally {
+      setLoading(false);
+    }
+
   };
 
   return (
@@ -110,8 +115,8 @@ export default function Login() {
                     id="username"
                     type="number"
                     placeholder="Phone Number"
-                    name={phonenumber}
-                    onChange={(e) => setPhonenumber(e.target.value)}
+                    name={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                   />
                 </div>
               </div>

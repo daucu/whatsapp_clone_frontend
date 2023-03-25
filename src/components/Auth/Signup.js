@@ -7,17 +7,19 @@ import { ToastContainer, toast } from "react-toastify";
 function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phonenumber, setPhonenumber] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+
   const [data, setData] = useState("");
   const [loading, setLoading] = useState(false);
+
   const handleSubmit = (e) => {
     setLoading(true);
     axios
       .post(`${API}/register`, {
         name: name,
         email: email,
-        phonenumber: phonenumber,
+        phone: phone,
         password: password,
       })
       .then((res) => {
@@ -120,8 +122,8 @@ function Signup() {
                       id="username"
                       type="text"
                       placeholder="Phone Number"
-                      name={phonenumber}
-                      onChange={(e) => setPhonenumber(e.target.value)}
+                      name={phone}
+                      onChange={(e) => setPhone(e.target.value)}
                     />
                   </div>
                 </div>
