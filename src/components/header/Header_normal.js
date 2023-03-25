@@ -8,7 +8,7 @@ import { contactIconDefault } from '../Contacts_collection';
 
 export default function Header_normal(props) {
     const [menu, setMenu ] = React.useState(false);
-    const {chatProfile, changeIsProfileOpen, changeSearchMessages} = useContext(Context);
+    const {chatProfile, changeIsProfileOpen, changeSearchMessages, changeAudioCall, changeVideoCall} = useContext(Context);
   return (
     <div>
         <div className="h-[60px] bg-[#1E2321] flex items-center justify-between px-4 shadow-sm grow-0 shrink-0">
@@ -20,10 +20,10 @@ export default function Header_normal(props) {
             </div>
         </div>
         <div className="flex items-center">
-            <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Audio call" onClick={props.audioCall}>
+            <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Audio call" onClick={()=>changeAudioCall(true)}>
                 <MdCall className="text-[#ffffffe6] text-[20px]"/>
             </div>
-            <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Video call" onClick={props.videoCall}>
+            <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" title="Video call" onClick={()=>changeVideoCall(true)}>
                 <FaVideo className="text-[#ffffffe6] text-[20px]"/>
             </div>
             <div className="h-[40px] w-[40px] flex items-center justify-center cursor-pointer rounded-full active:bg-[#0F1110]" onClick={()=>changeSearchMessages(true)} title="Search...">

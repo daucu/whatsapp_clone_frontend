@@ -12,6 +12,7 @@ import New_chat_page from "./pages/New_chat_page";
 import Header from "./components/header/Header";
 import Settings_notifications_page from "./pages/settings/Settings_notifications_page";
 import Settings_help_page from "./pages/settings/Settings_help_page";
+import Profile_page from "./pages/Profile_page";
 
 import axios from "axios";
 import Login from "./components/Auth/Login";
@@ -40,6 +41,7 @@ function App() {
             <Route path="/starred-messages" element={<Starred_messages_page />} />
             <Route path="/unread-chats" element={<Unread_chats_page />} />
             <Route path="/settings/help" element={<Settings_help_page />} />
+            <Route path="/profile" element={<Profile_page />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/header" element={<Header />} />
