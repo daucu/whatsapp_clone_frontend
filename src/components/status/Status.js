@@ -28,7 +28,7 @@ function Status(){
                             <div className="h-[1px] w-full bg-[#4B5156]"></div>
                             <p className="text-[#b6b9ba] text-[13px] mt-2">RECENT</p>
                         </div>
-                        <div className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
+                        <Link to="/status/show-status" className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
                             <div className="h-[64px] w-[68px] grow-0 shrink-0 flex items-center justify-center">
                                 <div className="w-[40px] h-[40px] rounded-full bg-[#00A884] flex items-center justify-center m-auto">
                                     <img src={dp} alt="" className="h-full w-full rounded-full"/>
@@ -38,12 +38,12 @@ function Status(){
                                 <div className="h-[22px] text-[17px] leading-[22px] text-white">Saif Ali Gurgaon</div>
                                 <div className="h-[20px] text-[14px] leading-[20px] text-[#ffffff8c]">today at 18:55</div>
                             </div>
-                        </div>
+                        </Link>
                         <div className="h-[38px] px-4 flex flex-col justify-end hover:bg-[#30373C] hover:transition-all">
                             <div className="h-[1px] w-full bg-[#4B5156]"></div>
                             <p className="text-[#b6b9ba] text-[13px] mt-2">VIEWED</p>
                         </div>
-                        <div className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
+                        <Link to="/status/show-status" className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
                             <div className="h-[64px] w-[68px] grow-0 shrink-0 flex items-center justify-center">
                                 <div className="w-[40px] h-[40px] rounded-full bg-[#00A884] flex items-center justify-center m-auto">
                                     <img src={dp} alt="" className="h-full w-full rounded-full"/>
@@ -53,8 +53,8 @@ function Status(){
                                 <div className="h-[22px] text-[17px] leading-[22px] text-white">Saif Ali Gurgaon</div>
                                 <div className="h-[20px] text-[14px] leading-[20px] text-[#ffffff8c]">today at 18:55</div>
                             </div>
-                        </div>
-                        <div className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
+                        </Link>
+                        <Link to="/status/show-status" className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
                             <div className="h-[64px] w-[68px] grow-0 shrink-0 flex items-center justify-center">
                                 <div className="w-[40px] h-[40px] rounded-full bg-[#00A884] flex items-center justify-center m-auto">
                                     <img src={dp} alt="" className="h-full w-full rounded-full"/>
@@ -64,8 +64,8 @@ function Status(){
                                 <div className="h-[22px] text-[17px] leading-[22px] text-white">Saif Ali Gurgaon</div>
                                 <div className="h-[20px] text-[14px] leading-[20px] text-[#ffffff8c]">today at 18:55</div>
                             </div>
-                        </div>
-                        <div className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
+                        </Link>
+                        <Link to="/status/show-status" className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
                             <div className="h-[64px] w-[68px] grow-0 shrink-0 flex items-center justify-center">
                                 <div className="w-[40px] h-[40px] rounded-full bg-[#00A884] flex items-center justify-center m-auto">
                                     <img src={dp} alt="" className="h-full w-full rounded-full"/>
@@ -75,8 +75,8 @@ function Status(){
                                 <div className="h-[22px] text-[17px] leading-[22px] text-white">Saif Ali Gurgaon</div>
                                 <div className="h-[20px] text-[14px] leading-[20px] text-[#ffffff8c]">today at 18:55</div>
                             </div>
-                        </div>
-                        <div className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
+                        </Link>
+                        <Link to="/status/show-status" className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
                             <div className="h-[64px] w-[68px] grow-0 shrink-0 flex items-center justify-center">
                                 <div className="w-[40px] h-[40px] rounded-full bg-[#00A884] flex items-center justify-center m-auto">
                                     <img src={dp} alt="" className="h-full w-full rounded-full"/>
@@ -86,8 +86,8 @@ function Status(){
                                 <div className="h-[22px] text-[17px] leading-[22px] text-white">Saif Ali Gurgaon</div>
                                 <div className="h-[20px] text-[14px] leading-[20px] text-[#ffffff8c]">today at 18:55</div>
                             </div>
-                        </div>
-                        <div className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
+                        </Link>
+                        <Link to="/status/show-status" className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
                             <div className="h-[64px] w-[68px] grow-0 shrink-0 flex items-center justify-center">
                                 <div className="w-[40px] h-[40px] rounded-full bg-[#00A884] flex items-center justify-center m-auto">
                                     <img src={dp} alt="" className="h-full w-full rounded-full"/>
@@ -97,8 +97,8 @@ function Status(){
                                 <div className="h-[22px] text-[17px] leading-[22px] text-white">Saif Ali Gurgaon</div>
                                 <div className="h-[20px] text-[14px] leading-[20px] text-[#ffffff8c]">today at 18:55</div>
                             </div>
-                        </div>
-                        <div className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
+                        </Link>
+                        <Link to="/status/show-status" className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
                             <div className="h-[64px] w-[68px] grow-0 shrink-0 flex items-center justify-center">
                                 <div className="w-[40px] h-[40px] rounded-full bg-[#00A884] flex items-center justify-center m-auto">
                                     <img src={dp} alt="" className="h-full w-full rounded-full"/>
@@ -108,8 +108,8 @@ function Status(){
                                 <div className="h-[22px] text-[17px] leading-[22px] text-white">Saif Ali Gurgaon</div>
                                 <div className="h-[20px] text-[14px] leading-[20px] text-[#ffffff8c]">today at 18:55</div>
                             </div>
-                        </div>
-                        <div className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
+                        </Link>
+                        <Link to="/status/show-status" className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
                             <div className="h-[64px] w-[68px] grow-0 shrink-0 flex items-center justify-center">
                                 <div className="w-[40px] h-[40px] rounded-full bg-[#00A884] flex items-center justify-center m-auto">
                                     <img src={dp} alt="" className="h-full w-full rounded-full"/>
@@ -119,8 +119,8 @@ function Status(){
                                 <div className="h-[22px] text-[17px] leading-[22px] text-white">Saif Ali Gurgaon</div>
                                 <div className="h-[20px] text-[14px] leading-[20px] text-[#ffffff8c]">today at 18:55</div>
                             </div>
-                        </div>
-                        <div className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
+                        </Link>
+                        <Link to="/status/show-status" className="flex items-center cursor-pointer w-full hover:bg-[#30373C] hover:transition-all">
                             <div className="h-[64px] w-[68px] grow-0 shrink-0 flex items-center justify-center">
                                 <div className="w-[40px] h-[40px] rounded-full bg-[#00A884] flex items-center justify-center m-auto">
                                     <img src={dp} alt="" className="h-full w-full rounded-full"/>
@@ -130,8 +130,8 @@ function Status(){
                                 <div className="h-[22px] text-[17px] leading-[22px] text-white">Saif Ali Gurgaon</div>
                                 <div className="h-[20px] text-[14px] leading-[20px] text-[#ffffff8c]">today at 18:55</div>
                             </div>
-                        </div>
-                        <div className="flex items-center cursor-pointer w-full">
+                        </Link>
+                        <Link to="/status/show-status" className="flex items-center cursor-pointer w-full">
                             <div className="h-[64px] w-[68px] grow-0 shrink-0 flex items-center justify-center">
                                 
                             </div>
@@ -144,7 +144,7 @@ function Status(){
                                     <p className="text-[12px] text-[#0B5F85]">&nbsp;end-to-end encrypted</p>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
                 <div className="grow shrink relative">
