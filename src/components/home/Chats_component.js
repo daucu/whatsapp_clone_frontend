@@ -12,8 +12,8 @@ import {
   Undelivered_icon,
   Unsent_icon,
 } from "../Svg";
-import { chats, myData } from "../Chats_details";
-import { contactIconDefault } from "../Contacts_collection";
+import { chats, myData } from "./../Chats_details";
+import { contactIconDefault } from "./../Contacts_collection";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../context/Context";
 
@@ -45,7 +45,7 @@ function Chats_component(props) {
   return (
     <div>
       <div className="">
-        {myData.map((chat_item) => {
+        {chats.map((chat_item) => {
           return (
             <div
               className="h-[72px] cursor-pointer w-full flex items-center pr-[8px] hover:bg-[#F0F2F5] hover:transition-all"
@@ -84,7 +84,8 @@ function Chats_component(props) {
                                 <div>
                                   {chat_item?.last_message?.is_seen
                                     ? Seen_icon
-                                    : Unseen_icon}
+                                    : Unseen_icon
+                                  }
                                 </div>
                               ) : (
                                 Undelivered_icon

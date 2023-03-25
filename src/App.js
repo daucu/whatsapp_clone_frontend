@@ -1,6 +1,7 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Home_page from "./pages/Home_page";
 import Status from "./components/status/Status";
+import Show_status from "./components/status/Show_status";
 import Community_page from "./pages/Community_page";
 import Group_page from "./pages/Group_page";
 import Archived_page from "./pages/Archived_page";
@@ -31,6 +32,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home_page />} />
             <Route path="/status" element={<Status />} />
+            <Route path="/status/show-status" element={<Show_status />} />
             <Route path="/community" element={<Community_page />} />
             <Route path="/group" element={<Group_page />} />
             <Route path="/new-chat" element={<New_chat_page />} />
