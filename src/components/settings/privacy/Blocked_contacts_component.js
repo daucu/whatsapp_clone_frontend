@@ -212,6 +212,7 @@ function Blocked_contacts(props){
                 </div>
             </div>  
         </div>
+        // </div>
     )
 }
 export default Blocked_contacts;
