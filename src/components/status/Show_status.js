@@ -62,7 +62,7 @@ export default function Show_status() {
                         <div className="h-[52px] w-[26px] flex items-center justify-center cursor-pointer mr-[8px] ml-[10px]">{ replySection ? (Emoji_icon_grey_large) : (<div>{Emoji_icon}</div>)}</div>
                         <div className="h-[52px] w-[40px] flex items-center justify-center cursor-pointer mr-[10px]" title="Attach">{ replySection ? (Sticker_icon_status_grey) : (Sticker_icon_status)}</div>
                         <div className="grow shrink h-[40px] rounded-xl shadow-sm cursor-pointer" title="Type a message">
-                            <input type="text" className={ replySection ? "outline-none rounded-lg h-[40px] placeholder:text-white/50 text-[15px] px-4 w-full bg-white placeholder:text-[#111b21]" : "outline-none rounded-lg h-[40px] placeholder:text-white/50 text-[15px] px-4 w-full bg-black/50 text-white/60" } placeholder="Type a message"/>
+                            <input type="text" className={ replySection ? "outline-none rounded-lg h-[40px] text-[15px] px-4 w-full bg-white placeholder:text-[#111b21]" : "outline-none rounded-lg h-[40px] placeholder:text-white/50 text-[15px] px-4 w-full bg-black/50 text-white/60" } placeholder="Type a message"/>
                         </div>
                         <div className="h-[37px] w-[52px] flex items-center justify-center cursor-pointer">
                             <div>{Send_icon_grey}</div>

@@ -25,8 +25,18 @@ module.exports = {
         scale_full: 'scale_full 0.25s ease-in-out forwards',
         scale_zero: 'scale_zero 0.25s ease-in-out forwards',
         doodle: 'doodle 0.25s ease-in-out forwards',
-        scale_up: 'scale_up 0.5s ease-in-out forwards',
-        scale_down: 'scale_down 0.5s ease-in-out forwards',
+        scale_up1: 'scale_up 0.4s ease-out forwards',
+        scale_up2: 'scale_up 0.42s ease-out forwards',
+        scale_up3: 'scale_up 0.45s ease-out forwards',
+        scale_up4: 'scale_up 0.49s ease-out forwards',
+        scale_up5: 'scale_up 0.54s ease-out forwards',
+        scale_up6: 'scale_up 0.6s ease-out forwards',
+        scale_down1: 'scale_down 0.35s ease-out forwards',
+        scale_down2: 'scale_down 0.28s ease-out forwards',
+        scale_down3: 'scale_down 0.22s ease-out forwards',
+        scale_down4: 'scale_down 0.17s ease-out forwards',
+        scale_down5: 'scale_down 0.13s ease-out forwards',
+        scale_down6: 'scale_down 0.1s ease-out forwards',
         attach_up : 'attach_up 1s ease-in-out forwards',
         attach_down : 'attach_down 1s ease-in-out forwards',
       },
@@ -113,14 +123,13 @@ module.exports = {
           '6.66%':{left:'3870px'},
         },
         scale_up:{
-          '0%':{height:"0px",width:"0px"},
-          '80%':{height:"58px",width:"58px"},
-          '100%':{ height:"53px",width:"53px"}
+          '0%':{height:"0px",width:"0px",opacity:'0'},
+          '80%':{height:"58px",width:"58px",opacity:'1'},
+          '100%':{ height:"53px",width:"53px",opacity:'1'}
         },
         scale_down:{
-          '0%':{transform:'scale(1)'},
-          '20%':{transform:'scale(1.1)'},
-          '100%':{transform:'scale(0)'}
+          '0%':{transform:'scale(1)',opacity:'1'},
+          '100%':{transform:'scale(0)',opacity:'0'}
         },
         attach_up:{
           '0%':{height:'0px'},
