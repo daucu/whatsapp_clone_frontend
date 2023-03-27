@@ -14,6 +14,13 @@ import Header from "./components/header/Header";
 import Settings_notifications_page from "./pages/settings/Settings_notifications_page";
 import Settings_help_page from "./pages/settings/Settings_help_page";
 import Profile_page from "./pages/Profile_page";
+import Privacy_page from "./pages/settings/privacy/Privacy_page";
+import Last_seen_and_online_page from "./pages/settings/privacy/Last_seen_and_online_page";
+import About_page from "./pages/settings/privacy/About_page";
+import Profile_photo_page from "./pages/settings/privacy/Profile_photo_page";
+import Groups_page from "./pages/settings/privacy/Groups_page";
+import Default_message_timer_page from "./pages/settings/privacy/Default_message_timer_page";
+import Blocked_contacts_page from "./pages/settings/privacy/Blocked_contacts_page";
 import Emoji from "./components/Emoji";
 
 import axios from "axios";
@@ -44,6 +51,13 @@ function App() {
             <Route path="/starred-messages" element={<Starred_messages_page />} />
             <Route path="/unread-chats" element={<Unread_chats_page />} />
             <Route path="/settings/help" element={<Settings_help_page />} />
+            <Route path="/settings/privacy" element={<Privacy_page />} />
+            <Route path="/settings/privacy/last-seen-and-online" element={<Last_seen_and_online_page />} />
+            <Route path="/settings/privacy/profile-photo" element={<Profile_photo_page />} />
+            <Route path="/settings/privacy/about" element={<About_page />} />
+            <Route path="/settings/privacy/groups" element={<Groups_page />} />
+            <Route path="/settings/privacy/default-message-timer" element={<Default_message_timer_page />} />
+            <Route path="/settings/privacy/blocked-contacts" element={<Blocked_contacts_page />} />
             <Route path="/profile" element={<Profile_page />} />
             <Route path="/emoji" element={<Emoji />} />
             <Route path="/login" element={<Login />} />

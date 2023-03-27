@@ -16,6 +16,8 @@ export const Context = createContext({
     changeVideoCall: () => {},
     audioCall: "",
     changeAudioCall: () => {},
+    blockedContacts: [],
+    changeBlockedContacts: () => {},
 });
 
 export const ContextProvider = ({ children }) => {
@@ -25,6 +27,7 @@ export const ContextProvider = ({ children }) => {
     const [chatProfile, setChatProfile] = useState({});
     const [videoCall, setVideoCall] = useState("");
     const [audioCall, setAudioCall] = useState("");
+    const [blockedContacts, setBlockedContacts] = useState([]);
 
     const changeProfileType = (value) => {
         setProfileType(value);
@@ -44,8 +47,11 @@ export const ContextProvider = ({ children }) => {
     const changeAudioCall = (value) => {
         setAudioCall(value);
     }
+    const changeBlockedContacts = (value) => {
+        setBlockedContacts(value);
+    }
     return (
-        <Context.Provider value={{ profileType, changeProfileType, isProfileOpen, changeIsProfileOpen,  searchMessages, changeSearchMessages, chatProfile, changeChatProfile, videoCall, changeVideoCall, audioCall, changeAudioCall }}>
+        <Context.Provider value={{ profileType, changeProfileType, isProfileOpen, changeIsProfileOpen,  searchMessages, changeSearchMessages, chatProfile, changeChatProfile, videoCall, changeVideoCall, audioCall, changeAudioCall, blockedContacts, changeBlockedContacts }}>
             {children}
         </Context.Provider>
     )
